@@ -1,0 +1,16 @@
+--Query para borrar las tablas de Stravia Tec
+--DROP TABLE "StraviaTec".public.patrocinador CASCADE;
+--DROP TABLE "StraviaTec".public.organizador CASCADE;
+--DROP TABLE deportista CASCADE;
+--DROP TABLE tipo_actividad CASCADE;
+--DROP TABLE actividad CASCADE;
+--DROP TABLE "StraviaTec".public.carrera CASCADE;
+--DROP TABLE "StraviaTec".public.patrocinador_carrera CASCADE;
+--DROP TABLE "StraviaTec".public.categoria CASCADE;
+--DROP TABLE "StraviaTec".public.categoria_carrera CASCADE;
+--DROP TABLE "StraviaTec".public.inscripcion CASCADE;
+--DROP TABLE deportista_actividad CASCADE;
+--DROP TABLE grupo CASCADE;
+--DROP TABLE deportista_grupo CASCADE;
+--DROP TABLE "StraviaTec".public.reto CASCADE;
+--DROP TABLE deportista_reto CASCADE;
