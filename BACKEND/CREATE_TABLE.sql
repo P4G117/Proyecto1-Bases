@@ -1,0 +1,64 @@
+-- Se utiliza esto debido a que el atributo Nombre es un atributo compuesto
+
+CREATE TYPE NOMBRE AS(
+    Primer_Nombre VARCHAR,
+    Apellido1 VARCHAR,
+    Apellido2 VARCHAR
+);
+
+CREATE TABLE IF NOT EXISTS DEPORTISTA(
+    ID_Deportista SERIAL NOT NULL,
+    Usuario VARCHAR NOT NULL,
+    Nombre NOMBRE NOT NULL,
+    FecNac DATE NOT NULL,
+    Nacionalidad VARCHAR NULL,
+    Foto VARCHAR NULL,
+    Clave VARCHAR NOT NULL,
+    PRIMARY KEY (ID_Deportista),
+    UNIQUE(Usuario)
+);
+
+CREATE TABLE IF NOT EXISTS TIPO_ACTIVIDAD(
+    ID_TipoActividad SERIAL NOT NULL PRIMARY KEY,
+    Tipo_Actividad VARCHAR NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS ACTIVIDAD(
+    ID_Actividad SERIAL NOT NULL PRIMARY KEY ,
+    Fecha DATE NOT NULL,
+    HORA TIME NOT NULL,
+    Mapa VARCHAR NULL,
+    Kilometros INT NULL,
+    Duracion TIME NULL,
+    Completitud VARCHAR NULL,
+    ID_TipoActividad INT NOT NULL
+    --FOREIGN KEY (ID_TipoActividad) REFERENCES TIPO_ACTIVIDAD(ID_TipoActividad)
+);
+
+CREATE TABLE IF NOT EXISTS DEPORTISTA_ACTIVIDAD(
+    ID_Deportista INT NOT NULL,
+    ID_Actividad INT NOT NULL
+    --FOREIGN KEY (ID_Deportista) REFERENCES DEPORTISTA(ID_Deportista),
+    --FOREIGN KEY (ID_Actividad) REFERENCES TIPO_ACTIVIDAD(ID_TipoActividad)
+);
+
+CREATE TABLE GRUPO(
+    ID_Grupo SERIAL NOT NULL PRIMARY KEY,
+    Nombre VARCHAR NOT NULL,
+    Administrador INT NOT NULL
+    --FOREIGN KEY (Administrador) REFERENCES Organizador(ID_Organizador)
+);
+
+CREATE TABLE DEPORTISTA_GRUPO(
+    ID_Deportista INT NOT NULL,
+    ID_Grupo INT NOT NULL
+    --FOREIGN KEY (ID_Deportista) REFERENCES DEPORTISTA(ID_Deportista),
+    --FOREIGN KEY (ID_Grupo) REFERENCES GRUPO(ID_Grupo)
+);
+
+CREATE TABLE DEPORTISTA_RETO(
+    ID_Deportista INT NOT NULL,
+    ID_RETO INT NOT NULL
+    --FOREIGN KEY (ID_Deportista) REFERENCES DEPORTISTA(ID_Deportista),
+    --FOREIGN KEY (ID_RETO) REFERENCES RETO(ID_Reto)
+);
