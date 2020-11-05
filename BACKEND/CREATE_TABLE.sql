@@ -1,137 +1,171 @@
 -- Se utiliza esto debido a que el atributo Nombre es un atributo compuesto
-
 CREATE TYPE NOMBRE AS(
-    Primer_Nombre VARCHAR,
-    Apellido1 VARCHAR,
-    Apellido2 VARCHAR
+    Primer_Nombre VARCHAR(15),
+    Apellido1 VARCHAR(15),
+    Apellido2 VARCHAR(15)
 );
 
 CREATE SCHEMA PROYECTO1;
 
 --Creación de las Tablas para StraviaTec
+
+-- Tabla PATROCINADOR la cual es producto de un atributo multivaluado
+-- de la entidad carrera
 CREATE TABLE IF NOT EXISTS PROYECTO1.PATROCINADOR(
     ID_Patrocinador SERIAL NOT NULL,
-    Nombre VARCHAR NOT NULL,
-    Representante VARCHAR NOT NULL,
-    NumRepresentante INT NOT NULL,
+    Nombre VARCHAR(15) NOT NULL,
+    Representante VARCHAR(30) NOT NULL,
+    NumRepresentante NUMERIC(11) NOT NULL,
     Logo VARCHAR NULL,
     PRIMARY KEY(ID_Patrocinador)
 );
 
+-- Tabla ORGANIZADOR una de las entidades fuertes de la solución
+-- El atributo Usuario es un valor único
 CREATE TABLE IF NOT EXISTS PROYECTO1.ORGANIZADOR(
     ID_Organizador SERIAL NOT NULL,
-    Usuario VARCHAR NOT NULL,
+    Usuario VARCHAR(10) NOT NULL,
     Nombre NOMBRE NOT NULL ,
     FecNac DATE NOT NULL,
-    Nacionaldad VARCHAR NULL,
+    Nacionalidad VARCHAR(15) NULL,
     Foto VARCHAR NULL,
-    Clave VARCHAR NOT NULL,
+    Clave VARCHAR(15) NOT NULL,
     PRIMARY KEY(ID_Organizador),
     UNIQUE (Usuario)
 );
 
+-- Tabla DEPORTISTA una de las entidades fuertes de la solución
+-- El atributo Usuario es un valor único
 CREATE TABLE IF NOT EXISTS PROYECTO1.DEPORTISTA(
     ID_Deportista SERIAL NOT NULL,
-    Usuario VARCHAR NOT NULL,
+    Usuario VARCHAR(10) NOT NULL,
     Nombre NOMBRE NOT NULL,
     FecNac DATE NOT NULL,
-    Nacionalidad VARCHAR NULL,
+    Nacionalidad VARCHAR(15) NULL,
     Foto VARCHAR NULL,
-    Clave VARCHAR NOT NULL,
+    Clave VARCHAR(6) NOT NULL,
     PRIMARY KEY (ID_Deportista),
     UNIQUE(Usuario)
 );
 
+-- Tabla ACTIVIDAD posee una relacion débil con DEPORTISTA
+-- Los valores de el atributo Tipo_Actividad son valores
+-- definidos por el problema
 CREATE TABLE IF NOT EXISTS PROYECTO1.ACTIVIDAD(
     ID_Actividad SERIAL NOT NULL,
-    NombreActividad VARCHAR NOT NULL,
+    NombreActividad VARCHAR(20) NOT NULL,
     Fecha DATE NOT NULL,
     Hora TIME NOT NULL,
     Mapa VARCHAR NULL,
     Kilometros INT NULL,
     Duracion TIME NULL,
-    Completitud VARCHAR NULL,
-    TipoActividad VARCHAR NOT NULL,
+    Completitud VARCHAR(8) NULL,
+    Tipo_Actividad VARCHAR DEFAULT ('Correr',
+                                    'Nadar',
+                                    'Ciclismo',
+                                    'Senderistmo',
+                                    'Kayak',
+                                    'Caminata') NOT NULL,
     ID_Deportista INT NOT NULL, --FK
     PRIMARY KEY(ID_Actividad)
 );
 
+-- Tabla CARRERA gestionada por la tabla ORGANIZADOR
+-- Existe una combinacion única entre ID_Carrera y ID_Organizador
+-- El atributo Tipo_Actividad tiene valores definidos por el problema
 CREATE TABLE IF NOT EXISTS PROYECTO1.CARRERA (
     ID_Carrera SERIAL NOT NULL,
     ID_Organizador INT NOT NULL, --fk
     Nombre VARCHAR NOT NULL,
     Fecha DATE NOT NULL,
     Recorrido VARCHAR NOT NULL,
-    Cuenta VARCHAR NOT NULL,
-    Costo INT NOT NULL,
+    Cuenta NUMERIC(20) NOT NULL,
+    Costo NUMERIC(6) NOT NULL CHECK ( Costo >= 0 ),
     Privacidad BOOLEAN NOT NULL,
-    Tipo_Actividad VARCHAR NOT NULL,
+    Tipo_Actividad VARCHAR DEFAULT ('Correr',
+                                    'Nadar',
+                                    'Ciclismo',
+                                    'Senderistmo',
+                                    'Kayak',
+                                    'Caminata') NOT NULL,
     PRIMARY KEY (ID_Carrera),
     UNIQUE (ID_Carrera,ID_Organizador)
-
 );
 
+-- Tabla CATEGORIA, deriva de un atributo multivaluado de CARRERA
 CREATE TABLE IF NOT EXISTS PROYECTO1.CATEGORIA(
     ID_Categoria SERIAL NOT NULL,
-    Nombre_Categoria VARCHAR NOT NULL,
-    Descripcion VARCHAR NOT NULL,
+    Nombre_Categoria VARCHAR(8) NOT NULL,
+    Descripcion VARCHAR(30) NOT NULL,
     PRIMARY KEY (ID_Categoria)
 );
 
+-- Tabla CATEGORIA_CARRERA, relaciona la cantidad de categorias que
+-- posee una carrera.
 CREATE TABLE IF NOT EXISTS PROYECTO1.CATEGORIA_CARRERA(
     ID_Categoria INT NOT NULL,
     ID_Carrera INT NOT NULL,
     PRIMARY KEY (ID_Carrera,ID_Categoria)
 );
 
+-- Tabla INSCRIPCION, esta relaciona las tablas DEPORTISTA Y CARRERA
 CREATE TABLE IF NOT EXISTS PROYECTO1.INSCRIPCION (
     ID_Inscripcion SERIAL NOT NULL,
     ID_Carrera INT NOT NULL,
     ID_Deportista INT NOT NULL,
     Comprobante VARCHAR NULL,
-    Categoria VARCHAR NOT NULL,
+    Categoria VARCHAR(10) NOT NULL,
     PRIMARY KEY(ID_Inscripcion, ID_Carrera, ID_Deportista)
 );
 
-CREATE TABLE PROYECTO1.GRUPO(
+-- Tabla GRUPO
+CREATE TABLE IF NOT EXISTS PROYECTO1.GRUPO(
     ID_Grupo SERIAL NOT NULL,
     Nombre VARCHAR NOT NULL,
     Administrador INT NOT NULL,
     PRIMARY KEY(ID_Grupo)
 );
 
-CREATE TABLE PROYECTO1.DEPORTISTA_GRUPO(
+-- Tabla DEPORTISTA_GRUPO, relaciona los deportistas que pertenecen a un grupo
+CREATE TABLE IF NOT EXISTS PROYECTO1.DEPORTISTA_GRUPO(
     ID_Deportista INT NOT NULL,
     ID_Grupo INT NOT NULL,
     PRIMARY KEY (ID_Deportista,ID_Grupo)
 );
 
+-- Tabla RETO, gestionada por ORGANIZADOR
+-- Posee una combinación única entre ID_Reto y ID_Organizador
+-- El atributo Tipo_Actividad tiene valores definidos por el problema
 CREATE TABLE IF NOT EXISTS PROYECTO1.RETO(
     ID_Reto SERIAL NOT NULL,
     Nombre VARCHAR NOT NULL,
     Periodo DATE NOT NULL,
     Privacidad BOOLEAN NOT NULL,
-    Tipo_Reto VARCHAR, --Altitud o Fondo
-    Tipo_Actividad VARCHAR NOT NULL,
-    Patrocinio INT NULL,
-    PRIMARY KEY (ID_Reto),
+    Tipo_Reto VARCHAR DEFAULT ('Altitud','Fondo'), --Altitud o Fondo
+    Tipo_Actividad VARCHAR DEFAULT ('Correr',
+                                    'Nadar',
+                                    'Ciclismo',
+                                    'Senderistmo',
+                                    'Kayak',
+                                    'Caminata') NOT NULL,
     ID_Organizador INT NOT NULL,
+    PRIMARY KEY (ID_Reto),
     UNIQUE (ID_Reto,ID_Organizador)
 );
 
-CREATE TABLE PROYECTO1.DEPORTISTA_RETO(
+CREATE TABLE IF NOT EXISTS PROYECTO1.DEPORTISTA_RETO(
     ID_Deportista INT NOT NULL,
     ID_RETO INT NOT NULL,
     PRIMARY KEY (ID_Deportista,ID_RETO)
 );
 
-CREATE TABLE PROYECTO1.GRUPO_CARRERA(
+CREATE TABLE IF NOT EXISTS PROYECTO1.GRUPO_CARRERA(
     ID_Grupo INT NOT NULL,
     ID_Carrera INT NOT NULL,
     PRIMARY KEY (ID_Grupo,ID_Carrera)
 );
 
-CREATE TABLE PROYECTO1.GRUPO_RETO(
+CREATE TABLE IF NOT EXISTS PROYECTO1.GRUPO_RETO(
     ID_Grupo INT NOT NULL,
     ID_Deportista INT NOT NULL,
     PRIMARY KEY (ID_Grupo,ID_Deportista)
@@ -142,8 +176,22 @@ CREATE TABLE IF NOT EXISTS PROYECTO1.PATROCINADOR_CARRERA(
     PRIMARY KEY (ID_Carrera,ID_Patrocinador)
 );
 
-CREATE TABLE PROYECTO1.PATROCINADOR_RETO(
+CREATE TABLE IF NOT EXISTS PROYECTO1.PATROCINADOR_RETO(
     ID_Patrocinador INT NOT NULL,
     ID_Reto INT NOT NULL,
     PRIMARY KEY (ID_Patrocinador,ID_Reto)
 );
+
+-- Seccion para las llaves foráneas necesarias
+
+ALTER TABLE PROYECTO1.ACTIVIDAD
+ADD FOREIGN KEY (ID_Deportista)
+REFERENCES PROYECTO1.DEPORTISTA(ID_Deportista);
+
+ALTER TABLE PROYECTO1.CARRERA
+ADD FOREIGN KEY (ID_Organizador)
+REFERENCES PROYECTO1.ORGANIZADOR(ID_Organizador);
+
+ALTER TABLE PROYECTO1.RETO
+ADD FOREIGN KEY (ID_Organizador)
+REFERENCES PROYECTO1.ORGANIZADOR(ID_Organizador);
