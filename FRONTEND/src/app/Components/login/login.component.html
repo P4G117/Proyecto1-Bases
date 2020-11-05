@@ -1,0 +1,26 @@
+<div class="flex">
+  <label class="logo">Stravia</label><label class="logo2">|</label><label class="logo3">TEC</label>
+  <form class="custom-form" method="post">
+    <h1>Iniciar sesión</h1>
+    <input
+      type="username"
+      [(ngModel)]="username"
+      name="username"
+      placeholder="Usuario"
+      required="required"
+    />
+    <input
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Contraseña"
+      required="required"
+    />
+    <select class="form-control" [(ngModel)]="rol" (change)="rolSet($event.target.value)">
+      <option value="organizador">Organizador</option>
+      <option value="deportista">Deportista</option>
+      </select>
+    <button type="submit" (click)="login()">Iniciar sesión</button>
+  </form>
+</div>
+

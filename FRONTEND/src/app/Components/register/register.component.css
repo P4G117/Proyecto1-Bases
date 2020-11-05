@@ -1,0 +1,114 @@
+
+  .split {
+    height: 50%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 40;
+    overflow-x: hidden;
+    padding-top: px;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50vh;
+    background-color: #ffffff;
+  }
+  .custom-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    max-width: 60%;
+    margin: 0px auto;
+    padding: 2rem 3rem;
+    margin: auto;
+    border-radius: 2.5rem;
+    color: black;
+  }
+
+  .custom-form input {
+    display: block;
+    margin: 2rem 0;
+    width: 50%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    border: 0 none;
+    background: #ebf5fc;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .custom-form button {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #5f71cc;
+    width: 100%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+  }
+
+  .custom-form select {
+    display: block;
+    margin: 2rem 0;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+      inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+    border: 0 none;
+    background: #ebf5fc;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 20vh;
+    padding-top: 5px;
+    padding-left: 10px;
+  }
+
+  .left {
+    left: 0;
+    background-color: #FFFFFF;
+  }
+  .botonagregar{
+      background: #336699;
+      border-radius: 10px;
+  }
+  .right {
+    right: 0;
+    background-color: rgb(252, 250, 250);
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .centered img {
+    width: 300px;
+    left: 0%;
+    top: 0%;
+    border-radius: 50%;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    top: -0%;
+  }
