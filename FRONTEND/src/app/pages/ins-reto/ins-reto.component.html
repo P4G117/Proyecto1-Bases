@@ -1,0 +1,37 @@
+
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<button class="inicio">Inicio</button>
+<button class="buscar">Buscar</button>
+<button class="retos">Retos</button>
+<button class="competencia">Competencias</button>
+<button class="perfil">Perfil</button>
+<button class="logOut">Cerrar Sesión</button>
+
+<div class="cuerpo">
+    <mat-card-content class="cardTitulo">
+        <h1>{{reto}}</h1>
+        <h3>{{descripcion}}</h3>
+        <h3>Patrocinadores</h3>
+        <div class="patro">
+            <div *ngFor= 'let patrocinador of patrocinadores'>
+                <img class="patrocinadores" mat-card-image src="{{ patrocinador }}">
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-content class="insCard">
+        <div class="text">
+            <p class="text1">&nbsp;Stravia</p><p class="text2">|</p><p class="text3">TEC</p>
+        </div>
+    
+        <h1 ALIGN="center">Para inscribirte por favor haz clic en el botón.</h1>
+        
+        <button mat-button class="btn" (click)='inscribirse()'>
+            <h1>
+                Inscribirse
+            </h1>
+        </button>
+    </mat-card-content>
+</div>
