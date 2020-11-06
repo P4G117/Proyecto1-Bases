@@ -12,13 +12,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { InicioDeportComponent } from './Components/inicio-deport/inicio-deport.component';
+import { InsCarreraComponent } from './pages/ins-carrera/ins-carrera.component';
+import { AsoGrupoComponent } from './pages/aso-grupo/aso-grupo.component';
+import { InsRetoComponent } from './pages/ins-reto/ins-reto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    InicioDeportComponent
+    InicioDeportComponent,
+    InsCarreraComponent,
+    AsoGrupoComponent,
+    InsRetoComponent
   ],
   imports: [
     BrowserModule,
