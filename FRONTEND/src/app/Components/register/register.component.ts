@@ -25,6 +25,8 @@ export class RegisterComponent {
   rolA: string;
   nacionalidad: string;
 
+  @Output() onChange: EventEmitter<File> = new EventEmitter<File>();
+
   constructor(public fb: FormBuilder) {
     this.myForm = this.fb.group({
       usuario: [
@@ -51,6 +53,25 @@ export class RegisterComponent {
       rol: ['', [Validators.required]],
     });
   }
+
+  updateSource($event: Event) {
+    // We access he file with $event.target['files'][0]
+    this.projectImage($event.target['files'][0]);
+  }
+
+      // Uses FileReader to read the file from the input
+      source:string = '';
+      projectImage(file: File) {
+          let reader = new FileReader;
+          // TODO: Define type of 'e'
+          reader.onload = (e: any) => {
+              // Simply set e.target.result as our <img> src in the layout
+              this.source = e.target.result;
+              this.onChange.emit(file);
+          };
+          // This will process our file and get it's attributes/data
+          reader.readAsDataURL(file);
+      }
 
   user(usernames: string) {
     this.username = usernames;
@@ -83,11 +104,11 @@ export class RegisterComponent {
     console.log(this.day);
   }
 
-  rolSet(rol){
+  rolSet(rol) {
     this.rolA = rol;
   }
 
-  saveData1(){
+  saveData1() {
     console.log(this.nombre);
     console.log(this.apellido1);
     console.log(this.username);
@@ -98,7 +119,5 @@ export class RegisterComponent {
     console.log(this.apellido2);
     console.log(this.rolA);
     console.log(this.nacionalidad);
-    
   }
-
 }

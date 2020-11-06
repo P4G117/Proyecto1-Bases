@@ -1,114 +1,72 @@
-<div class="flex">
-  <form class="custom-form" method="post">
-    <h1>Iniciar sesión</h1>
-    <select class="form-control" (change)="rolSet($event.target.value)">
-      <option value="organizador">Organizador</option>
-      <option value="deportista">Deportista</option>
-    </select>
-    <div class="split right">
-      <input
-        type="username"
-        name="username"
-        placeholder="Usuario"
-        required="required"
-      />
-    </div>
+<div >
+  <form class="forma">
+    <label class="logo">Stravia</label><label class="logo2">|</label><label class="logo3">TEC</label>
 
-    <div class="split left">
-      <input
-        type="password"
-        name="password"
-        placeholder="Contraseña"
-        required="required"
-      />
-    </div>
+    <input
+      [(ngModel)] = "username"
+      class="usuario"
+      type="text"
+      name="username"
+      placeholder="Usuario"
+      required="required"
+    />
 
+    <input
+      class="password"
+      type="password"
+      name="password"
+      placeholder="Contraseña"
+      required="required"
+    />
 
-    <button type="submit">Iniciar sesión</button>
-  </form>
-</div>
+    <input
+      class="nombre"
+      type="text"
+      name="name"
+      placeholder="Nombre"
+      required="required"
+    />
+    <input
+      class="apellido1"
+      type="text"
+      name="apellido1"
+      placeholder="Apellido1"
+      required="required"
+    />
+    <input
+      class="apellido2"
+      type="text"
+      name="apellido2"
+      placeholder="Apellido2"
+      required="required"
+    />
+    <input
+      class="nacionalidad"
+      type="text"
+      name="nacionalidad"
+      placeholder="Nacionalidad"
+      required="required"
+    />
+    <input
+      class="dob"
+      type="date"
+      name="dob"
+      required="required"
+    />
 
-<!-- <div class="split right">
-  <div class="col-md-6 user-container">
-    <form class="custom-form" [formGroup]="myForm" (ngSubmit) = "saveData1()" novalidate>
-        <div>
-            <label for="usuario"><b>Usuario</b>:</label>
-            <input class="form-control" formControlName="usuario" type="text" placeholder="Sebastian2"
-            (change)=user($event.target.value)>
-        </div>
-        <div *ngIf="myForm.get('usuario').errors && myForm.get('usuario').dirty">
-            <p *ngIf="myForm.get('usuario').hasError('required')">Nombre de usuario es obligatorio</p>
-            <p *ngIf="myForm.get('usuario').hasError('minLength')">El usuario debe tener 10 caracateres</p>
-            <p *ngIf="myForm.get('usuario').hasError('maxLength')">El usuario debe tener 10 caracateres</p>
-        </div>
-
-        <div>
-          <label for="pass"><b>Contraseña</b>:</label>
-          <input class="form-control" formControlName="pass" type="password" placeholder="**********"
-          (change)="passwordSet($event.target.value)">
-      </div>
-      <div *ngIf="myForm.get('pass').errors && myForm.get('pass').dirty">
-          <p *ngIf="myForm.get('pass').hasError('required')">Contraseña es obligatoria</p>
-          <p *ngIf="myForm.get('pass').hasError('minLength')">La contraseña debe tener 10 caracateres</p>
-          <p *ngIf="myForm.get('pass').hasError('maxLength')">La contraseña debe tener 10 caracateres</p>
-      </div>
-
-
-      <div>
-        <label for="dob"><b>Fecha de nacimiento</b>:</label>
-        <input class="form-control" formControlName="dob" type="date" placeholder="DOB"
-        (change)='dobSet($event.target.value)'>
-    </div>
-    <div>
-      <label for="rol"><b>Selecciona tu rol</b>:</label>
-      <select class="form-control" formControlName="rol"
-      (change)="rolSet($event.target.value)">
+    <select class="rol" >
       <option value="organizador">Organizador</option>
       <option value="deportista">Deportista</option>
       </select>
-    </div>
 
-    </form>
+    <button class="reg" type="submit">Iniciar sesión</button>
+  </form>
+
 </div>
 
-<div class="split left">
-  <div class="col-md-6 user-container">
-      <form class="custom-form" [formGroup]="myForm" (ngSubmit) = "saveData1()" novalidate>
-          <div>
-              <label for="nombre"><b>Nombre</b>:</label>
-              <input class="form-control" formControlName="nombre" type="text" placeholder="Sebastián"
-              (change)='nombreSet($event.target.value)'>
-          </div>
-          <div *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty">
-              <p *ngIf="myForm.get('nombre').hasError('required')">Nombre es obligatorio</p>
-          </div>
+<!-- file input, accepts images only. Detect when file has been picked/changed with Angular's native (change) event listener -->
+<input class="logoUp" type="file" accept="image/*" (change)="updateSource($event)">
 
-          <div>
-              <label for="apellido1"><b>Primer Apellido</b>:</label>
-              <input class="form-control" formControlName="apellido1" type="text" placeholder="Vargas"
-              (change)='apellido1Set($event.target.value)'>
-          </div>
-          <div *ngIf="myForm.get('apellido1').errors && myForm.get('apellido1').dirty">
-              <p *ngIf="myForm.get('apellido1').hasError('required')">Primer Apellido es obligatorio</p>
-          </div>
+<!-- img placeholder when a file has been picked. shows only when 'source' is not empty -->
+<img class="logoContainer"  [src]="source" src="">
 
-          <div>
-              <label for="apellido2"><b>Segundo Apellido</b>:</label>
-              <input class="form-control" formControlName="apellido2" type="text" placeholder="Mora"
-              (change)='apellido2Set($event.target.value)'>
-          </div>
-          <div *ngIf="myForm.get('apellido2').errors && myForm.get('apellido2').dirty">
-              <p *ngIf="myForm.get('apellido2').hasError('required')">Segundo Apellido es obligatorio</p>
-          </div>
-
-          <div>
-            <label for="nacionalidad"><b>Nacionalidad</b>:</label>
-            <input class="form-control" formControlName="nacionalidad" type="text" placeholder="Costarricense"
-            (change)='nacionalidadSet($event.target.value)'>
-        </div>
-        <div *ngIf="myForm.get('apellido2').errors && myForm.get('apellido2').dirty">
-            <p *ngIf="myForm.get('apellido2').hasError('required')">Segundo Apellido es obligatorio</p>
-        </div>
-      </form>
-  </div>
-</div> -->
