@@ -121,6 +121,17 @@ h1 {
   cursor: pointer;
 }
 
+.nombre {
+  width: 5px;
+  height: 0.25px;
+  font-family: Arial Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 200px;
+  opacity: 0.66;
+}
+
 
 
 

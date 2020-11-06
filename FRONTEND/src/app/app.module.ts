@@ -11,12 +11,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { InicioDeportComponent } from './Components/inicio-deport/inicio-deport.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    InicioDeportComponent
   ],
   imports: [
     BrowserModule,
