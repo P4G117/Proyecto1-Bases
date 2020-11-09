@@ -1,0 +1,43 @@
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<button class="inicio">Inicio</button>
+<button class="buscar">Buscar</button>
+<button class="retos">Retos</button>
+<button class="competencia">Competencias</button>
+<button class="perfil">Perfil</button>
+<button class="logOut">Cerrar Sesión</button>
+
+<div class="look">
+  <h1 class="titulo">Ingrese el filtro de busqueda</h1>
+  <input type="text" placeholder="Filtro" name="search" class = "search" >
+  <button class="searchbt">Buscar</button>
+
+  <select class="form-control" [(ngModel)]="busqueda" class="busfiltro" (change)="rolSet($event.target.value)">
+    <option value="grupo">Grupos</option>
+    <option value="competencia">Competencias</option>
+    <option value="reto">Retos</option>
+    <option value="atleta">Atletas</option>
+    </select>
+
+    <div class = "lookfil" style="overflow: auto">
+      <div class="tramos">
+        <div *ngFor="let informacion of informaciones">
+          <mat-card class="productor">
+            <h3>{{ informacion.Nombre }} &nbsp;</h3>
+            <h3>{{ informacion.tipo }} : &nbsp;</h3>
+            <h3>{{ informacion.Descripcion }} &nbsp;</h3>
+            <button  (click) = 'go(informacion)'>
+                <h3>
+                Visitar
+                </h3>
+            </button>
+        </mat-card>
+        </div>
+      </div>
+    </div>
+
+
+
+</div>
