@@ -1,0 +1,35 @@
+<header class="header">
+    <img class="logoContainer" mat-card-image src="../../../assets/Images/Stravia_TEC.png">
+    <div class="botones">
+  
+      <button mat-button class="btnRes" [routerLink]="'/register'">
+        <h1>
+          Sing up
+        </h1>
+      </button>
+      
+      <button mat-button class="btnLog" [routerLink]="'/login'">
+        <h1>
+          Log In
+        </h1>
+      </button>
+    </div>
+  </header>
+  <div class="body">
+  
+    <div class="carousel">
+  
+      <button mat-flat-button (click)="left()">
+        <img src="../../../assets/Images/Polygon 3.png" />
+      </button>
+  
+      <mat-card class="imgs">
+        <img mat-card-image src="{{ img[i] }}"/>
+      </mat-card>
+  
+      <button mat-flat-button (click)="right()">
+        <img src="../../../assets/Images/Polygon 2.png" />
+      </button>
+    
+    </div>
+  </div>

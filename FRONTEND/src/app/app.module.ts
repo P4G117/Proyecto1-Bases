@@ -18,6 +18,7 @@ import { InsRetoComponent } from './pages/ins-reto/ins-reto.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { VerRetosComponent } from './pages/ver-retos/ver-retos.component';
 import { VerCompetenciasComponent } from './pages/ver-competencias/ver-competencias.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VerCompetenciasComponent } from './pages/ver-competencias/ver-competenc
     InsRetoComponent,
     BuscarComponent,
     VerRetosComponent,
-    VerCompetenciasComponent
+    VerCompetenciasComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
