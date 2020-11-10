@@ -2,17 +2,17 @@
 <label class="logo">Stravia</label><label class="logo2">|</label
 ><label class="logo3">TEC</label>
 
-<button class="inicio">Inicio</button>
-<button class="buscar">Buscar</button>
-<button class="retos">Retos</button>
-<button class="competencia">Competencias</button>
+<button class="inicio" (click)="iniciogo()">Inicio</button>
+<button class="buscar" (click)="buscargo()">Buscar</button>
+<button class="retos" (click)="retosGo()">Retos</button>
+<button class="competencia" (click)="competenciasGo()">Competencias</button>
 <button class="perfil">Perfil</button>
 <button class="logOut">Cerrar Sesión</button>
 
 <div class="look">
   <h1 class="titulo">Ingrese el filtro de busqueda</h1>
-  <input type="text" placeholder="Filtro" name="search" class = "search" >
-  <button class="searchbt">Buscar</button>
+  <input type="text" placeholder="Filtro" name="search" class = "search" [(ngModel)] = "filtro" >
+  <button class="searchbt" (click)="buscar()">Buscar</button>
 
   <select class="form-control" [(ngModel)]="busqueda" class="busfiltro" (change)="rolSet($event.target.value)">
     <option value="grupo">Grupos</option>
@@ -23,7 +23,7 @@
 
     <div class = "lookfil" style="overflow: auto">
       <div class="tramos">
-        <div *ngFor="let informacion of informaciones">
+        <div *ngFor="let informacion of filtros">
           <mat-card class="productor">
             <h3>{{ informacion.Nombre }} &nbsp;</h3>
             <h3>{{ informacion.tipo }} : &nbsp;</h3>

@@ -16,6 +16,8 @@ import { InsCarreraComponent } from './pages/ins-carrera/ins-carrera.component';
 import { AsoGrupoComponent } from './pages/aso-grupo/aso-grupo.component';
 import { InsRetoComponent } from './pages/ins-reto/ins-reto.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
+import { VerRetosComponent } from './pages/ver-retos/ver-retos.component';
+import { VerCompetenciasComponent } from './pages/ver-competencias/ver-competencias.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
     InsCarreraComponent,
     AsoGrupoComponent,
     InsRetoComponent,
-    BuscarComponent
+    BuscarComponent,
+    VerRetosComponent,
+    VerCompetenciasComponent
   ],
   imports: [
     BrowserModule,

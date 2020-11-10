@@ -9,16 +9,15 @@
 <button class="perfil">Perfil</button>
 <button class="logOut">Cerrar Sesión</button>
 
-<div class="left" ALIGN="center">
-  <h1>{{ nombre }} {{ apellido1 }}</h1>
-  <h2 class="following">Following</h2>
-  <h2 class="followers">Followers</h2>
-  <h2 class="actividades">Actividades</h2>
+<div class="left" style="overflow: auto">
+  <div *ngFor="let informacion of informaciones">
+    <div class="productor">
+      <h3>{{ informacion.Nombre }} &nbsp;</h3>
+      <button class="buscarBtn">Visitar</button>
+      <h3>{{ informacion.Descripcion }} &nbsp;</h3>
 
-  <h2 class="following2">{{Following}}</h2>
-  <h2 class="followers2">{{Followers}}</h2>
-  <h2 class="actividades2">{{Actividades}}</h2>
-
+    </div>
+  </div>
 </div>
 
-<div class="right"></div>
+
