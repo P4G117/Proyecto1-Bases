@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
-import { MatProgressBar } from '@angular/material/progress-bar';
-
 
 @Component({
   selector: 'app-ver-reto-info',
@@ -51,6 +49,7 @@ export class VerRetoInfoComponent implements OnInit {
   competenciasGo(){
     this.router.navigate(['verCompetencias']);
   }
+
 
 
 }

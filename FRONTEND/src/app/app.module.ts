@@ -19,6 +19,10 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
 import { VerRetosComponent } from './pages/ver-retos/ver-retos.component';
 import { VerCompetenciasComponent } from './pages/ver-competencias/ver-competencias.component';
 import { HomeComponent } from './pages/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { VerRetoInfoComponent } from './pages/ver-reto-info/ver-reto-info.component';
+import { VerCompetenciaInfoComponent } from './pages/ver-competencia-info/ver-competencia-info.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { HomeComponent } from './pages/home/home.component';
     BuscarComponent,
     VerRetosComponent,
     VerCompetenciasComponent,
+    VerRetoInfoComponent,
+    VerCompetenciaInfoComponent,
     HomeComponent
   ],
   imports: [
@@ -43,6 +49,9 @@ import { HomeComponent } from './pages/home/home.component';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatProgressBarModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

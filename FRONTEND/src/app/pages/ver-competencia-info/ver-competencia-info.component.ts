@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-ver-competencia-info',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerCompetenciaInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  iniciogo(){
+    this.router.navigate(['inicio-deport']);
+  }
+  buscargo(){
+    this.router.navigate(['buscar']);
+  }
+
+  retosGo(){
+    this.router.navigate(['verRetos']);
+  }
+
+  competenciasGo(){
+    this.router.navigate(['verCompetencias']);
   }
 
 }
