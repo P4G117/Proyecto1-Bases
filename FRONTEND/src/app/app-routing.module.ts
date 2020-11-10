@@ -9,7 +9,7 @@ import { InsRetoComponent } from './pages/ins-reto/ins-reto.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { VerRetosComponent } from './pages/ver-retos/ver-retos.component';
 import { VerCompetenciasComponent } from './pages/ver-competencias/ver-competencias.component';
-import { VerRetoInfoComponent } from './pages/ver-reto-info/ver-reto-info.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 const routes: Routes = [
@@ -22,11 +22,11 @@ const routes: Routes = [
   { path: "buscar", component: BuscarComponent, pathMatch: "full"},
   { path: "verRetos", component: VerRetosComponent, pathMatch: "full"},
   { path: "verCompetencias", component: VerCompetenciasComponent, pathMatch: "full"},
-  { path: "verRetosInfo", component: VerRetoInfoComponent, pathMatch: "full"},
+  { path: "home", component: HomeComponent, pathMatch: "full" },
 
 
-  { path: "", component: InicioDeportComponent, pathMatch: "full" },
-  { path: "**", component: InicioDeportComponent, pathMatch: "full" },
+  { path: "", component: HomeComponent, pathMatch: "full" },
+  { path: "**", component: HomeComponent, pathMatch: "full" },
 ];
 
 @NgModule({
