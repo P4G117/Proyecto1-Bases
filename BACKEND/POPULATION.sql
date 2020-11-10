@@ -41,26 +41,26 @@ SELECT * FROM proyecto1.patrocinador;
 --##################################################################################################
 
 --Inserción de Datos Tabla Organizador
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('adri85',ROW('Adriana','Hernandez','Villa'),'1985/02/20','Costarricense','URL Foto 1','perrito21');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('cgr2910',ROW('Camilo','Goméz','Rodríguez'),'1995/10/29','Costarricense','URL Foto 2','caricaturas');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('felocruz',ROW('Felipe','Villa','Cruz'),'1980/05/16','Hondureño','URL Foto 3','ciclismo4ever');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('alvadc',ROW('Daniel','Alva','Campos'),'1999/04/25','Costarricense','URL Foto 4','principito14');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('castillo16',ROW('Cesar','Castillo','Rivera'),'1965/01/16','Costarricense','URL Foto 5','123456');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('flor1211',ROW('Flor','Rojas','Villegas'),'1970/12/11','Nicaragüense','URL Foto 6','florville12');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('Barrera72',ROW('Tulio','Barrera','Torres'),'1972/03/30','Panameño','URL Foto 7','tuliotorres');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('solano23',ROW('Angelica','Solano','Peréz'),'1990/11/23','Nicaragüense','URL Foto 8','avengers2020');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('chico04',ROW('Francisco','Romero','Quesada'),'1989/04/14','Costarricense','URL Foto 9','anime16');
-INSERT INTO proyecto1.organizador(Usuario_Org, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('laujp16',ROW('Laura','Jiménez','Prado'),'2001/09/16','Costarricense','URL Foto 10','cariñosito16');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('adri85','Adriana','Hernandez','Villa','1985/02/20','Costarricense','URL Foto 1','perrito21');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('cgr2910','Camilo','Goméz','Rodríguez','1995/10/29','Costarricense','URL Foto 2','caricaturas');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('felocruz','Felipe','Villa','Cruz','1980/05/16','Hondureño','URL Foto 3','ciclismo4ever');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('alvadc','Daniel','Alva','Campos','1999/04/25','Costarricense','URL Foto 4','principito14');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('castillo16','Cesar','Castillo','Rivera','1965/01/16','Costarricense','URL Foto 5','123456');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('flor1211','Flor','Rojas','Villegas','1970/12/11','Nicaragüense','URL Foto 6','florville12');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('Barrera72','Tulio','Barrera','Torres','1972/03/30','Panameño','URL Foto 7','tuliotorres');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('solano23','Angelica','Solano','Peréz','1990/11/23','Nicaragüense','URL Foto 8','avengers2020');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('chico04','Francisco','Romero','Quesada','1989/04/14','Costarricense','URL Foto 9','anime16');
+INSERT INTO proyecto1.organizador(Usuario_Org, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('laujp16','Laura','Jiménez','Prado','2001/09/16','Costarricense','URL Foto 10','cariñosito16');
 
 --Mostrar Datos de la Tabla Organizador
 SELECT * FROM proyecto1.organizador;
@@ -70,46 +70,46 @@ SELECT * FROM proyecto1.organizador;
 --##################################################################################################
 
 --Inserción de Datos Tabla Deportista
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('guivalcas',ROW('Guillermo','Valdivia','Casapia'),'1985/12/03','Panameño','URL Foto','olakease');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('adri45s',ROW('Adriana','Hernandez','Villa'),'1985/02/20','Costarricense','URL Foto 1','perrito21');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('cgr1995',ROW('Camilo','Goméz','Rodríguez'),'1995/10/29','Costarricense','URL Foto 2','caricaturas');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('cruz16',ROW('Felipe','Villa','Cruz'),'1980/05/16','Hondureño','URL Foto 3','ciclismoever');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('milHerr',ROW('Milagros','Herrera','Carbajal'),'2002/03/20','Guatemalteco','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('ElbaVL',ROW('Elba','Venegas','Lujan'),'1999/08/14','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('MMMartin',ROW('Martin','Martinez','Maruez'),'2003/02/28','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('josueRL',ROW('Josue','Rios','Lima'),'1980/09/03','Nicaraguense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('carlos',ROW('Carlos','Madriz','Gonzalez'),'1970/04/26','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('vanneH95',ROW('Vanessa','Herrera','Taras'),'2000/11/05','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('MadrizR',ROW('Rocio','Selva','Madriz'),'2012/03/03','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('sebas2008',ROW('Sebastian','Perez','Jiménez'),'2008/05/28','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('cLima',ROW('Carmen','Rodríguez','Lima'),'1997/07/07','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('carlitos',ROW('Carlos','Alvarado','Quesada'),'1994/09/12','Hondureño','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('terecastro',ROW('Teresa','Noguera','Castro'),'1970/08/05','Panameño','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('julimasis',ROW('Juliana','Muñoz','Masis'),'2005/04/29','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('rodribon',ROW('Rodrigo','Bone','Valle'),'1963/12/12','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('larisa',ROW('Larisa','Barrantes','Lima'),'1980/09/03','Nicaraguense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('ferrerC',ROW('Jorge','Ferrer','Cervantes'),'1985/06/30','Costarricense','URL Foto 3','1234');
-INSERT INTO proyecto1.deportista(Usuario_Dep, Nombre, FecNac, Nacionalidad, Foto, Clave)
-VALUES ('luRapa',ROW('Lucia','Ramirez','Palma'),'2003/09/03','Nicaraguense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('guivalcas','Guillermo','Valdivia','Casapia','1985/12/03','Panameño','URL Foto','olakease');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('adri45s','Adriana','Hernandez','Villa','1985/02/20','Costarricense','URL Foto 1','perrito21');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('cgr1995','Camilo','Goméz','Rodríguez','1995/10/29','Costarricense','URL Foto 2','caricaturas');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('cruz16','Felipe','Villa','Cruz','1980/05/16','Hondureño','URL Foto 3','ciclismoever');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('milHerr','Milagros','Herrera','Carbajal','2002/03/20','Guatemalteco','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('ElbaVL','Elba','Venegas','Lujan','1999/08/14','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('MMMartin','Martin','Martinez','Maruez','2003/02/28','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('josueRL','Josue','Rios','Lima','1980/09/03','Nicaraguense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('carlos','Carlos','Madriz','Gonzalez','1970/04/26','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('vanneH95','Vanessa','Herrera','Taras','2000/11/05','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('MadrizR','Rocio','Selva','Madriz','2012/03/03','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('sebas2008','Sebastian','Perez','Jiménez','2008/05/28','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('cLima','Carmen','Rodríguez','Lima','1997/07/07','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('carlitos','Carlos','Alvarado','Quesada','1994/09/12','Hondureño','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('terecastro','Teresa','Noguera','Castro','1970/08/05','Panameño','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('julimasis','Juliana','Muñoz','Masis','2005/04/29','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('rodribon','Rodrigo','Bone','Valle','1963/12/12','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('larisa','Larisa','Barrantes','Lima','1980/09/03','Nicaraguense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('ferrerC','Jorge','Ferrer','Cervantes','1985/06/30','Costarricense','URL Foto 3','1234');
+INSERT INTO proyecto1.deportista(Usuario_Dep, Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)
+VALUES ('luRapa','Lucia','Ramirez','Palma','2003/09/03','Nicaraguense','URL Foto 3','1234');
 
 SELECT * FROM proyecto1.deportista;
 
@@ -234,7 +234,7 @@ INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORI
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (4,'carlitos','URL','Open');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (4,'cgr1995','URL','Open');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (4,'vanneH95','URL','Sub-23');
-INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (4,'elbaVL','URL','Sub-23');
+INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (4,'ElbaVL','URL','Sub-23');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (5,'josueRL','URL','Master A');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (5,'terecastro','URL','Elite');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (5,'cLima','URL','Sub-23');
@@ -285,7 +285,7 @@ INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('luRapa',2
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('guivalcas',3);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('vanneH95',3);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('sebas2008',3);
-INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('castro',3);
+INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('carlos',3);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('terecastro',3);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('larisa',3);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('ferrerC',3);
@@ -333,7 +333,7 @@ INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('cLima',9)
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('rodribon',9);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('vanneH95',10);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('guivalcas',10);
-INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('crg1995',10);
+INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('cgr1995',10);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('MMMartin',10);
 INSERT INTO proyecto1.deportista_grupo(usuario_dep, id_grupo) VALUES ('carlos',10);
 
@@ -421,7 +421,7 @@ INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('ferrerC',9)
 INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('milHerr',9);
 INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('adri45s',10);
 INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('cgr1995',10);
-INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('josueLR',10);
+INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('josueRL',10);
 INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('terecastro',10);
 INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('cLima',10);
 INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('larisa',10);
