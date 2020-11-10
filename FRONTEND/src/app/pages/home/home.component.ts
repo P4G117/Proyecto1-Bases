@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent{
   i=0;
-  img=["../../../assets/Images/image 8.png",
-          '../../../assets/Images/image 9.png',
-          '../../../assets/Images/image 10.png',
-          '../../../assets/Images/image 11.png']
+  img=["../../../assets/images/image8.png",
+          '../../../assets/images/image9.png',
+          '../../../assets/images/image10.png',
+          '../../../assets/images/image11.png']
 
   constructor() { }
   left() {
