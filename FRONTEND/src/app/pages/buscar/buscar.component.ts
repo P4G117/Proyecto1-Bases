@@ -137,4 +137,12 @@ export class BuscarComponent implements OnInit {
     this.router.navigate(['verCompetencias']);
   }
 
+  verInfo(tipo){
+    if(tipo == "reto"){
+      this.router.navigate(['verRetosInfo']);
+    }
+    
+
+  }
+
 }

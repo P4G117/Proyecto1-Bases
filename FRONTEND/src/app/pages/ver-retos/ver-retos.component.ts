@@ -47,6 +47,11 @@ export class VerRetosComponent implements OnInit {
     this.router.navigate(['verCompetencias']);
   }
 
+  verInfo(){
+    this.router.navigate(['verRetosInfo']);
+  }
+
+
 
 
 }
