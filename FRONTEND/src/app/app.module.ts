@@ -6,7 +6,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -32,6 +31,10 @@ import { EliteComponent } from './pages/elite/elite.component';
 import { MasteraComponent } from './pages/mastera/mastera.component';
 import { MasterbComponent } from './pages/masterb/masterb.component';
 import { MastercComponent } from './pages/masterc/masterc.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { VerRetoInfoComponent } from './pages/ver-reto-info/ver-reto-info.component';
+import { VerCompetenciaInfoComponent } from './pages/ver-competencia-info/ver-competencia-info.component';
 
 
 @NgModule({
@@ -59,7 +62,11 @@ import { MastercComponent } from './pages/masterc/masterc.component';
     EliteComponent,
     MasteraComponent,
     MasterbComponent,
-    MastercComponent
+    MastercComponent,
+    VerRetoInfoComponent,
+    VerCompetenciaInfoComponent,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -70,6 +77,9 @@ import { MastercComponent } from './pages/masterc/masterc.component';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatProgressBarModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

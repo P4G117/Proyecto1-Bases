@@ -10,17 +10,18 @@ export class VerCompetenciasComponent implements OnInit {
 
   informaciones = [
     {
-      Nombre: 'Milla',
-      Descripcion: 'Debe hacer una milla para completar el reto',
-      tipo: 'reto',
+      Nombre: 'Maraton',
+      Descripcion: 'Maraton mas importante de Costa Rica',
+      tipo: 'competencia',
       id: 0,
     },
     {
-      Nombre: '4km de kayak',
-      Descripcion: '4km de kayak para completar el reto',
-      tipo: 'reto',
+      Nombre: '4 piscinas',
+      Descripcion: '4 piscinas olimpicas',
+      tipo: 'competencia',
       id: 1,
     },
+
   ];
 
   constructor(

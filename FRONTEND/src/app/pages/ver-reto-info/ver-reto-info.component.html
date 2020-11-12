@@ -1,0 +1,31 @@
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<button class="inicio" (click)="iniciogo()">Inicio</button>
+<button class="buscar" (click)="buscargo()">Buscar</button>
+<button class="retos" (click)="retosGo()">Retos</button>
+<button class="competencia" (click)="competenciasGo()">Competencias</button>
+<button class="perfil">Perfil</button>
+<button class="logOut">Cerrar Sesión</button>
+
+<h1 class="nombre">{{ informacion.Nombre }}</h1>
+
+<div class="left">
+  <label>{{ informacion.Horas }} h </label>
+  <label> {{ informacion.Min }} min </label>
+  <label> {{ informacion.Seg }} seg </label>
+</div>
+<mat-progress-bar mode="determinate" [value]="progresValue" class="progress">Avance</mat-progress-bar>
+
+<div class="down">
+  <h2>Descripcion:</h2>
+  <label>{{ informacion.Descripcion }} </label>
+</div>
+
+<div class="patrocinadores" style="overflow: auto">
+  <h1>Patrocinadores</h1>
+    <div *ngFor="let source of patrocinadores">
+      <img class="logoContainer1" [src]="source" src="" />
+    </div>
+</div>

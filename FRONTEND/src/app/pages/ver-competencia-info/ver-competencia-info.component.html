@@ -8,16 +8,3 @@
 <button class="competencia" (click)="competenciasGo()">Competencias</button>
 <button class="perfil">Perfil</button>
 <button class="logOut">Cerrar Sesión</button>
-
-<div class="left" style="overflow: auto">
-  <div *ngFor="let informacion of informaciones">
-    <div class="productor">
-      <h3>{{ informacion.Nombre }} &nbsp;</h3>
-      <button class="buscarBtn" (click)= "verInfo()">Visitar</button>
-      <h3>{{ informacion.Descripcion }} &nbsp;</h3>
-
-    </div>
-  </div>
-</div>
-
-

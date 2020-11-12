@@ -23,6 +23,8 @@ import { EliteComponent } from './pages/elite/elite.component';
 import { MasteraComponent } from './pages/mastera/mastera.component';
 import { MasterbComponent } from './pages/masterb/masterb.component';
 import { MastercComponent } from './pages/masterc/masterc.component';
+import { VerRetoInfoComponent } from './pages/ver-reto-info/ver-reto-info.component';
+
 
 
 const routes: Routes = [
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: "buscar", component: BuscarComponent, pathMatch: "full"},
   { path: "verRetos", component: VerRetosComponent, pathMatch: "full"},
   { path: "verCompetencias", component: VerCompetenciasComponent, pathMatch: "full"},
+  { path: "verRetosInfo", component: VerRetoInfoComponent, pathMatch: "full" },
+  { path: "verCompetencia", component: VerCompetenciasComponent, pathMatch: "full"},
   { path: "home", component: HomeComponent, pathMatch: "full" },
   { path: "actividad", component: SubActividadComponent, pathMatch: "full" },
   { path: "gesgrupos", component: GesGruposComponent, pathMatch: "full" },
