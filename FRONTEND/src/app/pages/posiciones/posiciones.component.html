@@ -1,0 +1,50 @@
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<button class="retos" (click)="retosGo()">Retos</button>
+<button class="competencia" (click)="competenciasGo()">Competencias</button>
+<button class="grupos" (click)="gruposGo()">Grupos</button>
+<button class="logOut">Cerrar Sesión</button>
+
+<body> 
+    <div class="btns">
+        <button mat-button class="btn" [routerLink]="['/junior']">
+            <h3>
+            Junior 
+            </h3>
+        </button>
+        <button mat-button class="btn" [routerLink]="['/sub']">
+            <h3>
+            Sub-23 
+            </h3>
+        </button>
+        <button mat-button class="btn" [routerLink]="['/open']">
+            <h3>
+            Open 
+            </h3>
+        </button>
+        <button mat-button class="btn" [routerLink]="['/elite']">
+            <h3>
+            Elite 
+            </h3>
+        </button>
+        <button mat-button class="btn" [routerLink]="['/mastera']">
+            <h3>
+            Master A 
+            </h3>
+        </button>
+        <button mat-button class="btn" [routerLink]="['/masterb']">
+            <h3>
+            Master B 
+            </h3>
+        </button>
+        <button mat-button class="btn" [routerLink]="['/masterc']">
+            <h3>
+            Master C 
+            </h3>
+        </button>
+
+    </div>   
+    
+</body>

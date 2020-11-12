@@ -1,0 +1,26 @@
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<button class="retos" (click)="retosGo()">Retos</button>
+<button class="competencia" (click)="competenciasGo()">Competencias</button>
+<button class="grupos" (click)="gruposGo()">Grupos</button>
+<button class="logOut">Cerrar Sesión</button>
+
+<body class="grupos2">
+    <div *ngFor="let grupo of grupos">
+        <mat-card class="grupo">
+            <h2>{{ grupo }} &nbsp;</h2>
+            <button mat-button class="btn" [routerLink]="['/vergrupo']">
+                <h3>
+                Ver
+                </h3>
+            </button>
+        </mat-card>
+    </div>
+    <button mat-button class="btn" [routerLink]="['/creargrupo']">
+        <h3>
+        Crear 
+        </h3>
+    </button>
+</body>

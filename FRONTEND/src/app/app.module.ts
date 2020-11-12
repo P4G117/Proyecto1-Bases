@@ -19,6 +19,20 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
 import { VerRetosComponent } from './pages/ver-retos/ver-retos.component';
 import { VerCompetenciasComponent } from './pages/ver-competencias/ver-competencias.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SubActividadComponent } from './pages/sub-actividad/sub-actividad.component';
+import { GesGruposComponent } from './pages/ges-grupos/ges-grupos.component';
+import { VerGruposComponent } from './pages/ver-grupos/ver-grupos.component';
+import { CrearGrupoComponent } from './pages/crear-grupo/crear-grupo.component';
+import { ParticipantesComponent } from './pages/participantes/participantes.component';
+import { PosicionesComponent } from './pages/posiciones/posiciones.component';
+import { JuniorComponent } from './pages/junior/junior.component';
+import { SubComponent } from './pages/sub/sub.component';
+import { OpenComponent } from './pages/open/open.component';
+import { EliteComponent } from './pages/elite/elite.component';
+import { MasteraComponent } from './pages/mastera/mastera.component';
+import { MasterbComponent } from './pages/masterb/masterb.component';
+import { MastercComponent } from './pages/masterc/masterc.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +46,20 @@ import { HomeComponent } from './pages/home/home.component';
     BuscarComponent,
     VerRetosComponent,
     VerCompetenciasComponent,
-    HomeComponent
+    HomeComponent,
+    SubActividadComponent,
+    GesGruposComponent,
+    VerGruposComponent,
+    CrearGrupoComponent,
+    ParticipantesComponent,
+    PosicionesComponent,
+    JuniorComponent,
+    SubComponent,
+    OpenComponent,
+    EliteComponent,
+    MasteraComponent,
+    MasterbComponent,
+    MastercComponent
   ],
   imports: [
     BrowserModule,

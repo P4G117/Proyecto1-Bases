@@ -51,7 +51,7 @@
     opacity: 0.66;
   }
   
-  .inicio {
+  .retos {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     border: none;
@@ -71,7 +71,7 @@
     top: 30px;
   }
   
-  .buscar {
+  .competencia {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     border: none;
@@ -89,9 +89,9 @@
     height: 40px;
     left: 400px;
     top: 30px;
-  }
+}
   
-  .retos {
+  .grupos {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     border: none;
@@ -111,7 +111,7 @@
     top: 30px;
   }
   
-  .competencia {
+  .logOut {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     border: none;
@@ -131,81 +131,33 @@
     top: 30px;
   }
   
-  .perfil {
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    border: none;
-    font-size: 0.875rem;
-    color: black;
-    background-color: white;
-    font-weight: bold;
-    width: 10%;
-    display: block;
-    padding: 0.875rem 1rem;
-    border-radius: 1.5rem;
-    cursor: pointer;
-    position: absolute;
-    width: 10px;
-    height: 40px;
-    left: 900px;
-    top: 30px;
-  }
-  .logOut {
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    border: none;
-    font-size: 0.875rem;
-    color: black;
-    background-color: white;
-    font-weight: bold;
-    width: 10%;
-    display: block;
-    padding: 0.875rem 1rem;
-    border-radius: 1.5rem;
-    cursor: pointer;
-    position: absolute;
-    width: 200px;
-    height: 40px;
-    left: 1000px;
-    top: 30px;
-  }
-
-.cuerpo{
+.grupos2{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.cardTitulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
-    width: 500px;
-    margin-top: 100px;
-    background: #FFFFFF;
-    box-shadow: 10px 4px 21px 21px rgba(0, 0, 0, 0.05);
-    border-radius: 16px;
     flex-direction: column;
-    margin-right: 100px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 150px;
 }
 
-.patro{
+.grupo{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin:20px;
+    margin-top: 50px;
+    width: 431px;
+    height: 93px;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
-
-.patrocinadores{
-    height: 60px;
-    width: 60px;
-}
-
 
 .btn{
+    width: 148px;
+    height: 59px;
+    background: #5F71CC;
+    border-radius: 10px;
     color: #FFFFFF;
-    background-color: #5F71CC;
-    font-family: 'Times New Roman', Times, serif;
 }

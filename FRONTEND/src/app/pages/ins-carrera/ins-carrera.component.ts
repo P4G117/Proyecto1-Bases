@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router} from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +13,7 @@ export class InsCarreraComponent implements OnInit {
   patrocinadores = [];
   fileToUpload: File = null;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.carrera="Nombre de carrera"
@@ -42,6 +42,20 @@ export class InsCarreraComponent implements OnInit {
     });
   }
 }
+  iniciogo(){
+    this.router.navigate(['inicio-deport']);
+  }
+  buscargo(){
+    this.router.navigate(['buscar']);
+  }
+
+  retosGo(){
+    this.router.navigate(['verRetos']);
+  }
+
+  competenciasGo(){
+    this.router.navigate(['verCompetencias']);
+  }
 
   /*emailSignIn(user, password) {
     if (

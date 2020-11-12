@@ -1,0 +1,32 @@
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<button class="retos" (click)="retosGo()">Retos</button>
+<button class="competencia" (click)="competenciasGo()">Competencias</button>
+<button class="grupos" (click)="gruposGo()">Grupos</button>
+<button class="logOut">Cerrar Sesión</button>
+
+<body class="grupos2">
+    <div class="maingrupo">
+        <mat-card class="grupo">
+            <form [formGroup]="grupoForm" > 
+                <div [formGroup]="grupoForm">
+                    <h1>Nombre del grupo: </h1>
+                        <input type="text" formControlName="nombre">
+                    <h2>Administrador: </h2>
+                        <input type="text" formControlName="admi">
+                    <h2>Información: </h2>
+                        <input type="text" formControlName="info">
+                    <h2>Participantes: </h2>
+                        <input type="text" formControlName="participantes">
+                </div>
+            </form>
+            <button mat-button class="btn" >
+                <h2>
+                Crear grupo
+                </h2>
+            </button>
+        </mat-card>
+    </div>
+</body>

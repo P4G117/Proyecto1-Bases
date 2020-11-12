@@ -1,0 +1,57 @@
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<button class="retos" (click)="retosGo()">Retos</button>
+<button class="competencia" (click)="competenciasGo()">Competencias</button>
+<button class="grupos" (click)="gruposGo()">Grupos</button>
+<button class="logOut">Cerrar Sesión</button>
+
+<body class="grupos2">
+    <div class="maingrupo">
+        <mat-card class="grupo">
+            <div class="grupo3">
+                <h1>
+                    Nombre del grupo:
+                </h1>
+                <div contenteditable="true">
+                    <h1>
+                        {{nombre}}
+                    </h1>
+                </div>
+            </div>
+            <div class="grupo3">
+                <h1>
+                    Administrador:
+                </h1>
+                <div contenteditable="true">
+                    <h1>
+                        {{admi}}
+                    </h1>
+                </div>
+            </div>
+            <div class="grupo3">
+                <h1>
+                    Información:
+                </h1>
+                <div contenteditable="true">
+                    <h1>
+                        {{info}}
+                    </h1>
+                </div>
+            </div>
+            <div class="grupo3">
+                <h1>
+                    Participantes:
+                </h1>
+                <div contenteditable="true">
+                    <h1>
+                        {{participantes}}
+                    </h1>
+                </div>
+            </div>
+        </mat-card>
+
+    </div>
+    
+</body>
