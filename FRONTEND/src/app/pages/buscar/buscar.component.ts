@@ -141,7 +141,13 @@ export class BuscarComponent implements OnInit {
     if(tipo == "reto"){
       this.router.navigate(['verRetosInfo']);
     }
-    
+    if(tipo == "grupo"){
+      this.router.navigate(['asogrupo']);
+    }
+    if(tipo == "competencia"){
+      this.router.navigate(['inscarrera']);
+    }
+
 
   }
 

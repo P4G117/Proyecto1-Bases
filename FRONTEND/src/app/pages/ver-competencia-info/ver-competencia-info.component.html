@@ -8,3 +8,22 @@
 <button class="competencia" (click)="competenciasGo()">Competencias</button>
 <button class="perfil">Perfil</button>
 <button class="logOut">Cerrar Sesión</button>
+
+<h1 class="nombre">{{ informacion.Nombre }}</h1>
+
+<div class="lookfil" style="overflow: auto">
+  <div class="tramos">
+    <div *ngFor="let categoria of informacion.Categorias">
+      <mat-card class="productor">
+        <h3>{{ categoria }} &nbsp;</h3>
+        <div class="categoria" style="overflow: auto">
+          <div *ngFor="let t of top">
+            <h3>
+              {{ t.Nombre }}  {{ t.Edad }}  {{ t.Tiempo }} &nbsp;
+            </h3>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

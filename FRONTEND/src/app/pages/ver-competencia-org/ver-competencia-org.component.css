@@ -1,6 +1,6 @@
 .linea {
   position: absolute;
-  width: 1512px;
+  width: 1250px;
   height: 0px;
   left: 0px;
   top: 70px;
@@ -105,7 +105,7 @@
   border-radius: 1.5rem;
   cursor: pointer;
   position: absolute;
-  width: 50px;
+  width: 100px;
   height: 40px;
   left: 580px;
   top: 30px;
@@ -125,9 +125,9 @@
   border-radius: 1.5rem;
   cursor: pointer;
   position: absolute;
-  width: 200px;
+  width: 100px;
   height: 40px;
-  left: 700px;
+  left: 755px;
   top: 30px;
 }
 
@@ -172,128 +172,44 @@
 
 .left {
   position: absolute;
-  width: 500px;
-  height: 70px;
+  width: 900px;
+  height: 400px;
   top: 150px;
-  left: 300px;
+  left: 200px;
   background-color: #D7D7D7;
-  font-size: 50px;
-  justify-content: center;
-  align-items: center;
-  padding-left: 100px;
-  padding-top: 20px;
-
 }
 
-
+.productor {
+  position: relative;
+  top: 10px;
+  left: 200px;
+  width: 550px;
+  height: 100px;
+  background-color: white;
+}
 
 .buscarBtn{
   position: absolute;
   left: 400px;
 }
 
-.nombre {
-  position: absolute;
-  top: 0px;
-  left: 550px;
-  width: 300px;
-  height: 0.25px;
-  font-family: Arial Black;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 36px;
-  line-height: 200px;
-  color: #c35dd3;
-  opacity: 0.66;
-}
-
-.progress{
-  position: absolute;
-  top: 300px;
-  width: 400px;
-  left: 150px;
-  height: 20px;
-}
-::ng-deep .mat-progress-bar-fill::after {
-  background-color: #2BAA28;
-}
-
-.down {
-  position: absolute;
-  width: 200px;
-  height: 150px;
-  top: 400px;
-  left: 800px;
-  background-color: #D7D7D7;
-  font-size: 15px;
-  justify-content: center;
-  align-items: center;
-  padding-left: 5px;
-  padding-top: 20px;
-
-}
-
-.patrocinadores {
-  position: absolute;
-  width: 900px;
-  height: 150px;
-  top: 200px;
-  left: 200px;
-  background-color: #D7D7D7;
-  font-size: 15px;
-  justify-content: center;
-  align-items: center;
-  padding-left: 5px;
-  padding-top: 5px;
-
-}
-
-.logoContainer1{
-  position: relative;
-  width: 50px;
-  height: 50px;
-  left: 10px;
-  top: 10px;
+.Crear {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  font-size: 0.875rem;
+  color: black;
+  background-color: #5F71CC;
+  font-weight: bold;
+  width: 10%;
+  display: block;
+  padding: 0.875rem 1rem;
   border-radius: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  left: 580px;
+  top: 570px;
 }
 
-.categoria{
-    justify-content: center;
-    align-items: center;
-    margin:20px;
-    width: 431px;
-    height: 93px;
-    background: #D7D7D7;
-    mix-blend-mode: normal;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    padding-top: 5px;
-}
-
-.cate {
-  background-color: red;
-
-}
-
-.lookfil {
-  position: relative;
-  width: 700px;
-  height: 600px;
-  top: 200px;
-  left: 300px;
-  background-color:#D7D7D7;
-}
-
-.productor{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin:20px;
-  width: 431px;
-  height: 93px;
-  background: #FFFFFF;
-  mix-blend-mode: normal;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}

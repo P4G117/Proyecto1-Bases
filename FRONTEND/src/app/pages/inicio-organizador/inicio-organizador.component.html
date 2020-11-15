@@ -1,0 +1,29 @@
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<div class="lookfil">
+  <h1 class="nombre">{{ Nombre }} {{ Apellido }}</h1>
+  <div class="infor">
+    <h2>
+      Retos &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; {{ no_retos }}
+    </h2>
+    <h2>
+      Competencias &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; {{ no_competencias }}
+    </h2>
+    <h2>
+      Grupos &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      {{ no_grupos }}
+    </h2>
+  </div>
+</div>
+
+<button class="retosbt" (click)="verRetos()">Retos</button>
+<button class="compebt" (click)="goCompetencias()">Competencias</button>
+<button class="gruposbt">Grupos</button>
+
+<img class="logoContainer" [src]="source" src="" />

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent{
   password: string;
   rol: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   rolSet(rol){
     this.rol = rol
@@ -20,10 +21,12 @@ export class LoginComponent{
   login(){
     const user = {username: this.username, password: this.password, rol: this.rol};
     //Manda la informacion al servidor a ver si concuerda
-    
+
     console.log(this.username);
     console.log(this.password);
     console.log(this.rol);
+
+    this.router.navigate(['inicio-deport']);
   }
 
 

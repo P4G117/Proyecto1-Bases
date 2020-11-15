@@ -1,0 +1,158 @@
+/* Line 1 */
+.linea {
+  position: absolute;
+  width: 1355px;
+  height: 0px;
+  left: 0px;
+  top: 70px;
+
+  border: 1px solid #000000;
+  transform: rotate(0.01deg);
+}
+
+.logo {
+  position: absolute;
+  top: -50px;
+  width: 300px;
+  height: 0.25px;
+  font-family: Arial Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 200px;
+  color: #c35dd3;
+  opacity: 0.66;
+}
+.logo2 {
+  position: absolute;
+  top: -50px;
+  width: 20px;
+  left: 150px;
+  height: 0.25px;
+  font-family: Arial Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 200px;
+  color: #D63030;
+  opacity: 0.66;
+}
+.logo3 {
+  position: absolute;
+  top: -49px;
+  width: 5px;
+  left: 160px;
+  height: 0.25px;
+  font-family: Arial Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 200px;
+  color: #0D28B2;
+  opacity: 0.66;
+}
+.lookfil {
+  position: relative;
+  width: 350px;
+  height: 400px;
+  top: 200px;
+  left: 100px;
+  background-color:#D7D7D7;
+}
+
+.retosbt {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  color: black;
+  background-color: #D794E2;
+  font-weight: bold;
+  width: 10%;
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  width: 500px;
+  height: 100px;
+  left: 650px;
+  top: 200px;
+  font-size: 50px;
+}
+
+.compebt {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  font-size: 0.875rem;
+  color: black;
+  background-color: #D794E2;
+  font-weight: bold;
+  width: 10%;
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  width: 500px;
+  height: 100px;
+  left: 650px;
+  top: 350px;
+  font-size: 45px;
+}
+
+.gruposbt {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  font-size: 0.875rem;
+  color: black;
+  background-color: #D794E2;
+  font-weight: bold;
+  width: 10%;
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  width: 500px;
+  height: 100px;
+  left: 650px;
+  top: 500px;
+  font-size: 50px;
+}
+.logoContainer{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 220px;
+  top: 150px;
+  border-radius: 1.5rem;
+}
+
+.nombre {
+  position: relative;
+  top: 75px;
+  width: 800px;
+  left: 60px;
+  height: 0.25px;
+  font-family: Arial Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #0D28B2;
+  opacity: 0.66;
+}
+
+.infor {
+  position: relative;
+  width: 350px;
+  height: 400px;
+  top: 200px;
+  left: 0px;
+
+}
+
+.infor h2{
+  font-size: 20px;
+}

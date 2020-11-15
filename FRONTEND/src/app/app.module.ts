@@ -35,6 +35,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { VerRetoInfoComponent } from './pages/ver-reto-info/ver-reto-info.component';
 import { VerCompetenciaInfoComponent } from './pages/ver-competencia-info/ver-competencia-info.component';
+import { InicioOrganizadorComponent } from './pages/inicio-organizador/inicio-organizador.component';
+import { VerRetosOrgComponent } from './pages/ver-retos-org/ver-retos-org.component';
+import { CrearRetoComponent } from './pages/crear-reto/crear-reto.component';
+import { VerCompetenciaOrgComponent } from './pages/ver-competencia-org/ver-competencia-org.component';
+import { CrearCompComponent } from './pages/crear-comp/crear-comp.component';
 
 
 @NgModule({
@@ -65,7 +70,12 @@ import { VerCompetenciaInfoComponent } from './pages/ver-competencia-info/ver-co
     MastercComponent,
     VerRetoInfoComponent,
     VerCompetenciaInfoComponent,
-    HomeComponent
+    HomeComponent,
+    InicioOrganizadorComponent,
+    VerRetosOrgComponent,
+    CrearRetoComponent,
+    VerCompetenciaOrgComponent,
+    CrearCompComponent
 
   ],
   imports: [

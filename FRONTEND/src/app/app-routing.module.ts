@@ -24,8 +24,12 @@ import { MasteraComponent } from './pages/mastera/mastera.component';
 import { MasterbComponent } from './pages/masterb/masterb.component';
 import { MastercComponent } from './pages/masterc/masterc.component';
 import { VerRetoInfoComponent } from './pages/ver-reto-info/ver-reto-info.component';
-
-
+import { VerCompetenciaInfoComponent } from './pages/ver-competencia-info/ver-competencia-info.component';
+import { InicioOrganizadorComponent } from './pages/inicio-organizador/inicio-organizador.component';
+import { VerRetosOrgComponent } from './pages/ver-retos-org/ver-retos-org.component';
+import { CrearRetoComponent } from './pages/crear-reto/crear-reto.component';
+import { VerCompetenciaOrgComponent } from './pages/ver-competencia-org/ver-competencia-org.component';
+import { CrearCompComponent } from './pages/crear-comp/crear-comp.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
@@ -38,7 +42,7 @@ const routes: Routes = [
   { path: "verRetos", component: VerRetosComponent, pathMatch: "full"},
   { path: "verCompetencias", component: VerCompetenciasComponent, pathMatch: "full"},
   { path: "verRetosInfo", component: VerRetoInfoComponent, pathMatch: "full" },
-  { path: "verCompetencia", component: VerCompetenciasComponent, pathMatch: "full"},
+  { path: "VerCompetenciaInfo", component: VerCompetenciaInfoComponent, pathMatch: "full"},
   { path: "home", component: HomeComponent, pathMatch: "full" },
   { path: "actividad", component: SubActividadComponent, pathMatch: "full" },
   { path: "gesgrupos", component: GesGruposComponent, pathMatch: "full" },
@@ -53,6 +57,11 @@ const routes: Routes = [
   { path: "mastera", component: MasteraComponent, pathMatch: "full" },
   { path: "masterb", component: MasterbComponent, pathMatch: "full" },
   { path: "masterc", component: MastercComponent, pathMatch: "full" },
+  { path: "inicio-organizador", component: InicioOrganizadorComponent, pathMatch: "full"},
+  { path: "verRetosOrg", component: VerRetosOrgComponent, pathMatch: "full"},
+  { path: "crearReto/:creado/:nombre", component: CrearRetoComponent, pathMatch: "full"},
+  { path: "verCompeOrg", component:VerCompetenciaOrgComponent, pathMatch:"full"},
+  { path: "crearComp/:creado/:nombre", component:CrearCompComponent, pathMatch:"full"},
 
   { path: "", component: HomeComponent, pathMatch: "full" },
   { path: "**", component: HomeComponent, pathMatch: "full" }

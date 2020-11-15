@@ -46,4 +46,8 @@ export class VerCompetenciasComponent implements OnInit {
     this.router.navigate(['verCompetencias']);
   }
 
+  verInfo(id){
+    this.router.navigate(['VerCompetenciaInfo']);
+  }
+
 }

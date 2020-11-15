@@ -1,0 +1,65 @@
+<hr class="linea" />
+<label class="logo">Stravia</label><label class="logo2">|</label
+><label class="logo3">TEC</label>
+
+<button class="inicio" (click)="goInicio()" >Inicio</button>
+<button class="buscar" (click)="goRetos()">Retos</button>
+<button class="retos" (click)="goCompetencias()">Competencias</button>
+<button class="competencia" >Grupos</button>
+<button class="perfil">Cerrar Sesión</button>
+
+<div>
+  <form class="forma">
+
+    <input
+      class="nombre"
+      type="text"
+      name="name"
+      placeholder={{nombre}}
+      required="required"
+      (change)="nombreSet($event.target.value)"
+    />
+
+    <input
+    class="nombre"
+    type="text"
+    name="costo"
+    placeholder={{nombre}}
+    required="required"
+    (change)="nombreSet($event.target.value)"
+  />
+
+    <label class="Desde">Fecha:</label>
+
+    <input
+      class="from"
+      type="text"
+      name="from"
+      required="required"
+      placeholder={{desde}}
+      (change)="desdeSet($event.target.value)"
+      onfocus="(this.type='date')"
+    />
+
+    <label class="act">Categorías:</label>
+    <select class="actividad" [(ngModel)] ="categorias" multiple>
+      <option [value]="item" *ngFor="let item of cate">{{item}}</option>
+    </select>
+
+    <label class="pri">Privacidad:</label>
+    <select class="privc" (change)="privSet($event.target.value)">
+      <option value="actual">{{privacidad}}</option>
+      <option value="publico">Público</option>
+      <option value="privado">Privado</option>
+    </select>
+
+    <label class="patro">Patrocinadores:</label>
+    <select class="patrocinadores" (change)="patroSet($event.target.value)">
+      <option value="actual">{{patrocinadores}}</option>
+      <option value="python">Python</option>
+      <option value="java">Java</option>
+    </select>
+
+    <button class="Crear" (click)="crear()" type="submit">{{boton}}</button>
+  </form>
+</div>
