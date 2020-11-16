@@ -3,12 +3,12 @@
     <label class="logo">Stravia</label><label class="logo2">|</label><label class="logo3">TEC</label>
 
     <input
-      [(ngModel)] = "username"
       class="usuario"
       type="text"
       name="username"
       placeholder="Usuario"
       required="required"
+      (change) ="setUsername($event.target.value)"
     />
 
     <input
@@ -17,6 +17,7 @@
       name="password"
       placeholder="Contraseña"
       required="required"
+      (change) ="setPassword($event.target.value)"
     />
 
     <input
@@ -25,6 +26,8 @@
       name="name"
       placeholder="Nombre"
       required="required"
+      (change) ="setName($event.target.value)"
+
     />
     <input
       class="apellido1"
@@ -32,6 +35,7 @@
       name="apellido1"
       placeholder="Apellido1"
       required="required"
+      (change) ="setApellido1($event.target.value)"
     />
     <input
       class="apellido2"
@@ -39,6 +43,7 @@
       name="apellido2"
       placeholder="Apellido2"
       required="required"
+      (change) ="setApellido2($event.target.value)"
     />
     <input
       class="nacionalidad"
@@ -46,20 +51,23 @@
       name="nacionalidad"
       placeholder="Nacionalidad"
       required="required"
+      (change)= "setNacionalidad($event.target.value)"
     />
     <input
       class="dob"
       type="date"
       name="dob"
       required="required"
+      (change)= "setDob($event.target.value)"
     />
 
-    <select class="rol" >
+    <select class="rol" (change)= "setRol($event.target.value)">
+      <option value="nada"></option>
       <option value="organizador">Organizador</option>
       <option value="deportista">Deportista</option>
       </select>
 
-    <button class="reg" type="submit" (click) ='signup()'>Iniciar sesión</button>
+    <button class="reg" (click) ='signup()'>Iniciar sesión</button>
   </form>
 
 </div>

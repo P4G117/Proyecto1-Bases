@@ -20,6 +20,8 @@ export class CrearCompComponent implements OnInit {
   costo:string;
   categorias:string[]=[];
 
+  //5432
+
   cate:string[] = ["Junior", "Sub-23", "Open", "Elite", "MasterA", "MasterB", "MasterC"];
 
   constructor(

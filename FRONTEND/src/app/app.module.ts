@@ -40,6 +40,7 @@ import { VerRetosOrgComponent } from './pages/ver-retos-org/ver-retos-org.compon
 import { CrearRetoComponent } from './pages/crear-reto/crear-reto.component';
 import { VerCompetenciaOrgComponent } from './pages/ver-competencia-org/ver-competencia-org.component';
 import { CrearCompComponent } from './pages/crear-comp/crear-comp.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { CrearCompComponent } from './pages/crear-comp/crear-comp.component';
     MatButtonModule,
     MatProgressBarModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
   ],
   providers: [],

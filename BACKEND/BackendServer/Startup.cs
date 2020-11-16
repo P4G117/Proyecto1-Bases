@@ -24,7 +24,7 @@ namespace BackendServer
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql("Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=azofeifa1171290;"));
+            options.UseNpgsql("Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=12345;"));
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

@@ -1,25 +1,39 @@
 import { Component } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { DeportistaService } from '../../services/Deportista/deportista.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [DeportistaService],
 })
-export class LoginComponent{
-
+export class LoginComponent {
   username: string;
   password: string;
   rol: string;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private deportistaSvc: DeportistaService
+  ) {}
 
-  rolSet(rol){
-    this.rol = rol
+  ngOnInit(){
+    this.deportistaSvc.getAll().subscribe(res => {
+      console.log('Res ', res);
+    })
   }
 
-  login(){
-    const user = {username: this.username, password: this.password, rol: this.rol};
+  rolSet(rol) {
+    this.rol = rol;
+  }
+
+  login() {
+    const user = {
+      username: this.username,
+      password: this.password,
+      rol: this.rol,
+    };
     //Manda la informacion al servidor a ver si concuerda
 
     console.log(this.username);
@@ -28,6 +42,4 @@ export class LoginComponent{
 
     this.router.navigate(['inicio-deport']);
   }
-
-
 }
