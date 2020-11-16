@@ -1,13 +1,16 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Deportista } from 'src/app/models/Deportista';
-import { DeportistaService } from 'src/app/services/Deportista/deportista.service';
+import { Organizador } from 'src/app/models/Organizador';
+import { Deportista } from '../../models/Deportista';
+import { DeportistaService } from '../../services/Deportista/deportista.service';
+import { OrganizadorService } from '../../services/Organizador/organizador.service'
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [DeportistaService],
+  providers: [DeportistaService, OrganizadorService],
 })
 export class RegisterComponent {
   username: string;
@@ -26,7 +29,8 @@ export class RegisterComponent {
   @Output() onChange: EventEmitter<File> = new EventEmitter<File>();
   constructor(
     private router: Router,
-    private deportistaSvc: DeportistaService
+    private deportistaSvc: DeportistaService,
+    private organizadorSvc: OrganizadorService
   ) {}
 
   ngOnInit(){
@@ -98,6 +102,7 @@ export class RegisterComponent {
       this.generateDeportista();
     }
     if (this.rol== "productor"){
+      this.generateOrganizador();
     }
 
   }
@@ -115,6 +120,22 @@ export class RegisterComponent {
     deportista.Foto = "URL 90";
     deportista.Clave = this.password;
     this.deportistaSvc.addDeportista(deportista).subscribe(res => {
+      console.log('Res ', res);
+      this.router.navigate(['home']);
+    })
+  }
+
+  generateOrganizador(){
+    let organizador = new Organizador();
+    organizador.UsuarioOrg = this.username;
+    organizador.PrimerNombre = this.name;
+    organizador.Apellido1 = this.apellido1;
+    organizador.Apellido2 = this.apellido2;
+    organizador.Fecnac = this.fechNaci;
+    organizador.Nacionalidad = this.nacionalidad;
+    organizador.Foto = "URL 90";
+    organizador.Clave = this.password;
+    this.organizadorSvc.addOrganizador(organizador).subscribe(res => {
       console.log('Res ', res);
       this.router.navigate(['home']);
     })
