@@ -20,16 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c61451d7-b9db-4a1d-ba54-2c1d15777338" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BACKEND/DATA/CONSULTAS.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3970f46-9a6b-44ff-8871-7d3088a9aea2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d3970f46-9a6b-44ff-8871-7d3088a9aea2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3970f46-9a6b-44ff-8871-7d3088a9aea2/storage_v2/_src_/database/StraviaTec.lEWlfw/schema/proyecto1.zKdC5A.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d3970f46-9a6b-44ff-8871-7d3088a9aea2/storage_v2/_src_/database/StraviaTec.lEWlfw/schema/proyecto1.zKdC5A.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3970f46-9a6b-44ff-8871-7d3088a9aea2/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d3970f46-9a6b-44ff-8871-7d3088a9aea2/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/BackendServer/BackendServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/BackendServer/BackendServer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/BackendServer/Models/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/BackendServer/Models/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/BackendServer/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/BackendServer/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/POPULATION.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/POPULATION.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/src/app/services/Deportista/deportista.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/src/app/services/Deportista/deportista.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BACKEND/BackendServer/Controllers/ConsultasController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/BackendServer/Controllers/ConsultasController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BACKEND/BackendServer/Repositorios/CarPublicasRepositorio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/BackendServer/Repositorios/CarPublicasRepositorio.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BACKEND/DATA/CONSULTAS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/DATA/CONSULTAS.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

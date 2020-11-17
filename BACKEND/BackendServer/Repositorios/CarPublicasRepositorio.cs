@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using BackendServer.Models;
-using System.Globalization;
 
 namespace BackendServer.Repositorios
 {

@@ -52,6 +52,7 @@ FROM
      (proyecto1.amigo AS J RIGHT JOIN proyecto1.deportista AS D ON J.amigo = D.usuario_dep)
 WHERE J.deportista = 'adri45s';
 
+SELECT * FROM proyecto1.deportista;
 --###########################################################################
 --##     Buscar Amigo o Persona en Especifico por el Nombre y Apellido     ##
 --###########################################################################
@@ -129,6 +130,8 @@ FROM
 WHERE I.id_carrera = C.id_carrera AND C.nombre = 'Clasica Palmarin' AND A.nombreactividad = 'Clasica Palmarin'
 ORDER BY A.duracion ASC;
 
+SELECT nombre FROM proyecto1.carrera;
+
 --###########################################################################
 --##                    Reporte Participantes por Carrera                  ##
 --###########################################################################
@@ -150,7 +153,7 @@ FROM
      RIGHT JOIN proyecto1.actividad AS A ON A.id_deportista = D.usuario_dep),
     proyecto1.carrera AS C
 WHERE I.id_carrera = C.id_carrera AND C.nombre  = 'Clasica Palmarin' AND A.nombreactividad = 'Clasica Palmarin'
---GROUP BY D.primer_nombre, D.apellido1, D.apellido2, Edad, A.duracion, I.categoria
+--GROUP BY D.primer_nombre, I.categoria
 ORDER BY A.duracion;
 
 --###########################################################################
