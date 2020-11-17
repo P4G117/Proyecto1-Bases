@@ -8,7 +8,8 @@ import { Deportista } from 'src/app/models/Deportista';
 })
 export class DeportistaService {
 
-  url:string = '/api/Deportista';
+  //url = "https://localhost:44317/api/Deportista";
+  url:string = '/api/Deportista'; 
 
   constructor( private http:HttpClient) { }
 

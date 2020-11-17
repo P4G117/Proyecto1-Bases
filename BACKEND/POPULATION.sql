@@ -127,6 +127,16 @@ VALUES ('Senderos de mi pueblo','2021/06/07','05:15:00','',20,'04:28:51','Reto',
 INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
 VALUES ('Clasica Palmarin','2021/01/27','08:00:00','Mapa 2',15,'01:24:35','Carrera','Ciclismo','vanneH95');
 INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
+VALUES ('Clasica Palmarin','2021/01/27','08:00:00','Mapa 2',15,'01:40:00','Carrera','Ciclismo','MMMartin');
+INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
+VALUES ('Clasica Palmarin','2021/01/27','08:00:00','Mapa 2',15,'01:10:15','Carrera','Ciclismo','luRapa');
+INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
+VALUES ('Clasica Palmarin','2021/01/27','08:00:00','Mapa 2',15,'01:50:15','Carrera','Ciclismo','MadrizR');
+INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
+VALUES ('Clasica Palmarin','2021/01/27','08:00:00','Mapa 2',15,'01:05:15','Carrera','Ciclismo','cgr1995');
+INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
+VALUES ('Clasica Palmarin','2021/01/27','08:00:00','Mapa 2',15,'02:10:35','Carrera','Ciclismo','carlos');
+INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
 VALUES ('Caminata Matutina','2020/11/02','05:00:00','Mapa1',15,'01:45:10','Personal','Caminata','luRapa');
 INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
 VALUES ('Ruta Guapiles','2020/11/21','06:00:00','Mapa2',25,'02:05:35','Personal','Ciclismo','rodribon');
@@ -227,6 +237,8 @@ INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORI
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (2,'cgr1995','URL','Open');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (2,'carlos','URL','Elite');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (2,'vanneH95','URL','Elite');
+INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (2,'MMMartin','URL','Elite');
+INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (2,'luRapa','URL','Elite');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (3,'cLima','URL','Elite');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (3,'carlitos','URL','Elite');
 INSERT INTO proyecto1.inscripcion(ID_CARRERA, USUARIO_DEP, COMPROBANTE, CATEGORIA) VALUES (3,'julimasis','URL','Elite');
@@ -443,28 +455,6 @@ SELECT * FROM proyecto1.deportista_reto;
 --##################################################################################################
 
 --Inserción de Datos Tabla Grupo_Carrera
---Carrera Publica, Todos los Grupos Pueden Verla => Privacidad = FALSE
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (1,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (2,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (3,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (4,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (5,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (6,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (7,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (8,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (9,3);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (10,3);
---Carrera Publica, Todos los Grupos Pueden Verla => Privacidad = FALSE
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (1,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (2,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (3,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (4,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (5,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (6,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (7,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (8,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (9,4);
-INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (10,4);
 --Carrera Privadas, solo Algunos Grupos Pueden Verla => Privacidad = TRUE
 INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (1,1);
 INSERT INTO proyecto1.grupo_carrera(ID_GRUPO, ID_CARRERA) VALUES (2,1);
@@ -484,32 +474,10 @@ SELECT * FROM proyecto1.grupo_carrera;
 --####################                    GRUPO_RETO                      ##########################
 --##################################################################################################
 --Insercion de Datos Tabla Grupo_Reto
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (1,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (2,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (4,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (5,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (6,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (7,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (8,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (9,1);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (10,1);
-
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (7,2);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (8,2);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (9,2);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (10,2);
-
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (1,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (2,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (4,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (5,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (6,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (7,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (8,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (9,3);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (10,3);
 
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (1,4);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,4);
@@ -518,33 +486,11 @@ INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (6,4);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (7,4);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (8,4);
 
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (1,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (2,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (4,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (5,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (6,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (7,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (8,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (9,5);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (10,5);
-
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (1,6);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,6);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (4,6);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (5,6);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (10,6);
-
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (1,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (2,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (4,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (5,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (6,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (7,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (8,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (9,7);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (10,7);
 
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (1,8);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,8);
@@ -556,17 +502,6 @@ INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (4,9);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (7,9);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (8,9);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (10,9);
-
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (1,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (2,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (4,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (5,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (6,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (7,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (8,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (9,10);
-INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (10,10);
 
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (2,11);
 INSERT INTO proyecto1.grupo_reto(id_grupo, id_reto) VALUES (3,11);
@@ -642,3 +577,20 @@ INSERT INTO proyecto1.patrocinador_reto(id_patrocinador, id_reto) VALUES (9,12);
 
 --Mostrar Datos de la Tabla Patrocinador_Reto
 SELECT * FROM proyecto1.patrocinador_reto;
+
+--##################################################################################################
+--#################                   AMIGO                         ####################
+--##################################################################################################
+
+--Inserción de Datos Tabla Amigo
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('adri45s','josueRL');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('adri45s','terecastro');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('adri45s','vanneH95');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('adri45s','carlos');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('adri45s','sebas2008');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('adri45s','ElbaVL');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('ElbaVL','cruz16');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('ElbaVL','guivalcas');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('MMMartin','vanneH95');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('MadrizR','sebas2008');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('MadrizR','cgr1995');
