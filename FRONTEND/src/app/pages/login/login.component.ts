@@ -28,18 +28,23 @@ export class LoginComponent {
     this.rol = rol;
   }
 
+  setUser(user){
+    this.username = user;
+  }
+
+  setPassword(password){
+    this.password = password;
+  }
+
   login() {
-    const user = {
-      username: this.username,
-      password: this.password,
-      rol: this.rol,
-    };
-    //Manda la informacion al servidor a ver si concuerda
-
-    console.log(this.username);
-    console.log(this.password);
     console.log(this.rol);
+    if (this.rol == "deportista"){
+      this.router.navigate(['inicio-deport',this.username]);
+    }
+    if (this.rol== "productor"){
+      this.router.navigate(['inicio-organizador']);
+    }
 
-    this.router.navigate(['inicio-deport']);
+
   }
 }

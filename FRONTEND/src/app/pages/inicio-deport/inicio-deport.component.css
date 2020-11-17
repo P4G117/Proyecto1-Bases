@@ -196,7 +196,7 @@
   position: absolute;
   width: 459px;
   height: 500px;
-  top: 55px;
+  top: 230px;
   left: -150px;
 }
 
@@ -204,7 +204,7 @@
   position: absolute;
   width: 459px;
   height: 500px;
-  top: 55px;
+  top: 230px;
   left: 0px;
 }
 
@@ -212,7 +212,7 @@
   position: absolute;
   width: 459px;
   height: 500px;
-  top: 55px;
+  top: 230px;
   left: 150px;
 }
 
@@ -220,7 +220,7 @@
   position: absolute;
   width: 459px;
   height: 500px;
-  top: 100px;
+  top: 270px;
   left: -150px;
 }
 
@@ -228,25 +228,26 @@
   position: absolute;
   width: 459px;
   height: 500px;
-  top: 100px;
+  top: 270px;
   left: 0px;
 }
 
 .actividades2{
   position: absolute;
   width: 459px;
-  height: 500px;
-  top: 100px;
+  height: 270px;
+  top: 270px;
   left: 150px;
 }
 
 .left {
   position: absolute;
   width: 459px;
-  height: 500px;
+  height: 400px;
   top: 200px;
   left: 64px;
-  background-color: #7c6767;
+  background-color: #D7D7D7;
+  padding-top: 150px;
 }
 
 .right {
@@ -255,7 +256,7 @@
   height: 500px;
   top: 150px;
   left: 640px;
-  background-color: #160f0f;
+  background-color: #D7D7D7;
 }
 
 .full {
@@ -264,4 +265,21 @@
   background-color: #D7D7D7;
 }
 
-
+.searchbt {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  font-size: 0.875rem;
+  color: black;
+  background-color: #A9B7DB;
+  font-weight: bold;
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  width: 400px;
+  height: 40px;
+  left: 0px;
+  top: 200px;
+}

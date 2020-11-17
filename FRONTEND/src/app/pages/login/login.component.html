@@ -4,23 +4,23 @@
     <h1>Iniciar sesión</h1>
     <input
       type="username"
-      [(ngModel)]="username"
       name="username"
       placeholder="Usuario"
       required="required"
+      (change) = "setUser($event.target.value)"
     />
     <input
       type="password"
-      [(ngModel)]="password"
       name="password"
       placeholder="Contraseña"
       required="required"
+      (change) = "setPassword($event.target.value)"
     />
-    <select class="form-control" [(ngModel)]="rol" (change)="rolSet($event.target.value)">
+    <select class="form-control" (change)="rolSet($event.target.value)">
       <option value="organizador">Organizador</option>
       <option value="deportista">Deportista</option>
       </select>
-    <button type="submit" (click)="login()">Iniciar sesión</button>
+    <button (click)="login()">Iniciar sesión</button>
   </form>
 </div>
 

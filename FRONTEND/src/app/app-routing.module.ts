@@ -34,7 +34,7 @@ import { CrearCompComponent } from './pages/crear-comp/crear-comp.component';
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
   { path: "register", component: RegisterComponent, pathMatch: "full" },
-  { path: "inicio-deport", component: InicioDeportComponent, pathMatch: "full" },
+  { path: "inicio-deport/:username", component: InicioDeportComponent, pathMatch: "full" },
   { path: "inscarrera", component: InsCarreraComponent, pathMatch: "full" },
   { path: "insreto", component: InsRetoComponent, pathMatch: "full" },
   { path: "asogrupo", component: AsoGrupoComponent, pathMatch: "full" },
