@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 
 const val EXTRA_MESSAGE = "com.example.straviatec.MESSAGE"
-const val EXTRA_PASSWORD = "com.example.straviatec.PASSWORD"
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, Activity2::class.java)
         intent.putExtra(EXTRA_MESSAGE, username_value)
-        intent.putExtra(EXTRA_PASSWORD, password_value)
 
         startActivity(intent)
 
