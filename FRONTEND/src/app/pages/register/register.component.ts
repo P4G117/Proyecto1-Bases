@@ -122,7 +122,7 @@ export class RegisterComponent {
     this.deportistaSvc.addDeportista(deportista).subscribe(res => {
       console.log('Res ', res);
       this.router.navigate(['home']);
-    })
+    });
   }
 
   generateOrganizador(){

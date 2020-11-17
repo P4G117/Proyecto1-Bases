@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">StraviaTec</string>
+    <string name="title_activity_registrar_actividad">Map</string>
+
+    <string-array name="planets_array">
+        <item>Correr</item>
+        <item>Nadar</item>
+        <item>Ciclismo</item>
+        <item>Senderismo</item>
+        <item>Kayak</item>
+        <item>Caminata</item>
+    </string-array>
+</resources>
