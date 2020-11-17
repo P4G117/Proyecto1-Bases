@@ -10,14 +10,14 @@ export class VerCompetenciasComponent implements OnInit {
 
   informaciones = [
     {
-      Nombre: 'Maraton',
-      Descripcion: 'Maraton mas importante de Costa Rica',
+      Nombre: 'Maratón',
+      Descripcion: 'Maraton más importante de Costa Rica',
       tipo: 'competencia',
       id: 0,
     },
     {
       Nombre: '4 piscinas',
-      Descripcion: '4 piscinas olimpicas',
+      Descripcion: '4 piscinas olímpicas',
       tipo: 'competencia',
       id: 1,
     },

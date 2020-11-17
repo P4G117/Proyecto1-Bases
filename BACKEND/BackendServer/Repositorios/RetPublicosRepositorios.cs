@@ -34,7 +34,7 @@ namespace BackendServer.Repositorios
                         RetosPublicos retosPublicos = null;
                         retosPublicos = new RetosPublicos();
                         retosPublicos.nombre = reader.GetValue(0).ToString();
-                        retosPublicos.periodio = reader.GetValue(1).ToString();
+                        retosPublicos.periodo = reader.GetValue(1).ToString();
                         retosPublicos.tipo_reto = reader.GetValue(2).ToString();
                         retosPublicos.tipo_actividad = reader.GetValue(3).ToString();
 

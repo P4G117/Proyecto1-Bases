@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-
+using BackendServer.Repositorios;
 namespace BackendServer.Models
 {
     public partial class AppDbContext : DbContext
@@ -14,7 +14,7 @@ namespace BackendServer.Models
             : base(options)
         {
         }
-
+        Connexion connString = new Connexion();
         public virtual DbSet<Actividad> Actividad { get; set; }
         public virtual DbSet<Amigo> Amigo { get; set; }
         public virtual DbSet<Carrera> Carrera { get; set; }
@@ -38,12 +38,13 @@ namespace BackendServer.Models
             if (!optionsBuilder.IsConfigured)
             {
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=azofeifa1171290;");
+                optionsBuilder.UseNpgsql(connString.conexion);
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            /*
             modelBuilder.Entity<Actividad>(entity =>
             {
                 entity.HasKey(e => e.IdActividad)
@@ -596,7 +597,7 @@ namespace BackendServer.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("reto_id_organizador_fkey");
             });
-
+            */
             OnModelCreatingPartial(modelBuilder);
         }
 

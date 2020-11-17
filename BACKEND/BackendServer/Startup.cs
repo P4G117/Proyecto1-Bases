@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BackendServer.Repositorios;
 
 namespace BackendServer
 {
@@ -19,12 +20,15 @@ namespace BackendServer
 
         public IConfiguration Configuration { get; }
 
+        // String de conexion a la base de datos en Postgresql 
+        Connexion connexion = new Connexion();
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql("Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=azofeifa1171290;"));
+            options.UseNpgsql(connexion.conexion));
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

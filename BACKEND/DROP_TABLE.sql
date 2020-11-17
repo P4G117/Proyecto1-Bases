@@ -15,3 +15,4 @@ DROP TABLE "StraviaTec".proyecto1.grupo_carrera CASCADE;
 DROP TABLE "StraviaTec".proyecto1.grupo_reto CASCADE;
 DROP TABLE "StraviaTec".proyecto1.patrocinador_carrera CASCADE;
 DROP TABLE "StraviaTec".proyecto1.patrocinador_reto CASCADE;
+DROP TABLE "StraviaTec".proyecto1.amigo CASCADE;

@@ -13,14 +13,13 @@ namespace BackendServer.Repositorios
     {
         public static List<ActividadesAmigos> GetActividadesAmigos(string deportista)
         {
-            string connString = "Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=azofeifa1171290;";
+            Connexion connString = new Connexion();
 
-            using (var conn = new NpgsqlConnection(connString))
+            using (var conn = new NpgsqlConnection(connString.conexion))
             {
 
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
-                //, A.duracion
                 string query = "SELECT proyecto1.deportista.primer_nombre, proyecto1.deportista.apellido1,proyecto1.deportista.apellido2, proyecto1.deportista.foto," +
                     "proyecto1.actividad.nombreactividad, proyecto1.actividad.tipo_actividad, proyecto1.actividad.kilometros, proyecto1.actividad.duracion " +
                     "FROM ((proyecto1.amigo RIGHT JOIN proyecto1.deportista ON proyecto1.amigo.amigo = proyecto1.deportista.usuario_dep)" +
@@ -52,11 +51,9 @@ namespace BackendServer.Repositorios
                         
                         listActividadesAmigos.Add(actividadesAmigos);
                     }
-
                     return listActividadesAmigos;
                 }
             }
-
         }
     }
 }

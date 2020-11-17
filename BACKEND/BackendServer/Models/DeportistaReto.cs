@@ -7,7 +7,6 @@ namespace BackendServer.Models
     {
         public string UsuarioDep { get; set; }
         public int IdReto { get; set; }
-
         public virtual Reto IdRetoNavigation { get; set; }
         public virtual Deportista UsuarioDepNavigation { get; set; }
     }
