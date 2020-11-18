@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendServer.Models;
+using BackendServer.Repositorios;
 
 namespace BackendServer.Controllers
 {
@@ -20,45 +21,28 @@ namespace BackendServer.Controllers
             _context = context;
         }
 
-       // GET: api/Deportista
+        // GET: api/Deportista
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Deportista>>> GetDeportista()
+        public IEnumerable<Deportista> GetAllDeportista()
         {
-            return await _context.Deportista.ToListAsync();
-        }
-
-
-        [HttpGet("sol")]
-        public IActionResult GetDeportistaS()
-        {
-
-            Class clase = new Class
-            {
-                usuariodep = "gula",
-                primernombre = "viviana",
-                apellido1 = "lola",
-                apellido2 = 4,
-                fecnac = "2020-12-05",
-                nacionalidad = "francesa",
-                foto = "URL 2",
-                clave = "lol"
-            };
-
-            return Ok(clase);
+            return DeportistaRepositorio.GetAllDeportistas();
+            //return await _context.Deportista.ToListAsync();
         }
 
         // GET: api/Deportista/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Deportista>> GetDeportista(string id)
+        public IEnumerable<Deportista> GetDeportista(string id)
         {
+            /*
             var deportista = await _context.Deportista.FindAsync(id);
 
             if (deportista == null)
             {
                 return NotFound();
             }
+            */
 
-            return deportista;
+            return DeportistaRepositorio.GetDeportistas(id);//deportista;
         }
 
         // PUT: api/Deportista/5
@@ -67,7 +51,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDeportista(string id, Deportista deportista)
         {
-            if (id != deportista.UsuarioDep)
+            if (id != deportista.usuariodep)
             {
                 return BadRequest();
             }
@@ -106,7 +90,7 @@ namespace BackendServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (DeportistaExists(deportista.UsuarioDep))
+                if (DeportistaExists(deportista.usuariodep))
                 {
                     return Conflict();
                 }
@@ -116,7 +100,7 @@ namespace BackendServer.Controllers
                 }
             }
 
-            return CreatedAtAction("GetDeportista", new { id = deportista.UsuarioDep }, deportista);
+            return CreatedAtAction("GetDeportista", new { id = deportista.usuariodep }, deportista);
         }
 
         // DELETE: api/Deportista/5
@@ -137,7 +121,7 @@ namespace BackendServer.Controllers
 
         private bool DeportistaExists(string id)
         {
-            return _context.Deportista.Any(e => e.UsuarioDep == id);
+            return _context.Deportista.Any(e => e.usuariodep == id);
         }
     }
 }

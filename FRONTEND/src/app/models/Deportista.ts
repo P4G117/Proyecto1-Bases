@@ -1,12 +1,10 @@
 export class Deportista{
-  UsuarioDep:string;
-  PrimerNombre:string;
-  Apellido1:string;
-  Apellido2:string;
-  Fecnac:string;
-  Nacionalidad:string;
-  Foto:string;
-  Clave:string;
-
-
+  usuariodep:string;
+  primernombre:string;
+  apellido1:string;
+  apellido2:string;
+  fecnac:string;
+  nacionalidad:string;
+  foto:string;
+  clave:string;
 }
