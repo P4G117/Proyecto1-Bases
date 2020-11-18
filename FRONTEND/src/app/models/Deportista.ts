@@ -8,4 +8,5 @@ export class Deportista{
   Foto:string;
   Clave:string;
 
+
 }

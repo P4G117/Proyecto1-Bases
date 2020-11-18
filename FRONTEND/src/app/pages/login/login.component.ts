@@ -19,9 +19,9 @@ export class LoginComponent {
   ) {}
 
   ngOnInit(){
-    this.deportistaSvc.getAll().subscribe(res => {
-      console.log('Res ', res);
-    })
+    //this.deportistaSvc.getAll().subscribe(res => {
+    //  console.log('Res ', res);
+   // })
   }
 
   rolSet(rol) {

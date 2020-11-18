@@ -20,11 +20,31 @@ namespace BackendServer.Controllers
             _context = context;
         }
 
-        // GET: api/Deportista
+       // GET: api/Deportista
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Deportista>>> GetDeportista()
         {
             return await _context.Deportista.ToListAsync();
+        }
+
+
+        [HttpGet("sol")]
+        public IActionResult GetDeportistaS()
+        {
+
+            Class clase = new Class
+            {
+                usuariodep = "gula",
+                primernombre = "viviana",
+                apellido1 = "lola",
+                apellido2 = 4,
+                fecnac = "2020-12-05",
+                nacionalidad = "francesa",
+                foto = "URL 2",
+                clave = "lol"
+            };
+
+            return Ok(clase);
         }
 
         // GET: api/Deportista/5

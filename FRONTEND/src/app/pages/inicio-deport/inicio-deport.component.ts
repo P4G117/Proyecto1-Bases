@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Class } from 'src/app/models/Class';
 import { Deportista } from 'src/app/models/Deportista';
 import { DeportistaService } from '../../services/Deportista/deportista.service';
 
@@ -16,7 +17,7 @@ export class InicioDeportComponent implements OnInit {
   Followers: string;
   Actividades: string;
   username: string;
-  deportista: Deportista = new Deportista();
+  classes: Class;
 
   constructor(
     private router: Router,
@@ -24,23 +25,28 @@ export class InicioDeportComponent implements OnInit {
     private deportistaSvc: DeportistaService
   ) {
     this.username = this._route.snapshot.paramMap.get('username');
-    this.deportistaSvc.getDeportista(this.username).subscribe(res => {
-      console.log('Res ', res);
-      this.deportista = res;
-      console.log('Deporttista ', this.deportista);
-    });
+    this.deportistaSvc.getEM().subscribe((res:Class) => {
+      this.classes = res;
+      console.log(this.classes);
+      console.log(this.classes.primernombre);
+    })
   }
 
   ngOnInit(): void {
-    this.nombre = 'Viviana';
-    this.apellido1 = 'Villalobos';
+
+    //this.nombre = 'Viviana';
+    //this.apellido1 = 'Villalobos';
     this.Following = '12';
     this.Followers = '32';
     this.Actividades = '2';
   }
 
   iniciogo() {
-    this.router.navigate(['inicio-deport']);
+    console.log(this.classes.primernombre);
+    console.log(this.classes.apellido2);
+    this.nombre = this.classes.primernombre;
+    this.apellido1 = this.classes.apellido1;
+    //this.router.navigate(['inicio-deport']);
   }
   buscargo() {
     this.router.navigate(['buscar']);

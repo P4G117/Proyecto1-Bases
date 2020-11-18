@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Deportista } from 'src/app/models/Deportista';
+import { Class } from 'src/app/models/Class';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Deportista } from 'src/app/models/Deportista';
 export class DeportistaService {
 
   //url = "https://localhost:44317/api/Deportista";
-  url:string = '/api/Deportista'; 
+  url:string = '/api/Deportista';
 
   constructor( private http:HttpClient) { }
 
@@ -23,6 +24,10 @@ export class DeportistaService {
 
   addDeportista(deportista:Deportista):Observable<Deportista>{
     return this.http.post<Deportista>(this.url, deportista);
+  }
+
+  getEM(){
+    return this.http.get<Class>('/api/Deportista/sol');
   }
 
 }
