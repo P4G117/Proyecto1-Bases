@@ -111,14 +111,14 @@ export class RegisterComponent {
 
   generateDeportista(){
     let deportista = new Deportista();
-    deportista.UsuarioDep = this.username;
-    deportista.PrimerNombre = this.name;
-    deportista.Apellido1 = this.apellido1;
-    deportista.Apellido2 = this.apellido2;
-    deportista.Fecnac = this.fechNaci;
-    deportista.Nacionalidad = this.nacionalidad;
-    deportista.Foto = "URL 90";
-    deportista.Clave = this.password;
+    deportista.usuariodep = this.username;
+    deportista.primernombre = this.name;
+    deportista.apellido1 = this.apellido1;
+    deportista.apellido2 = this.apellido2;
+    deportista.fecnac = this.fechNaci;
+    deportista.nacionalidad = this.nacionalidad;
+    deportista.foto = "URL 90";
+    deportista.clave = this.password;
     this.deportistaSvc.addDeportista(deportista).subscribe(res => {
       console.log('Res ', res);
       this.router.navigate(['home']);

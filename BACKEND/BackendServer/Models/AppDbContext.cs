@@ -47,6 +47,7 @@ namespace BackendServer.Models
             
             modelBuilder.Entity<Actividad>(entity =>
             {
+                
                 entity.HasKey(e => e.IdActividad)
                     .HasName("actividad_pkey");
 
@@ -91,12 +92,13 @@ namespace BackendServer.Models
                     .HasColumnName("tipo_actividad")
                     .HasColumnType("character varying")
                     .HasDefaultValueSql("ROW('Correr', 'Nadar', 'Ciclismo', 'Senderistmo', 'Kayak', 'Caminata')");
-
+                /*
                 entity.HasOne(d => d.IdDeportistaNavigation)
                     .WithMany(p => p.Actividad)
                     .HasForeignKey(d => d.IdDeportista)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("actividad_id_deportista_fkey");
+                */
             });
 
             modelBuilder.Entity<Amigo>(entity =>
@@ -113,7 +115,7 @@ namespace BackendServer.Models
                 entity.Property(e => e.Amigo1)
                     .HasColumnName("amigo")
                     .HasColumnType("character varying");
-
+                /*
                 entity.HasOne(d => d.Amigo1Navigation)
                     .WithMany(p => p.AmigoAmigo1Navigation)
                     .HasForeignKey(d => d.Amigo1)
@@ -125,6 +127,7 @@ namespace BackendServer.Models
                     .HasForeignKey(d => d.Deportista)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("amigo_deportista_fkey");
+                */
             });
 
             modelBuilder.Entity<Carrera>(entity =>
@@ -228,41 +231,41 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<Deportista>(entity =>
             {
-                entity.HasKey(e => e.UsuarioDep)
+                entity.HasKey(e => e.usuariodep)
                     .HasName("deportista_pkey");
 
                 entity.ToTable("deportista", "proyecto1");
 
-                entity.Property(e => e.UsuarioDep)
+                entity.Property(e => e.usuariodep)
                     .HasColumnName("usuario_dep")
                     .HasMaxLength(10);
 
-                entity.Property(e => e.Apellido1)
+                entity.Property(e => e.apellido1)
                     .HasColumnName("apellido1")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.Apellido2)
+                entity.Property(e => e.apellido2)
                     .HasColumnName("apellido2")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.Clave)
+                entity.Property(e => e.clave)
                     .IsRequired()
                     .HasColumnName("clave")
                     .HasMaxLength(12);
 
-                entity.Property(e => e.Fecnac)
+                entity.Property(e => e.fecnac)
                     .HasColumnName("fecnac")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Foto)
+                entity.Property(e => e.foto)
                     .HasColumnName("foto")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.Nacionalidad)
+                entity.Property(e => e.nacionalidad)
                     .HasColumnName("nacionalidad")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.PrimerNombre)
+                entity.Property(e => e.primernombre)
                     .HasColumnName("primer_nombre")
                     .HasMaxLength(15);
             });
@@ -280,17 +283,19 @@ namespace BackendServer.Models
 
                 entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
 
+                /*
                 entity.HasOne(d => d.IdGrupoNavigation)
                     .WithMany(p => p.DeportistaGrupo)
                     .HasForeignKey(d => d.IdGrupo)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("deportista_grupo_id_grupo_fkey");
-
+                
                 entity.HasOne(d => d.UsuarioDepNavigation)
                     .WithMany(p => p.DeportistaGrupo)
                     .HasForeignKey(d => d.UsuarioDep)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("deportista_grupo_usuario_dep_fkey");
+                */
             });
 
             modelBuilder.Entity<DeportistaReto>(entity =>
@@ -306,17 +311,19 @@ namespace BackendServer.Models
 
                 entity.Property(e => e.IdReto).HasColumnName("id_reto");
 
+                /*
                 entity.HasOne(d => d.IdRetoNavigation)
                     .WithMany(p => p.DeportistaReto)
                     .HasForeignKey(d => d.IdReto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("deportista_reto_id_reto_fkey");
-
+                
                 entity.HasOne(d => d.UsuarioDepNavigation)
                     .WithMany(p => p.DeportistaReto)
                     .HasForeignKey(d => d.UsuarioDep)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("deportista_reto_usuario_dep_fkey");
+                */
             });
 
             modelBuilder.Entity<Grupo>(entity =>
@@ -418,7 +425,7 @@ namespace BackendServer.Models
                 entity.Property(e => e.Comprobante)
                     .HasColumnName("comprobante")
                     .HasColumnType("character varying");
-
+                /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.Inscripcion)
                     .HasForeignKey(d => d.IdCarrera)
@@ -430,6 +437,7 @@ namespace BackendServer.Models
                     .HasForeignKey(d => d.UsuarioDep)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("inscripcion_usuario_dep_fkey");
+                */
             });
 
             modelBuilder.Entity<Organizador>(entity =>
@@ -596,6 +604,7 @@ namespace BackendServer.Models
                     .HasForeignKey(d => d.IdOrganizador)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("reto_id_organizador_fkey");
+            
             });
             
             OnModelCreatingPartial(modelBuilder);
