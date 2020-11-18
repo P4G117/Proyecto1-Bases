@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-buscar',
@@ -9,6 +9,7 @@ import { Router} from '@angular/router';
 export class BuscarComponent implements OnInit {
   filtro: string;
   busqueda: string;
+  username: string;
 
   informaciones = [
     {
@@ -89,8 +90,11 @@ export class BuscarComponent implements OnInit {
   filtros = [];
 
   constructor(
-    private router: Router
-  ) {}
+    private router: Router,
+    private _route: ActivatedRoute
+  ) {
+    this.username = this._route.snapshot.paramMap.get('username');
+  }
 
   ngOnInit(): void {
     this.filtros = this.informaciones;
@@ -122,30 +126,30 @@ export class BuscarComponent implements OnInit {
     console.log(informacion.Nombre);
   }
 
-  iniciogo(){
-    this.router.navigate(['inicio-deport']);
+  iniciogo() {
+    this.router.navigate(['inicio-deport',this.username]);
   }
-  buscargo(){
-    this.router.navigate(['buscar']);
-  }
-
-  retosGo(){
-    this.router.navigate(['verRetos']);
+  buscargo() {
+    this.router.navigate(['buscar',this.username]);
   }
 
-  competenciasGo(){
-    this.router.navigate(['verCompetencias']);
+  retosGo() {
+    this.router.navigate(['verRetos',this.username]);
   }
 
-  verInfo(tipo){
+  competenciasGo() {
+    this.router.navigate(['verCompetencias',this.username]);
+  }
+
+  verInfo(tipo,id){
     if(tipo == "reto"){
-      this.router.navigate(['verRetosInfo']);
+      this.router.navigate(['verRetosInfo',this.username, id.toString]);
     }
     if(tipo == "grupo"){
-      this.router.navigate(['asogrupo']);
+      this.router.navigate(['asogrupo',this.username, id.toString]);
     }
     if(tipo == "competencia"){
-      this.router.navigate(['inscarrera']);
+      this.router.navigate(['inscarrera',this.username, id.toString]);
     }
 
 

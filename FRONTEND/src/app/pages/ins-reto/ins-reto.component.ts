@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 import Swal from 'sweetalert2';
 @Component({
@@ -11,8 +11,13 @@ export class InsRetoComponent implements OnInit {
   reto : string;
   descripcion : string ;
   patrocinadores = [];
+  username: string;
+  idReto: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _route: ActivatedRoute) {
+    this.username = this._route.snapshot.paramMap.get('username');
+    this.idReto = this._route.snapshot.paramMap.get('id');
+   }
 
   ngOnInit(): void {
     this.reto="Nombre del reto"
@@ -28,18 +33,18 @@ export class InsRetoComponent implements OnInit {
       confirmButtonText: 'Aceptar'
     });
   }
-  iniciogo(){
-    this.router.navigate(['inicio-deport']);
+  iniciogo() {
+    this.router.navigate(['inicio-deport',this.username]);
   }
-  buscargo(){
-    this.router.navigate(['buscar']);
-  }
-
-  retosGo(){
-    this.router.navigate(['verRetos']);
+  buscargo() {
+    this.router.navigate(['buscar',this.username]);
   }
 
-  competenciasGo(){
-    this.router.navigate(['verCompetencias']);
+  retosGo() {
+    this.router.navigate(['verRetos',this.username]);
+  }
+
+  competenciasGo() {
+    this.router.navigate(['verCompetencias',this.username]);
   }
 }

@@ -29,34 +29,29 @@ export class InicioDeportComponent implements OnInit {
       this.classes = res;
       console.log(this.classes);
       console.log(this.classes.primernombre);
+      this.nombre = this.classes.primernombre;
+      this.apellido1 = this.classes.apellido1;
     })
   }
 
   ngOnInit(): void {
-
-    //this.nombre = 'Viviana';
-    //this.apellido1 = 'Villalobos';
     this.Following = '12';
     this.Followers = '32';
     this.Actividades = '2';
   }
 
   iniciogo() {
-    console.log(this.classes.primernombre);
-    console.log(this.classes.apellido2);
-    this.nombre = this.classes.primernombre;
-    this.apellido1 = this.classes.apellido1;
-    //this.router.navigate(['inicio-deport']);
+    this.router.navigate(['inicio-deport',this.username]);
   }
   buscargo() {
-    this.router.navigate(['buscar']);
+    this.router.navigate(['buscar',this.username]);
   }
 
   retosGo() {
-    this.router.navigate(['verRetos']);
+    this.router.navigate(['verRetos',this.username]);
   }
 
   competenciasGo() {
-    this.router.navigate(['verCompetencias']);
+    this.router.navigate(['verCompetencias',this.username]);
   }
 }

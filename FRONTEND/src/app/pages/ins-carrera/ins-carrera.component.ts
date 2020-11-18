@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,15 +12,21 @@ export class InsCarreraComponent implements OnInit {
   descripcion : string ;
   patrocinadores = [];
   fileToUpload: File = null;
+  username:string;
+  idCarrera:string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _route: ActivatedRoute) {
+    this.username = this._route.snapshot.paramMap.get('username');
+    this.idCarrera = this._route.snapshot.paramMap.get('id');
+    //Obtener informacion de la carrera
+   }
 
   ngOnInit(): void {
     this.carrera="Nombre de carrera"
     this.descripcion = "Descripción de carrera";
     this.patrocinadores = ['../../../assets/Images/image 1.png',
     '../../../assets/Images/image 2.png'];
-    
+
   }
 
   handleFileInput(files: FileList) {
@@ -43,34 +49,18 @@ export class InsCarreraComponent implements OnInit {
   }
 }
   iniciogo(){
-    this.router.navigate(['inicio-deport']);
+    this.router.navigate(['inicio-deport',this.username]);
   }
   buscargo(){
-    this.router.navigate(['buscar']);
+    this.router.navigate(['buscar',this.username]);
   }
 
   retosGo(){
-    this.router.navigate(['verRetos']);
+    this.router.navigate(['verRetos',this.username]);
   }
 
   competenciasGo(){
-    this.router.navigate(['verCompetencias']);
+    this.router.navigate(['verCompetencias',this.username]);
   }
 
-  /*emailSignIn(user, password) {
-    if (
-      this.name.hasError('required') ||
-      this.name.hasError('email') ||
-      this.pass.hasError('required')
-    ) {
-      Swal.fire({
-        text: 'Su correo electrónico o contraseña no es válido',
-        icon: 'error',
-        confirmButtonText: 'Cerrar'
-      });
-    } else {
-      this.authService.SignIn(user.value, password.value);
-    }
-  }*/
-    
 }
