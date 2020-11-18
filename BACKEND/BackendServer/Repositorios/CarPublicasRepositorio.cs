@@ -5,11 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using BackendServer.Models;
-<<<<<<< Updated upstream
-=======
 using System.Globalization;
 using BackendServer.Repositorios;
->>>>>>> Stashed changes
+
 
 namespace BackendServer.Repositorios
 {

@@ -37,7 +37,7 @@ namespace BackendServer.Repositorios
                         deportistas.PrimerNombre = reader.GetValue(0).ToString();
                         deportistas.Apellido1 = reader.GetValue(1).ToString();
                         deportistas.Apellido2 = reader.GetValue(2).ToString();
-                        deportistas.Fecnac = reader.GetValue(3).ToString();
+                        //deportistas.Fecnac = reader.GetValue(3).ToString();
                         deportistas.Nacionalidad = reader.GetValue(4).ToString();
                         deportistas.Foto = reader.GetValue(5).ToString();
                         deportistas.Clave = reader.GetValue(6).ToString();

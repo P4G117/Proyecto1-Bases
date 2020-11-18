@@ -44,7 +44,7 @@ namespace BackendServer.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*
+            
             modelBuilder.Entity<Actividad>(entity =>
             {
                 entity.HasKey(e => e.IdActividad)
@@ -597,7 +597,7 @@ namespace BackendServer.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("reto_id_organizador_fkey");
             });
-            */
+            
             OnModelCreatingPartial(modelBuilder);
         }
 
