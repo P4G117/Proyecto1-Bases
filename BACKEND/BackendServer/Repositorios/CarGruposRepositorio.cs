@@ -22,7 +22,7 @@ namespace BackendServer.Repositorios
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
                 
-                string query = "SELECT A.nombre, W.nombre, fecha, recorrido, cuenta, costo, tipo_actividad" +
+                string query = "SELECT A.nombre, W.id_carrera, W.nombre, fecha, recorrido, cuenta, costo, tipo_actividad" +
                     " FROM" +
                     " (((proyecto1.deportista_grupo AS J RIGHT JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)" +
                     " RIGHT JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)" +
@@ -43,12 +43,13 @@ namespace BackendServer.Repositorios
                         CarrerasSegunGrupo carrerasSegunGrupo = null;
                         carrerasSegunGrupo = new CarrerasSegunGrupo();
                         carrerasSegunGrupo.nombregrupo = reader.GetValue(0).ToString();
-                        carrerasSegunGrupo.nombrecarrera = reader.GetValue(1).ToString();
-                        carrerasSegunGrupo.fecha = reader.GetValue(2).ToString();
-                        carrerasSegunGrupo.recorrido = reader.GetValue(3).ToString();
-                        carrerasSegunGrupo.cuenta = Convert.ToInt64(reader.GetValue(4));
-                        carrerasSegunGrupo.costo = Convert.ToInt32(reader.GetValue(5));
-                        carrerasSegunGrupo.tipoActividad = reader.GetValue(6).ToString();
+                        carrerasSegunGrupo.idcarrera = Convert.ToInt32(reader.GetValue(1));
+                        carrerasSegunGrupo.nombrecarrera = reader.GetValue(2).ToString();
+                        carrerasSegunGrupo.fecha = reader.GetValue(3).ToString();
+                        carrerasSegunGrupo.recorrido = reader.GetValue(4).ToString();
+                        carrerasSegunGrupo.cuenta = Convert.ToInt64(reader.GetValue(5));
+                        carrerasSegunGrupo.costo = Convert.ToInt32(reader.GetValue(6));
+                        carrerasSegunGrupo.tipoActividad = reader.GetValue(7).ToString();
 
                         listCarrerasSegunGrupo.Add(carrerasSegunGrupo);
                     }

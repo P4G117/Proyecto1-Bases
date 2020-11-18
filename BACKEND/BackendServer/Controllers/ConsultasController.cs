@@ -113,5 +113,11 @@ namespace BackendServer.Controllers
         {
             return PosiCarreraRepositorio.GetPosicionesCarrera(carrera);
         }
+        //Hacerse Amigo de otro Deportista
+        //Inscribirse a un Reto
+        //Inscribirse a un Grupo
+        //Unirse a un Grupo 
+
+
     }
 }

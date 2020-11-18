@@ -5,8 +5,8 @@ namespace BackendServer.Models
 {
     public partial class GrupoReto
     {
-        public int IdGrupo { get; set; }
-        public int IdReto { get; set; }
+        public int idgrupo { get; set; }
+        public int idreto { get; set; }
 
         public virtual Grupo IdGrupoNavigation { get; set; }
         public virtual Reto IdRetoNavigation { get; set; }

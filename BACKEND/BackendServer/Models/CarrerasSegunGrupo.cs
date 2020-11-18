@@ -8,6 +8,7 @@ namespace BackendServer.Models
     public class CarrerasSegunGrupo
     {
         public string nombregrupo { get; set; }
+        public int idcarrera { get; set; }
         public string nombrecarrera { get; set; }
         public string fecha { get; set; }
         public string recorrido { get; set; }

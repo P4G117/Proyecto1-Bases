@@ -29,10 +29,10 @@ WHERE J.deportista = 'adri45s';
 --###########################################################################
 --##           Ver los Posibles Amigos para un Deportista                  ##
 --###########################################################################
-SELECT D.primer_nombre, D.apellido1, D.apellido2
+SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2
 FROM proyecto1.deportista AS D
 EXCEPT
-SELECT D.primer_nombre, D.apellido1, D.apellido2
+SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2
 FROM
      (proyecto1.amigo AS J RIGHT JOIN proyecto1.deportista AS D ON J.amigo = D.usuario_dep)
 WHERE J.deportista != 'adri45s';
@@ -43,11 +43,11 @@ SELECT * FROM proyecto1.deportista;
 --##          Buscar Amigo o Persona en Especifico por el Nombre           ##
 --###########################################################################
 
-SELECT D.primer_nombre, D.apellido1, D.apellido2
+SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2
 FROM proyecto1.deportista AS D
 WHERE D.primer_nombre LIKE 'R%'
 EXCEPT
-SELECT D.primer_nombre, D.apellido1, D.apellido2
+SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2
 FROM
      (proyecto1.amigo AS J RIGHT JOIN proyecto1.deportista AS D ON J.amigo = D.usuario_dep)
 WHERE J.deportista = 'adri45s';
@@ -57,11 +57,11 @@ SELECT * FROM proyecto1.deportista;
 --##     Buscar Amigo o Persona en Especifico por el Nombre y Apellido     ##
 --###########################################################################
 
-SELECT D.primer_nombre, D.apellido1, D.apellido2
+SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2
 FROM proyecto1.deportista AS D
 WHERE D.primer_nombre LIKE 'R%' AND D.apellido1 LIKE 'B%'
 EXCEPT
-SELECT D.primer_nombre, D.apellido1, D.apellido2
+SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2
 FROM
      (proyecto1.amigo AS J RIGHT JOIN proyecto1.deportista AS D ON J.amigo = D.usuario_dep)
 WHERE J.deportista = 'adri45s';
@@ -70,11 +70,11 @@ WHERE J.deportista = 'adri45s';
 --##    Buscar Amigo o Persona en Especifico por el Nombre y Apellidos     ##
 --###########################################################################
 
-SELECT D.primer_nombre, D.apellido1, D.apellido2
+SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2
 FROM proyecto1.deportista AS D
 WHERE D.primer_nombre LIKE 'R%' AND D.apellido1 LIKE 'B%' AND D.apellido2 LIKE 'V%'
 EXCEPT
-SELECT D.primer_nombre, D.apellido1, D.apellido2
+SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2
 FROM
      (proyecto1.amigo AS J RIGHT JOIN proyecto1.deportista AS D ON J.amigo = D.usuario_dep)
 WHERE J.deportista = 'adri45s';
@@ -83,13 +83,13 @@ WHERE J.deportista = 'adri45s';
 --##                   Ver todos los Retos que sean Publicos               ##
 --###########################################################################
 
-SELECT nombre,periodo,tipo_reto,tipo_actividad FROM proyecto1.reto WHERE proyecto1.reto.privacidad = FALSE;
+SELECT id_reto, nombre,periodo,tipo_reto,tipo_actividad FROM proyecto1.reto WHERE proyecto1.reto.privacidad = FALSE;
 
 --###########################################################################
 --##                 Ver todos las Carreras que sean Publicos              ##
 --###########################################################################
 
-SELECT nombre, fecha, recorrido, cuenta, costo, tipo_actividad
+SELECT id_carrera, nombre, fecha, recorrido, cuenta, costo, tipo_actividad
 FROM proyecto1.carrera AS C WHERE C.privacidad = FALSE;
 
 --###########################################################################
@@ -97,7 +97,7 @@ FROM proyecto1.carrera AS C WHERE C.privacidad = FALSE;
 --##        del cual sea Parte, tira los retos las que puede participar    ##
 --###########################################################################
 
-SELECT A.nombre, W.nombre, periodo, tipo_reto, tipo_actividad
+SELECT A.nombre,W.id_reto, W.nombre, periodo, tipo_reto, tipo_actividad
 FROM
      (((proyecto1.deportista_grupo AS J RIGHT JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)
      RIGHT JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)
@@ -110,7 +110,7 @@ WHERE D.usuario_dep = 'adri45s';
 --##      del cual sea Parte, tira las carreras las que puede participar   ##
 --###########################################################################
 
-SELECT A.nombre, W.nombre, fecha, recorrido, cuenta, costo, tipo_actividad
+SELECT A.nombre, W.id_carrera, W.nombre, fecha, recorrido, cuenta, costo, tipo_actividad
 FROM
      (((proyecto1.deportista_grupo AS J RIGHT JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)
      RIGHT JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)

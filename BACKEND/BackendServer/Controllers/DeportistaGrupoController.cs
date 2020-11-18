@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDeportistaGrupo(string id, DeportistaGrupo deportistaGrupo)
         {
-            if (id != deportistaGrupo.UsuarioDep)
+            if (id != deportistaGrupo.usuariodep)
             {
                 return BadRequest();
             }
@@ -86,7 +86,7 @@ namespace BackendServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (DeportistaGrupoExists(deportistaGrupo.UsuarioDep))
+                if (DeportistaGrupoExists(deportistaGrupo.usuariodep))
                 {
                     return Conflict();
                 }
@@ -96,7 +96,7 @@ namespace BackendServer.Controllers
                 }
             }
 
-            return CreatedAtAction("GetDeportistaGrupo", new { id = deportistaGrupo.UsuarioDep }, deportistaGrupo);
+            return CreatedAtAction("GetDeportistaGrupo", new { id = deportistaGrupo.usuariodep }, deportistaGrupo);
         }
 
         // DELETE: api/DeportistaGrupo/5
@@ -117,7 +117,7 @@ namespace BackendServer.Controllers
 
         private bool DeportistaGrupoExists(string id)
         {
-            return _context.DeportistaGrupo.Any(e => e.UsuarioDep == id);
+            return _context.DeportistaGrupo.Any(e => e.usuariodep == id);
         }
     }
 }

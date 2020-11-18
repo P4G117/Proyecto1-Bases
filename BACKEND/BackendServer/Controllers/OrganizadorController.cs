@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrganizador(string id, Organizador organizador)
         {
-            if (id != organizador.UsuarioOrg)
+            if (id != organizador.usuarioorg)
             {
                 return BadRequest();
             }
@@ -86,7 +86,7 @@ namespace BackendServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (OrganizadorExists(organizador.UsuarioOrg))
+                if (OrganizadorExists(organizador.usuarioorg))
                 {
                     return Conflict();
                 }
@@ -96,7 +96,7 @@ namespace BackendServer.Controllers
                 }
             }
 
-            return CreatedAtAction("GetOrganizador", new { id = organizador.UsuarioOrg }, organizador);
+            return CreatedAtAction("GetOrganizador", new { id = organizador.usuarioorg }, organizador);
         }
 
         // DELETE: api/Organizador/5
@@ -117,7 +117,7 @@ namespace BackendServer.Controllers
 
         private bool OrganizadorExists(string id)
         {
-            return _context.Organizador.Any(e => e.UsuarioOrg == id);
+            return _context.Organizador.Any(e => e.usuarioorg == id);
         }
     }
 }

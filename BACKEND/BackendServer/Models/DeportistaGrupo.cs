@@ -5,8 +5,8 @@ namespace BackendServer.Models
 {
     public partial class DeportistaGrupo
     {
-        public string UsuarioDep { get; set; }
-        public int IdGrupo { get; set; }
+        public string usuariodep { get; set; }
+        public int idgrupo { get; set; }
 
         public virtual Grupo IdGrupoNavigation { get; set; }
         public virtual Deportista UsuarioDepNavigation { get; set; }

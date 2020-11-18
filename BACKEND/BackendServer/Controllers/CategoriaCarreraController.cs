@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategoriaCarrera(int id, CategoriaCarrera categoriaCarrera)
         {
-            if (id != categoriaCarrera.IdCarrera)
+            if (id != categoriaCarrera.idcarrera)
             {
                 return BadRequest();
             }
@@ -86,7 +86,7 @@ namespace BackendServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (CategoriaCarreraExists(categoriaCarrera.IdCarrera))
+                if (CategoriaCarreraExists(categoriaCarrera.idcarrera))
                 {
                     return Conflict();
                 }
@@ -96,7 +96,7 @@ namespace BackendServer.Controllers
                 }
             }
 
-            return CreatedAtAction("GetCategoriaCarrera", new { id = categoriaCarrera.IdCarrera }, categoriaCarrera);
+            return CreatedAtAction("GetCategoriaCarrera", new { id = categoriaCarrera.idcarrera }, categoriaCarrera);
         }
 
         // DELETE: api/CategoriaCarrera/5
@@ -117,7 +117,7 @@ namespace BackendServer.Controllers
 
         private bool CategoriaCarreraExists(int id)
         {
-            return _context.CategoriaCarrera.Any(e => e.IdCarrera == id);
+            return _context.CategoriaCarrera.Any(e => e.idcarrera == id);
         }
     }
 }

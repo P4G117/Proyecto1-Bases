@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCarrera(int id, Carrera carrera)
         {
-            if (id != carrera.IdCarrera)
+            if (id != carrera.idcarrera)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace BackendServer.Controllers
             _context.Carrera.Add(carrera);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCarrera", new { id = carrera.IdCarrera }, carrera);
+            return CreatedAtAction("GetCarrera", new { id = carrera.idcarrera }, carrera);
         }
 
         // DELETE: api/Carrera/5
@@ -103,7 +103,7 @@ namespace BackendServer.Controllers
 
         private bool CarreraExists(int id)
         {
-            return _context.Carrera.Any(e => e.IdCarrera == id);
+            return _context.Carrera.Any(e => e.idcarrera == id);
         }
     }
 }

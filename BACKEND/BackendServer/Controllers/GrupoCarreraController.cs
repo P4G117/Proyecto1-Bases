@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGrupoCarrera(int id, GrupoCarrera grupoCarrera)
         {
-            if (id != grupoCarrera.IdGrupo)
+            if (id != grupoCarrera.idgrupo)
             {
                 return BadRequest();
             }
@@ -86,7 +86,7 @@ namespace BackendServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (GrupoCarreraExists(grupoCarrera.IdGrupo))
+                if (GrupoCarreraExists(grupoCarrera.idgrupo))
                 {
                     return Conflict();
                 }
@@ -96,7 +96,7 @@ namespace BackendServer.Controllers
                 }
             }
 
-            return CreatedAtAction("GetGrupoCarrera", new { id = grupoCarrera.IdGrupo }, grupoCarrera);
+            return CreatedAtAction("GetGrupoCarrera", new { id = grupoCarrera.idgrupo }, grupoCarrera);
         }
 
         // DELETE: api/GrupoCarrera/5
@@ -117,7 +117,7 @@ namespace BackendServer.Controllers
 
         private bool GrupoCarreraExists(int id)
         {
-            return _context.GrupoCarrera.Any(e => e.IdGrupo == id);
+            return _context.GrupoCarrera.Any(e => e.idgrupo == id);
         }
     }
 }

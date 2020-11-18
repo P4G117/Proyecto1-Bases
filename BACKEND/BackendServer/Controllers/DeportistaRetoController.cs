@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDeportistaReto(string id, DeportistaReto deportistaReto)
         {
-            if (id != deportistaReto.UsuarioDep)
+            if (id != deportistaReto.usuariodep)
             {
                 return BadRequest();
             }
@@ -86,7 +86,7 @@ namespace BackendServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (DeportistaRetoExists(deportistaReto.UsuarioDep))
+                if (DeportistaRetoExists(deportistaReto.usuariodep))
                 {
                     return Conflict();
                 }
@@ -96,7 +96,7 @@ namespace BackendServer.Controllers
                 }
             }
 
-            return CreatedAtAction("GetDeportistaReto", new { id = deportistaReto.UsuarioDep }, deportistaReto);
+            return CreatedAtAction("GetDeportistaReto", new { id = deportistaReto.usuariodep }, deportistaReto);
         }
 
         // DELETE: api/DeportistaReto/5
@@ -117,7 +117,7 @@ namespace BackendServer.Controllers
 
         private bool DeportistaRetoExists(string id)
         {
-            return _context.DeportistaReto.Any(e => e.UsuarioDep == id);
+            return _context.DeportistaReto.Any(e => e.usuariodep == id);
         }
     }
 }

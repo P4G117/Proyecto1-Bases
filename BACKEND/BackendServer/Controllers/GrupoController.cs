@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGrupo(int id, Grupo grupo)
         {
-            if (id != grupo.IdGrupo)
+            if (id != grupo.idgrupo)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace BackendServer.Controllers
             _context.Grupo.Add(grupo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGrupo", new { id = grupo.IdGrupo }, grupo);
+            return CreatedAtAction("GetGrupo", new { id = grupo.idgrupo }, grupo);
         }
 
         // DELETE: api/Grupo/5
@@ -103,7 +103,7 @@ namespace BackendServer.Controllers
 
         private bool GrupoExists(int id)
         {
-            return _context.Grupo.Any(e => e.IdGrupo == id);
+            return _context.Grupo.Any(e => e.idgrupo == id);
         }
     }
 }

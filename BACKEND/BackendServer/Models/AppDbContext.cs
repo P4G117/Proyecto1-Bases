@@ -103,16 +103,16 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<Amigo>(entity =>
             {
-                entity.HasKey(e => new { e.Deportista, e.Amigo1 })
+                entity.HasKey(e => new { e.deportista, e.amigo1 })
                     .HasName("amigo_pkey");
 
                 entity.ToTable("amigo", "proyecto1");
 
-                entity.Property(e => e.Deportista)
+                entity.Property(e => e.deportista)
                     .HasColumnName("deportista")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.Amigo1)
+                entity.Property(e => e.amigo1)
                     .HasColumnName("amigo")
                     .HasColumnType("character varying");
                 /*
@@ -132,47 +132,47 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<Carrera>(entity =>
             {
-                entity.HasKey(e => e.IdCarrera)
+                entity.HasKey(e => e.idcarrera)
                     .HasName("carrera_pkey");
 
                 entity.ToTable("carrera", "proyecto1");
 
-                entity.HasIndex(e => new { e.IdCarrera, e.IdOrganizador })
+                entity.HasIndex(e => new { e.idcarrera, e.idorganizador })
                     .HasName("carrera_id_carrera_id_organizador_key")
                     .IsUnique();
 
-                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
+                entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
 
-                entity.Property(e => e.Costo)
+                entity.Property(e => e.costo)
                     .HasColumnName("costo")
                     .HasColumnType("numeric(6,0)");
 
-                entity.Property(e => e.Cuenta)
+                entity.Property(e => e.cuenta)
                     .HasColumnName("cuenta")
                     .HasColumnType("numeric(20,0)");
 
-                entity.Property(e => e.Fecha)
+                entity.Property(e => e.fecha)
                     .HasColumnName("fecha")
                     .HasColumnType("date");
 
-                entity.Property(e => e.IdOrganizador)
+                entity.Property(e => e.idorganizador)
                     .IsRequired()
                     .HasColumnName("id_organizador")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.nombre)
                     .IsRequired()
                     .HasColumnName("nombre")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.Privacidad).HasColumnName("privacidad");
+                entity.Property(e => e.privacidad).HasColumnName("privacidad");
 
-                entity.Property(e => e.Recorrido)
+                entity.Property(e => e.recorrido)
                     .IsRequired()
                     .HasColumnName("recorrido")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.TipoActividad)
+                entity.Property(e => e.tipoActividad)
                     .IsRequired()
                     .HasColumnName("tipo_actividad")
                     .HasColumnType("character varying")
@@ -208,14 +208,20 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<CategoriaCarrera>(entity =>
             {
-                entity.HasKey(e => new { e.IdCarrera, e.IdCategoria })
+                entity.HasKey(e => new { e.idcarrera, e.idcategoria })
                     .HasName("categoria_carrera_pkey");
 
                 entity.ToTable("categoria_carrera", "proyecto1");
 
+<<<<<<< Updated upstream
                 entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
 
                 entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
+=======
+                entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
+
+                entity.Property(e => e.idcategoria).HasColumnName("id_categoria");
+>>>>>>> Stashed changes
                 /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.CategoriaCarrera)
@@ -274,16 +280,16 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<DeportistaGrupo>(entity =>
             {
-                entity.HasKey(e => new { e.UsuarioDep, e.IdGrupo })
+                entity.HasKey(e => new { e.usuariodep, e.idgrupo })
                     .HasName("deportista_grupo_pkey");
 
                 entity.ToTable("deportista_grupo", "proyecto1");
 
-                entity.Property(e => e.UsuarioDep)
+                entity.Property(e => e.usuariodep)
                     .HasColumnName("usuario_dep")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
+                entity.Property(e => e.idgrupo).HasColumnName("id_grupo");
 
                 /*
                 entity.HasOne(d => d.IdGrupoNavigation)
@@ -302,16 +308,16 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<DeportistaReto>(entity =>
             {
-                entity.HasKey(e => new { e.UsuarioDep, e.IdReto })
+                entity.HasKey(e => new { e.usuariodep, e.idreto })
                     .HasName("deportista_reto_pkey");
 
                 entity.ToTable("deportista_reto", "proyecto1");
 
-                entity.Property(e => e.UsuarioDep)
+                entity.Property(e => e.usuariodep)
                     .HasColumnName("usuario_dep")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.IdReto).HasColumnName("id_reto");
+                entity.Property(e => e.idreto).HasColumnName("id_reto");
 
                 /*
                 entity.HasOne(d => d.IdRetoNavigation)
@@ -330,19 +336,19 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<Grupo>(entity =>
             {
-                entity.HasKey(e => e.IdGrupo)
+                entity.HasKey(e => e.idgrupo)
                     .HasName("grupo_pkey");
 
                 entity.ToTable("grupo", "proyecto1");
 
-                entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
+                entity.Property(e => e.idgrupo).HasColumnName("id_grupo");
 
-                entity.Property(e => e.Administrador)
+                entity.Property(e => e.administrador)
                     .IsRequired()
                     .HasColumnName("administrador")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.nombre)
                     .IsRequired()
                     .HasColumnName("nombre")
                     .HasColumnType("character varying");
@@ -357,14 +363,20 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<GrupoCarrera>(entity =>
             {
-                entity.HasKey(e => new { e.IdGrupo, e.IdCarrera })
+                entity.HasKey(e => new { e.idgrupo, e.idcarrera })
                     .HasName("grupo_carrera_pkey");
 
                 entity.ToTable("grupo_carrera", "proyecto1");
 
+<<<<<<< Updated upstream
                 entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
 
                 entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
+=======
+                entity.Property(e => e.idgrupo).HasColumnName("id_grupo");
+
+                entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
+>>>>>>> Stashed changes
                 /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.GrupoCarrera)
@@ -382,14 +394,20 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<GrupoReto>(entity =>
             {
-                entity.HasKey(e => new { e.IdGrupo, e.IdReto })
+                entity.HasKey(e => new { e.idgrupo, e.idreto })
                     .HasName("grupo_reto_pkey");
 
                 entity.ToTable("grupo_reto", "proyecto1");
 
+<<<<<<< Updated upstream
                 entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
 
                 entity.Property(e => e.IdReto).HasColumnName("id_reto");
+=======
+                entity.Property(e => e.idgrupo).HasColumnName("id_grupo");
+
+                entity.Property(e => e.idreto).HasColumnName("id_reto");
+>>>>>>> Stashed changes
                 /*
                 entity.HasOne(d => d.IdGrupoNavigation)
                     .WithMany(p => p.GrupoReto)
@@ -407,27 +425,27 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<Inscripcion>(entity =>
             {
-                entity.HasKey(e => new { e.IdInscripcion, e.IdCarrera, e.UsuarioDep })
+                entity.HasKey(e => new { e.idinscripcion, e.idcarrera, e.usuariodep })
                     .HasName("inscripcion_pkey");
 
                 entity.ToTable("inscripcion", "proyecto1");
 
-                entity.Property(e => e.IdInscripcion)
+                entity.Property(e => e.idinscripcion)
                     .HasColumnName("id_inscripcion")
                     .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
+                entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
 
-                entity.Property(e => e.UsuarioDep)
+                entity.Property(e => e.usuariodep)
                     .HasColumnName("usuario_dep")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.Categoria)
+                entity.Property(e => e.categoria)
                     .IsRequired()
                     .HasColumnName("categoria")
                     .HasMaxLength(10);
 
-                entity.Property(e => e.Comprobante)
+                entity.Property(e => e.comprobante)
                     .HasColumnName("comprobante")
                     .HasColumnType("character varying");
                 /*
@@ -447,42 +465,42 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<Organizador>(entity =>
             {
-                entity.HasKey(e => e.UsuarioOrg)
+                entity.HasKey(e => e.usuarioorg)
                     .HasName("organizador_pkey");
 
                 entity.ToTable("organizador", "proyecto1");
 
-                entity.Property(e => e.UsuarioOrg)
+                entity.Property(e => e.usuarioorg)
                     .HasColumnName("usuario_org")
                     .HasMaxLength(10);
 
-                entity.Property(e => e.Apellido1)
+                entity.Property(e => e.apellido1)
                     .IsRequired()
                     .HasColumnName("apellido1")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.Apellido2)
+                entity.Property(e => e.apellido2)
                     .HasColumnName("apellido2")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.Clave)
+                entity.Property(e => e.clave)
                     .IsRequired()
                     .HasColumnName("clave")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.Fecnac)
+                entity.Property(e => e.fecnac)
                     .HasColumnName("fecnac")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Foto)
+                entity.Property(e => e.foto)
                     .HasColumnName("foto")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.Nacionalidad)
+                entity.Property(e => e.nacionalidad)
                     .HasColumnName("nacionalidad")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.PrimerNombre)
+                entity.Property(e => e.primernombre)
                     .IsRequired()
                     .HasColumnName("primer_nombre")
                     .HasMaxLength(20);
@@ -518,14 +536,20 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<PatrocinadorCarrera>(entity =>
             {
-                entity.HasKey(e => new { e.IdCarrera, e.IdPatrocinador })
+                entity.HasKey(e => new { e.idcarrera, e.idpatrocinador })
                     .HasName("patrocinador_carrera_pkey");
 
                 entity.ToTable("patrocinador_carrera", "proyecto1");
 
+<<<<<<< Updated upstream
                 entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
 
                 entity.Property(e => e.IdPatrocinador).HasColumnName("id_patrocinador");
+=======
+                entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
+
+                entity.Property(e => e.idpatrocinador).HasColumnName("id_patrocinador");
+>>>>>>> Stashed changes
                 /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.PatrocinadorCarrera)
@@ -543,15 +567,17 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<PatrocinadorReto>(entity =>
             {
-                entity.HasKey(e => new { e.IdPatrocinador, e.IdReto })
+                entity.HasKey(e => new { e.idpatrocinador, e.idreto })
                     .HasName("patrocinador_reto_pkey");
 
                 entity.ToTable("patrocinador_reto", "proyecto1");
 
-                entity.Property(e => e.IdPatrocinador).HasColumnName("id_patrocinador");
+                entity.Property(e => e.idpatrocinador).HasColumnName("id_patrocinador");
 
-                entity.Property(e => e.IdReto).HasColumnName("id_reto");
-
+<<<<<<< Updated upstream
+=======
+                entity.Property(e => e.idreto).HasColumnName("id_reto");
+>>>>>>> Stashed changes
                 /*
                 entity.HasOne(d => d.IdPatrocinadorNavigation)
                     .WithMany(p => p.PatrocinadorReto)

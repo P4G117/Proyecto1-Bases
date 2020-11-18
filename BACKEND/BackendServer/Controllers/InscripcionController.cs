@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutInscripcion(int id, Inscripcion inscripcion)
         {
-            if (id != inscripcion.IdInscripcion)
+            if (id != inscripcion.idinscripcion)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace BackendServer.Controllers
             _context.Inscripcion.Add(inscripcion);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInscripcion", new { id = inscripcion.IdInscripcion }, inscripcion);
+            return CreatedAtAction("GetInscripcion", new { id = inscripcion.idinscripcion }, inscripcion);
         }
 
         // DELETE: api/Inscripcion/5
@@ -103,7 +103,7 @@ namespace BackendServer.Controllers
 
         private bool InscripcionExists(int id)
         {
-            return _context.Inscripcion.Any(e => e.IdInscripcion == id);
+            return _context.Inscripcion.Any(e => e.idinscripcion == id);
         }
     }
 }

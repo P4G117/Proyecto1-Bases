@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPatrocinadorReto(int id, PatrocinadorReto patrocinadorReto)
         {
-            if (id != patrocinadorReto.IdPatrocinador)
+            if (id != patrocinadorReto.idpatrocinador)
             {
                 return BadRequest();
             }
@@ -86,7 +86,7 @@ namespace BackendServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (PatrocinadorRetoExists(patrocinadorReto.IdPatrocinador))
+                if (PatrocinadorRetoExists(patrocinadorReto.idpatrocinador))
                 {
                     return Conflict();
                 }
@@ -96,7 +96,7 @@ namespace BackendServer.Controllers
                 }
             }
 
-            return CreatedAtAction("GetPatrocinadorReto", new { id = patrocinadorReto.IdPatrocinador }, patrocinadorReto);
+            return CreatedAtAction("GetPatrocinadorReto", new { id = patrocinadorReto.idpatrocinador }, patrocinadorReto);
         }
 
         // DELETE: api/PatrocinadorReto/5
@@ -117,7 +117,7 @@ namespace BackendServer.Controllers
 
         private bool PatrocinadorRetoExists(int id)
         {
-            return _context.PatrocinadorReto.Any(e => e.IdPatrocinador == id);
+            return _context.PatrocinadorReto.Any(e => e.idpatrocinador == id);
         }
     }
 }

@@ -5,8 +5,13 @@ namespace BackendServer.Models
 {
     public partial class Reto
     {
+<<<<<<< Updated upstream
         
         /*public Reto()
+=======
+        /*
+        public Reto()
+>>>>>>> Stashed changes
         {
             DeportistaReto = new HashSet<DeportistaReto>();
             GrupoReto = new HashSet<GrupoReto>();
@@ -20,7 +25,10 @@ namespace BackendServer.Models
         public string TipoReto { get; set; }
         public string TipoActividad { get; set; }
         public string IdOrganizador { get; set; }
+<<<<<<< Updated upstream
         
+=======
+>>>>>>> Stashed changes
         /*
         public virtual Organizador IdOrganizadorNavigation { get; set; }
         public virtual ICollection<DeportistaReto> DeportistaReto { get; set; }

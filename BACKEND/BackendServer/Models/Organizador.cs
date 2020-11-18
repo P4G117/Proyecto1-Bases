@@ -5,24 +5,27 @@ namespace BackendServer.Models
 {
     public partial class Organizador
     {
+        /*
         public Organizador()
         {
             Carrera = new HashSet<Carrera>();
             Grupo = new HashSet<Grupo>();
             Reto = new HashSet<Reto>();
         }
+        */
+        public string usuarioorg { get; set; }
+        public string primernombre { get; set; }
+        public string apellido1 { get; set; }
+        public string apellido2 { get; set; }
+        public string fecnac { get; set; }
+        public string nacionalidad { get; set; }
+        public string foto { get; set; }
+        public string clave { get; set; }
 
-        public string UsuarioOrg { get; set; }
-        public string PrimerNombre { get; set; }
-        public string Apellido1 { get; set; }
-        public string Apellido2 { get; set; }
-        public DateTime Fecnac { get; set; }
-        public string Nacionalidad { get; set; }
-        public string Foto { get; set; }
-        public string Clave { get; set; }
-
+        /*
         public virtual ICollection<Carrera> Carrera { get; set; }
         public virtual ICollection<Grupo> Grupo { get; set; }
         public virtual ICollection<Reto> Reto { get; set; }
+        */
     }
 }

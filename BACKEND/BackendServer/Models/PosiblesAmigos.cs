@@ -7,7 +7,11 @@ namespace BackendServer.Models
 {
     public class PosiblesAmigos
     {
+<<<<<<< Updated upstream
 
+=======
+        public string usuariodep { get; set; }
+>>>>>>> Stashed changes
         public string primer_nombre { get; set; }
         public string apellido1 { get; set; }
         public string apellido2 { get; set; }

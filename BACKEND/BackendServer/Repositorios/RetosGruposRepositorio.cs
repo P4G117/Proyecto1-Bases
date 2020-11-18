@@ -21,7 +21,7 @@ namespace BackendServer.Repositorios
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
                 //, A.duracion
-                string query = "SELECT A.nombre, W.nombre, periodo, tipo_reto, tipo_actividad" +
+                string query = "SELECT A.nombre, W.id_reto, W.nombre, periodo, tipo_reto, tipo_actividad" +
                     " FROM" +
                     " (((proyecto1.deportista_grupo AS J RIGHT JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)" +
                     " RIGHT JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)" +
@@ -43,10 +43,11 @@ namespace BackendServer.Repositorios
                         RetosSegunGrupo retosSegunGrupo = null;
                         retosSegunGrupo = new RetosSegunGrupo();
                         retosSegunGrupo.nombregrupo = reader.GetValue(0).ToString();
-                        retosSegunGrupo.nombrereto = reader.GetValue(1).ToString();
-                        retosSegunGrupo.periodo = reader.GetValue(2).ToString();
-                        retosSegunGrupo.tiporeto = reader.GetValue(3).ToString();
-                        retosSegunGrupo.tipoactividad = reader.GetValue(4).ToString();
+                        retosSegunGrupo.idreto = Convert.ToInt32(reader.GetValue(1));
+                        retosSegunGrupo.nombrereto = reader.GetValue(2).ToString();
+                        retosSegunGrupo.periodo = reader.GetValue(3).ToString();
+                        retosSegunGrupo.tiporeto = reader.GetValue(4).ToString();
+                        retosSegunGrupo.tipoactividad = reader.GetValue(5).ToString();
  
                         listRetosSegunGrupo.Add(retosSegunGrupo);
                     }

@@ -21,11 +21,11 @@ namespace BackendServer.Repositorios
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
                 
-                string query = "SELECT D.primer_nombre, D.apellido1, D.apellido2" +
+                string query = "SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2" +
                     " FROM proyecto1.deportista AS D" +
                     " WHERE D.primer_nombre LIKE '@Buscar%'" +
                     " EXCEPT" +
-                    " SELECT D.primer_nombre, D.apellido1, D.apellido2" +
+                    " SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2" +
                     " FROM" +
                     " (proyecto1.amigo AS J RIGHT JOIN proyecto1.deportista AS D ON J.amigo = D.usuario_dep)" +
                     " WHERE J.deportista = '@Deportista'";
@@ -44,9 +44,10 @@ namespace BackendServer.Repositorios
                     {
                         BusquedaPersonas busquedaPersonas = null;
                         busquedaPersonas = new BusquedaPersonas();
-                        busquedaPersonas.primer_nombre = reader.GetValue(0).ToString();
-                        busquedaPersonas.apellido1 = reader.GetValue(1).ToString();
-                        busquedaPersonas.apellido2 = reader.GetValue(2).ToString();
+                        busquedaPersonas.usuariodep = reader.GetValue(0).ToString();
+                        busquedaPersonas.primer_nombre = reader.GetValue(1).ToString();
+                        busquedaPersonas.apellido1 = reader.GetValue(2).ToString();
+                        busquedaPersonas.apellido2 = reader.GetValue(3).ToString();
 
                         listBusquedaPersonas.Add(busquedaPersonas);
                     }

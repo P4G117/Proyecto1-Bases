@@ -47,7 +47,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAmigo(string id, Amigo amigo)
         {
-            if (id != amigo.Deportista)
+            if (id != amigo.deportista)
             {
                 return BadRequest();
             }
@@ -86,7 +86,7 @@ namespace BackendServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (AmigoExists(amigo.Deportista))
+                if (AmigoExists(amigo.deportista))
                 {
                     return Conflict();
                 }
@@ -96,7 +96,7 @@ namespace BackendServer.Controllers
                 }
             }
 
-            return CreatedAtAction("GetAmigo", new { id = amigo.Deportista }, amigo);
+            return CreatedAtAction("GetAmigo", new { id = amigo.deportista }, amigo);
         }
 
         // DELETE: api/Amigo/5
@@ -117,7 +117,7 @@ namespace BackendServer.Controllers
 
         private bool AmigoExists(string id)
         {
-            return _context.Amigo.Any(e => e.Deportista == id);
+            return _context.Amigo.Any(e => e.deportista == id);
         }
     }
 }

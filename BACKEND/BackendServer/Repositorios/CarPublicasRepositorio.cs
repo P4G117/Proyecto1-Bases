@@ -23,7 +23,7 @@ namespace BackendServer.Repositorios
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
                 //, A.duracion
-                string query = "SELECT nombre, recorrido, fecha, cuenta, costo, tipo_actividad FROM proyecto1.carrera WHERE proyecto1.carrera.privacidad = FALSE";
+                string query = "SELECT id_carrera,nombre, recorrido, fecha, cuenta, costo, tipo_actividad FROM proyecto1.carrera WHERE proyecto1.carrera.privacidad = FALSE";
 
                 using (var command = new NpgsqlCommand(query, conn))
                 {
@@ -35,12 +35,13 @@ namespace BackendServer.Repositorios
                     {
                         CarrerasPublicas carrerasPublicas = null;
                         carrerasPublicas = new CarrerasPublicas();
-                        carrerasPublicas.nombre = reader.GetValue(0).ToString();
-                        carrerasPublicas.fecha = reader.GetValue(1).ToString();
-                        carrerasPublicas.recorrido = reader.GetValue(2).ToString();
-                        carrerasPublicas.cuenta = Convert.ToInt64(reader.GetValue(3));
-                        carrerasPublicas.costo = Convert.ToInt32(reader.GetValue(4));
-                        carrerasPublicas.tipoActividad = reader.GetValue(5).ToString();
+                        carrerasPublicas.idcarrera = Convert.ToInt32(reader.GetValue(0));
+                        carrerasPublicas.nombre = reader.GetValue(1).ToString();
+                        carrerasPublicas.fecha = reader.GetValue(2).ToString();
+                        carrerasPublicas.recorrido = reader.GetValue(3).ToString();
+                        carrerasPublicas.cuenta = Convert.ToInt64(reader.GetValue(4));
+                        carrerasPublicas.costo = Convert.ToInt32(reader.GetValue(5));
+                        carrerasPublicas.tipoActividad = reader.GetValue(6).ToString();
                         
                         listCarrerasPublicas.Add(carrerasPublicas);
                     }

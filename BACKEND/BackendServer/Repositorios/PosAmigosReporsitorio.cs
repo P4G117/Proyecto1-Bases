@@ -20,10 +20,10 @@ namespace BackendServer.Repositorios
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
                 //, A.duracion
-                string query = "SELECT D.primer_nombre, D.apellido1, D.apellido2" +
+                string query = "SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2" +
                     " FROM proyecto1.deportista AS D" +
                     " EXCEPT" +
-                    " SELECT D.primer_nombre, D.apellido1, D.apellido2" +
+                    " SELECT D.usuario_dep, D.primer_nombre, D.apellido1, D.apellido2" +
                     " FROM (proyecto1.amigo AS A RIGHT JOIN proyecto1.deportista AS D ON A.amigo = D.usuario_dep)" +
                     " WHERE A.deportista = '@Deportista'";
 
@@ -40,9 +40,10 @@ namespace BackendServer.Repositorios
                     {
                         PosiblesAmigos posiblesAmigos = null;
                         posiblesAmigos = new PosiblesAmigos();
-                        posiblesAmigos.primer_nombre = reader.GetValue(0).ToString();
-                        posiblesAmigos.apellido1 = reader.GetValue(1).ToString();
-                        posiblesAmigos.apellido2 = reader.GetValue(2).ToString();
+                        posiblesAmigos.usuariodep = reader.GetValue(0).ToString();
+                        posiblesAmigos.primer_nombre = reader.GetValue(1).ToString();
+                        posiblesAmigos.apellido1 = reader.GetValue(2).ToString();
+                        posiblesAmigos.apellido2 = reader.GetValue(3).ToString();
 
                         listPosiblesAmigos.Add(posiblesAmigos);
                     }

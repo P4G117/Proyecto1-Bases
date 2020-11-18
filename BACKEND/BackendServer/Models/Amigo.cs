@@ -5,10 +5,10 @@ namespace BackendServer.Models
 {
     public partial class Amigo
     {
-        public string Deportista { get; set; }
-        public string Amigo1 { get; set; }
+        public string deportista { get; set; }
+        public string amigo1 { get; set; }
 
-        public virtual Deportista Amigo1Navigation { get; set; }
-        public virtual Deportista DeportistaNavigation { get; set; }
+        //public virtual Deportista Amigo1Navigation { get; set; }
+        //public virtual Deportista DeportistaNavigation { get; set; }
     }
 }
