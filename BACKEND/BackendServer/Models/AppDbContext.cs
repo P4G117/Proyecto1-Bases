@@ -177,12 +177,13 @@ namespace BackendServer.Models
                     .HasColumnName("tipo_actividad")
                     .HasColumnType("character varying")
                     .HasDefaultValueSql("ROW('Correr', 'Nadar', 'Ciclismo', 'Senderistmo', 'Kayak', 'Caminata')");
-
+                /*
                 entity.HasOne(d => d.IdOrganizadorNavigation)
                     .WithMany(p => p.Carrera)
                     .HasForeignKey(d => d.IdOrganizador)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("carrera_id_organizador_fkey");
+                */
             });
 
             modelBuilder.Entity<Categoria>(entity =>
@@ -215,7 +216,7 @@ namespace BackendServer.Models
                 entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
 
                 entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
-
+                /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.CategoriaCarrera)
                     .HasForeignKey(d => d.IdCarrera)
@@ -227,6 +228,7 @@ namespace BackendServer.Models
                     .HasForeignKey(d => d.IdCategoria)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("categoria_carrera_id_categoria_fkey");
+                */
             });
 
             modelBuilder.Entity<Deportista>(entity =>
@@ -344,12 +346,13 @@ namespace BackendServer.Models
                     .IsRequired()
                     .HasColumnName("nombre")
                     .HasColumnType("character varying");
-
+                /*
                 entity.HasOne(d => d.AdministradorNavigation)
                     .WithMany(p => p.Grupo)
                     .HasForeignKey(d => d.Administrador)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("grupo_administrador_fkey");
+                */
             });
 
             modelBuilder.Entity<GrupoCarrera>(entity =>
@@ -362,18 +365,19 @@ namespace BackendServer.Models
                 entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
 
                 entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
-
+                /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.GrupoCarrera)
                     .HasForeignKey(d => d.IdCarrera)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("grupo_carrera_id_carrera_fkey");
-
+                
                 entity.HasOne(d => d.IdGrupoNavigation)
                     .WithMany(p => p.GrupoCarrera)
                     .HasForeignKey(d => d.IdGrupo)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("grupo_carrera_id_grupo_fkey");
+                */
             });
 
             modelBuilder.Entity<GrupoReto>(entity =>
@@ -386,7 +390,7 @@ namespace BackendServer.Models
                 entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
 
                 entity.Property(e => e.IdReto).HasColumnName("id_reto");
-
+                /*
                 entity.HasOne(d => d.IdGrupoNavigation)
                     .WithMany(p => p.GrupoReto)
                     .HasForeignKey(d => d.IdGrupo)
@@ -398,6 +402,7 @@ namespace BackendServer.Models
                     .HasForeignKey(d => d.IdReto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("grupo_reto_id_reto_fkey");
+                */
             });
 
             modelBuilder.Entity<Inscripcion>(entity =>
@@ -521,7 +526,7 @@ namespace BackendServer.Models
                 entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
 
                 entity.Property(e => e.IdPatrocinador).HasColumnName("id_patrocinador");
-
+                /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.PatrocinadorCarrera)
                     .HasForeignKey(d => d.IdCarrera)
@@ -533,6 +538,7 @@ namespace BackendServer.Models
                     .HasForeignKey(d => d.IdPatrocinador)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("patrocinador_carrera_id_patrocinador_fkey");
+                */
             });
 
             modelBuilder.Entity<PatrocinadorReto>(entity =>
@@ -546,6 +552,7 @@ namespace BackendServer.Models
 
                 entity.Property(e => e.IdReto).HasColumnName("id_reto");
 
+                /*
                 entity.HasOne(d => d.IdPatrocinadorNavigation)
                     .WithMany(p => p.PatrocinadorReto)
                     .HasForeignKey(d => d.IdPatrocinador)
@@ -557,6 +564,7 @@ namespace BackendServer.Models
                     .HasForeignKey(d => d.IdReto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("patrocinador_reto_id_reto_fkey");
+                */
             });
 
             modelBuilder.Entity<Reto>(entity =>
@@ -598,12 +606,13 @@ namespace BackendServer.Models
                     .HasColumnName("tipo_reto")
                     .HasColumnType("character varying")
                     .HasDefaultValueSql("ROW('Altitud', 'Fondo')");
-
+                /*
                 entity.HasOne(d => d.IdOrganizadorNavigation)
                     .WithMany(p => p.Reto)
                     .HasForeignKey(d => d.IdOrganizador)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("reto_id_organizador_fkey");
+                */
             
             });
             

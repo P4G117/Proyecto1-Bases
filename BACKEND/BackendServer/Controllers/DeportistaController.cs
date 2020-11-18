@@ -49,8 +49,9 @@ namespace BackendServer.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDeportista(string id, Deportista deportista)
+        public bool PutDeportista(Deportista deportista)
         {
+            /*
             if (id != deportista.usuariodep)
             {
                 return BadRequest();
@@ -73,50 +74,27 @@ namespace BackendServer.Controllers
                     throw;
                 }
             }
+            */
 
-            return NoContent();
+            return DeportistaRepositorio.UpdateDeportista(deportista);//NoContent();
         }
 
         // POST: api/Deportista
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Deportista>> PostDeportista(Deportista deportista)
+        public bool PostDeportista(Deportista deportista)
         {
-            _context.Deportista.Add(deportista);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (DeportistaExists(deportista.usuariodep))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetDeportista", new { id = deportista.usuariodep }, deportista);
+            
+            return DeportistaRepositorio.PostDeportista(deportista); 
         }
 
         // DELETE: api/Deportista/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Deportista>> DeleteDeportista(string id)
+        public bool DeleteDeportista(string id)
         {
-            var deportista = await _context.Deportista.FindAsync(id);
-            if (deportista == null)
-            {
-                return NotFound();
-            }
-
-            _context.Deportista.Remove(deportista);
-            await _context.SaveChangesAsync();
-
-            return deportista;
+            
+            return DeportistaRepositorio.DeleteDeportista(id);
         }
 
         private bool DeportistaExists(string id)
