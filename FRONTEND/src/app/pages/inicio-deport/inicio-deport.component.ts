@@ -18,6 +18,7 @@ export class InicioDeportComponent implements OnInit {
   Actividades: string;
   username: string;
   classes: Class;
+  deportista: Deportista = new Deportista();
 
   constructor(
     private router: Router,
@@ -25,13 +26,11 @@ export class InicioDeportComponent implements OnInit {
     private deportistaSvc: DeportistaService
   ) {
     this.username = this._route.snapshot.paramMap.get('username');
-    this.deportistaSvc.getEM().subscribe((res:Class) => {
-      this.classes = res;
-      console.log(this.classes);
-      console.log(this.classes.primernombre);
-      this.nombre = this.classes.primernombre;
-      this.apellido1 = this.classes.apellido1;
-    })
+    this.deportistaSvc.getDeportista(this.username).subscribe(res => {
+      console.log('Res ', res);
+      this.deportista = res;
+      console.log('Deporttista ', this.deportista);
+    });
   }
 
   ngOnInit(): void {

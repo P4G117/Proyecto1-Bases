@@ -64,7 +64,7 @@ const routes: Routes = [
   { path: "crearReto/:creado/:nombre", component: CrearRetoComponent, pathMatch: "full"},
   { path: "verCompeOrg", component:VerCompetenciaOrgComponent, pathMatch:"full"},
   { path: "crearComp/:creado/:nombre", component:CrearCompComponent, pathMatch:"full"},
-  { path: "atleta/:username/:nombre", component:AtletaComponent, pathMatch:"full"},
+  { path: "atleta/:username/:nombre/:amigo", component:AtletaComponent, pathMatch:"full"},
 
 
 
