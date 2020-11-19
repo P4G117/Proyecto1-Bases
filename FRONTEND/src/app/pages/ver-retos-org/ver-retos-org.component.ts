@@ -55,8 +55,8 @@ export class VerRetosOrgComponent implements OnInit {
     this.router.navigate(['vergrupo',this.username]);
   }
 
-  goRetoInfo(id){
-    this.router.navigate(['crearReto',this.username,'true',id]);
+  goRetoInfo(id:number){
+    this.router.navigate(['crearReto',this.username,'true',id.toString()]);
   }
 
   goRetoInfoN(){

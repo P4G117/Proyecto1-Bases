@@ -54,9 +54,9 @@ export class VerCompetenciaOrgComponent implements OnInit {
   goGrupo(){
     this.router.navigate(['vergrupo',this.username]);
   }
-
+  
   goCompetenciaInfo(id:number){
-    this.router.navigate(['crearComp',this.username,'true',id.toString]);
+    this.router.navigate(['crearComp',this.username,'true',id.toString()]);
   }
 
   goCompetenciaInfoN(){

@@ -1,37 +1,37 @@
 import { Component } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ver-grupos',
   templateUrl: './ver-grupos.component.html',
-  styleUrls: ['./ver-grupos.component.css']
+  styleUrls: ['./ver-grupos.component.css'],
 })
 export class VerGruposComponent {
-  nombre : string;
+  nombre: string;
   admi: string;
-  info : string;
+  info: string;
   participantes = [];
 
-
-
-  constructor(private router: Router) { 
-    this.nombre = "Grupo",
-    this.admi = "Lucy",
-    this.info = "Se compite todas las semanas",
-    this.participantes = ["Participante 1","Participante 2","Participante 3"]
+  constructor(private router: Router, private _route: ActivatedRoute) {
+    (this.nombre = 'Grupo'),
+      (this.admi = 'Lucy'),
+      (this.info = 'Se compite todas las semanas'),
+      (this.participantes = [
+        'Participante 1',
+        'Participante 2',
+        'Participante 3',
+      ]);
   }
 
-  retosGo(){
+  retosGo() {
     this.router.navigate(['verRetos']);
   }
 
-  competenciasGo(){
+  competenciasGo() {
     this.router.navigate(['verCompetencias']);
   }
 
-  gruposGo(){
+  gruposGo() {
     this.router.navigate(['gesgrupos']);
   }
-
-
 }

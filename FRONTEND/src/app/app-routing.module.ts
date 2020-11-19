@@ -48,10 +48,10 @@ const routes: Routes = [
   { path: "home", component: HomeComponent, pathMatch: "full" },
   { path: "actividad/:username", component: SubActividadComponent, pathMatch: "full" },
   { path: "gesgrupos/:username", component: GesGruposComponent, pathMatch: "full" },
-  { path: "vergrupo/:username", component: VerGruposComponent, pathMatch: "full" },
+  { path: "vergrupo/:username/:id", component: VerGruposComponent, pathMatch: "full" },
   { path: "creargrupo/:username", component: CrearGrupoComponent, pathMatch: "full" },
   { path: "participantes/:username", component: ParticipantesComponent, pathMatch: "full" },
-  { path: "posiciones/:username", component: PosicionesComponent, pathMatch: "full" },
+  { path: "posiciones/:username/:id", component: PosicionesComponent, pathMatch: "full" },
   { path: "junior/:username", component: JuniorComponent, pathMatch: "full" },
   { path: "sub/:username", component: SubComponent, pathMatch: "full" },
   { path: "open/:username", component: OpenComponent, pathMatch: "full" },
@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: "verRetosOrg/:username", component: VerRetosOrgComponent, pathMatch: "full"},
   { path: "crearReto/:username/:creado/:id", component: CrearRetoComponent, pathMatch: "full"},
   { path: "verCompeOrg/:username", component:VerCompetenciaOrgComponent, pathMatch:"full"},
-  { path: "crearComp/:username/:creado/:nombre", component:CrearCompComponent, pathMatch:"full"},
+  { path: "crearComp/:username/:creado/:id", component:CrearCompComponent, pathMatch:"full"},
   { path: "atleta/:username/:username_friend/:amigo", component:AtletaComponent, pathMatch:"full"},
 
 

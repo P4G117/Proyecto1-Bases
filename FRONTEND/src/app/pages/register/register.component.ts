@@ -127,14 +127,14 @@ export class RegisterComponent {
 
   generateOrganizador(){
     let organizador = new Organizador();
-    organizador.UsuarioOrg = this.username;
-    organizador.PrimerNombre = this.name;
-    organizador.Apellido1 = this.apellido1;
-    organizador.Apellido2 = this.apellido2;
-    organizador.Fecnac = this.fechNaci;
-    organizador.Nacionalidad = this.nacionalidad;
-    organizador.Foto = "URL 90";
-    organizador.Clave = this.password;
+    organizador.usuarioorg = this.username;
+    organizador.primernombre = this.name;
+    organizador.apellido1 = this.apellido1;
+    organizador.apellido2 = this.apellido2;
+    organizador.fecnac = this.fechNaci;
+    organizador.nacionalidad = this.nacionalidad;
+    organizador.foto = "URL 90";
+    organizador.clave = this.password;
     this.organizadorSvc.addOrganizador(organizador).subscribe(res => {
       console.log('Res ', res);
       this.router.navigate(['home']);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-ver-reto-info',
@@ -20,12 +20,18 @@ export class VerRetoInfoComponent implements OnInit {
 
   source1:string = '';
   source2:string = '';
+  username: string;
+  id:string;
 
   progresValue: number;
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router, private _route: ActivatedRoute,
+  ) {
+    this.username = this._route.snapshot.paramMap.get('username');
+    this.id = this._route.snapshot.paramMap.get('id');
+    //Obtener información del reto
+   }
 
   ngOnInit(): void {
     this.progresValue = 30;
@@ -35,19 +41,23 @@ export class VerRetoInfoComponent implements OnInit {
     this.patrocinadores.push(this.source2);
   }
 
-  iniciogo(){
-    this.router.navigate(['inicio-deport']);
+  iniciogo() {
+    this.router.navigate(['inicio-deport',this.username]);
   }
-  buscargo(){
-    this.router.navigate(['buscar']);
-  }
-
-  retosGo(){
-    this.router.navigate(['verRetos']);
+  buscargo() {
+    this.router.navigate(['buscar',this.username]);
   }
 
-  competenciasGo(){
-    this.router.navigate(['verCompetencias']);
+  retosGo() {
+    this.router.navigate(['verRetos',this.username]);
+  }
+
+  competenciasGo() {
+    this.router.navigate(['verCompetencias',this.username]);
+  }
+
+  actividadGo(){
+    this.router.navigate(['actividad',this.username]);
   }
 
 

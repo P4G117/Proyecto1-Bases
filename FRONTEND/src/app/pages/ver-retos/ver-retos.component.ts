@@ -55,7 +55,7 @@ export class VerRetosComponent implements OnInit {
   }
 
   verInfo(id:number){
-    this.router.navigate(['verRetosInfo',this.username, id.toString]);
+    this.router.navigate(['verRetosInfo',this.username, id.toString()]);
   }
 
 

@@ -20,6 +20,10 @@ export class CrearCompComponent implements OnInit {
   costo:string;
   categorias:string[]=[];
 
+  username:string;
+  id:string;
+
+
   //5432
 
   cate:string[] = ["Junior", "Sub-23", "Open", "Elite", "MasterA", "MasterB", "MasterC"];
@@ -28,10 +32,11 @@ export class CrearCompComponent implements OnInit {
     private router: Router,
     private _route: ActivatedRoute,
   ) {
+    this.username = this._route.snapshot.paramMap.get('username');
     let crear = this._route.snapshot.paramMap.get('creado');
     if(crear == 'true'){
       this.creado = true;
-      this.nombre = this._route.snapshot.paramMap.get('nombre');
+      this.id = this._route.snapshot.paramMap.get('id');
     }
     else{
       this.creado = false;
@@ -57,15 +62,19 @@ export class CrearCompComponent implements OnInit {
   }
 
   goInicio(){
-    this.router.navigate(['inicio-organizador']);
+    this.router.navigate(['inicio-organizador',this.username]);
   }
 
   goRetos(){
-    this.router.navigate(['verRetosOrg']);
+    this.router.navigate(['verRetosOrg',this.username]);
   }
 
   goCompetencias(){
-    this.router.navigate(['verCompeOrg']);
+    this.router.navigate(['verCompeOrg',this.username]);
+  }
+
+  goGrupo(){
+    this.router.navigate(['vergrupo',this.username]);
   }
 
   desdeSet(dob) {
@@ -87,6 +96,12 @@ export class CrearCompComponent implements OnInit {
   }
 
   crear(){
+    //Actualizar o crear comp
     console.log(this.categorias);
   }
+
+  top(){
+    this.router.navigate(['posiciones',this.username, this.id]);
+  }
+
 }

@@ -54,7 +54,7 @@ export class VerCompetenciasComponent implements OnInit {
   }
 
   verInfo(id:number){
-    this.router.navigate(['VerCompetenciaInfo',this.username,id.toString]);
+    this.router.navigate(['VerCompetenciaInfo',this.username,id.toString()]);
   }
 
 }

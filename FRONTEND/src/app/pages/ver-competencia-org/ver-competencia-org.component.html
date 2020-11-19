@@ -12,12 +12,11 @@
   <div *ngFor="let informacion of informaciones">
     <div class="productor">
       <h3>{{ informacion.Nombre }} &nbsp;</h3>
-      <button class="buscarBtn" (click)="goCompetenciasInfo(informacion.id)" >Visitar</button>
+      <button class="buscarBtn" (click)="goCompetenciaInfo(informacion.id)" >Visitar</button>
       <h3>{{ informacion.Descripcion }} &nbsp;</h3>
 
     </div>
   </div>
 </div>
 
-<button class="Crear" (click)="goRetoInfoN()">Crear</button>
-
+<button class="Crear" (click)="goCompetenciaInfoN()">Crear</button>
