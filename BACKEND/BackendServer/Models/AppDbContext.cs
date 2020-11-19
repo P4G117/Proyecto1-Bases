@@ -213,15 +213,11 @@ namespace BackendServer.Models
 
                 entity.ToTable("categoria_carrera", "proyecto1");
 
-<<<<<<< Updated upstream
-                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
 
-                entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
-=======
                 entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
 
                 entity.Property(e => e.idcategoria).HasColumnName("id_categoria");
->>>>>>> Stashed changes
+
                 /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.CategoriaCarrera)
@@ -368,15 +364,11 @@ namespace BackendServer.Models
 
                 entity.ToTable("grupo_carrera", "proyecto1");
 
-<<<<<<< Updated upstream
-                entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
 
-                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
-=======
                 entity.Property(e => e.idgrupo).HasColumnName("id_grupo");
 
                 entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
->>>>>>> Stashed changes
+
                 /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.GrupoCarrera)
@@ -399,15 +391,11 @@ namespace BackendServer.Models
 
                 entity.ToTable("grupo_reto", "proyecto1");
 
-<<<<<<< Updated upstream
-                entity.Property(e => e.IdGrupo).HasColumnName("id_grupo");
 
-                entity.Property(e => e.IdReto).HasColumnName("id_reto");
-=======
                 entity.Property(e => e.idgrupo).HasColumnName("id_grupo");
 
                 entity.Property(e => e.idreto).HasColumnName("id_reto");
->>>>>>> Stashed changes
+
                 /*
                 entity.HasOne(d => d.IdGrupoNavigation)
                     .WithMany(p => p.GrupoReto)
@@ -541,15 +529,11 @@ namespace BackendServer.Models
 
                 entity.ToTable("patrocinador_carrera", "proyecto1");
 
-<<<<<<< Updated upstream
-                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");
 
-                entity.Property(e => e.IdPatrocinador).HasColumnName("id_patrocinador");
-=======
                 entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
 
                 entity.Property(e => e.idpatrocinador).HasColumnName("id_patrocinador");
->>>>>>> Stashed changes
+
                 /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.PatrocinadorCarrera)
@@ -574,10 +558,9 @@ namespace BackendServer.Models
 
                 entity.Property(e => e.idpatrocinador).HasColumnName("id_patrocinador");
 
-<<<<<<< Updated upstream
-=======
+
                 entity.Property(e => e.idreto).HasColumnName("id_reto");
->>>>>>> Stashed changes
+
                 /*
                 entity.HasOne(d => d.IdPatrocinadorNavigation)
                     .WithMany(p => p.PatrocinadorReto)

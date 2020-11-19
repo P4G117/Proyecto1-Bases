@@ -41,8 +41,8 @@ export class LoginComponent {
     if (this.rol == "deportista"){
       this.router.navigate(['inicio-deport',this.username]);
     }
-    if (this.rol== "productor"){
-      this.router.navigate(['inicio-organizador']);
+    if (this.rol== "organizador"){
+      this.router.navigate(['inicio-organizador',this.username]);
     }
 
 

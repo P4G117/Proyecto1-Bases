@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ver-competencia-org',
@@ -23,31 +23,44 @@ export class VerCompetenciaOrgComponent implements OnInit {
     },
   ];
 
+  informacionA=[];
+
+  username: string;
+
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private _route: ActivatedRoute
+  ) {
+    this.username = this._route.snapshot.paramMap.get('username');
+    //Ob
+   }
 
   ngOnInit(): void {
   }
 
   goInicio(){
-    this.router.navigate(['inicio-organizador']);
+    this.router.navigate(['inicio-organizador',this.username]);
   }
 
   goRetos(){
-    this.router.navigate(['verRetosOrg']);
-  }
-
-  goRetoInfo(nombre){
-    this.router.navigate(['crearReto','true',nombre]);
+    this.router.navigate(['verRetosOrg',this.username]);
   }
 
   goCompetencias(){
-    this.router.navigate(['verCompeOrg']);
+    this.router.navigate(['verCompeOrg',this.username]);
   }
-  goRetoInfoN(){
-    this.router.navigate(['crearReto','false','']);
+
+  goGrupo(){
+    this.router.navigate(['vergrupo',this.username]);
+  }
+
+  goCompetenciaInfo(id:number){
+    this.router.navigate(['crearComp',this.username,'true',id.toString]);
+  }
+
+  goCompetenciaInfoN(){
+    this.router.navigate(['crearComp',this.username,'false','']);
   }
 
 

@@ -5,14 +5,14 @@
 <button class="inicio" (click)="goInicio()" >Inicio</button>
 <button class="buscar" (click)="goRetos()">Retos</button>
 <button class="retos" (click)="goCompetencias()">Competencias</button>
-<button class="competencia" >Grupos</button>
-<button class="perfil">Cerrar Sesión</button>
+<button class="competencia" (click)="goGrupo()" >Grupos</button>
+<button class="perfil" >Cerrar Sesión</button>
 
 <div class="left" style="overflow: auto">
   <div *ngFor="let informacion of informaciones">
     <div class="productor">
       <h3>{{ informacion.Nombre }} &nbsp;</h3>
-      <button class="buscarBtn" (click)="goRetoInfo(informacion.Nombre)" >Visitar</button>
+      <button class="buscarBtn" (click)="goCompetenciasInfo(informacion.id)" >Visitar</button>
       <h3>{{ informacion.Descripcion }} &nbsp;</h3>
 
     </div>

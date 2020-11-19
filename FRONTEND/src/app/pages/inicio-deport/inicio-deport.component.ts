@@ -30,6 +30,8 @@ export class InicioDeportComponent implements OnInit {
       console.log('Res ', res);
       this.deportista = res;
       console.log('Deporttista ', this.deportista);
+      this.nombre = this.deportista.primernombre;
+      this.apellido1 = this.deportista.apellido1;
     });
   }
 
@@ -52,5 +54,9 @@ export class InicioDeportComponent implements OnInit {
 
   competenciasGo() {
     this.router.navigate(['verCompetencias',this.username]);
+  }
+
+  actividadGo(){
+    this.router.navigate(['actividad',this.username]);
   }
 }

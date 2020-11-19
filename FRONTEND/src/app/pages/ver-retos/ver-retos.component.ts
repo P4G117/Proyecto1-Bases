@@ -24,32 +24,38 @@ export class VerRetosComponent implements OnInit {
     },
   ];
 
+  informacionA=[];
+  username:string;
+
   constructor(
     private router: Router,
     private _route: ActivatedRoute,
-  ) { }
+  ) {
+    this.username = this._route.snapshot.paramMap.get('username');
+    //Pedir los retos en los que está inscrito
+   }
 
   ngOnInit(): void {
   }
 
 
-  iniciogo(){
-    this.router.navigate(['inicio-deport']);
+  iniciogo() {
+    this.router.navigate(['inicio-deport',this.username]);
   }
-  buscargo(){
-    this.router.navigate(['buscar']);
-  }
-
-  retosGo(){
-    this.router.navigate(['verRetos']);
+  buscargo() {
+    this.router.navigate(['buscar',this.username]);
   }
 
-  competenciasGo(){
-    this.router.navigate(['verCompetencias']);
+  retosGo() {
+    this.router.navigate(['verRetos',this.username]);
   }
 
-  verInfo(){
-    this.router.navigate(['verRetosInfo']);
+  competenciasGo() {
+    this.router.navigate(['verCompetencias',this.username]);
+  }
+
+  verInfo(id:number){
+    this.router.navigate(['verRetosInfo',this.username, id.toString]);
   }
 
 

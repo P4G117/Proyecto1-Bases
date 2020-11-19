@@ -1,10 +1,10 @@
 export class Organizador{
-  UsuarioOrg:string;
-  PrimerNombre:string;
-  Apellido1:string;
-  Apellido2:string;
-  Fecnac:string;
-  Nacionalidad:string;
-  Foto:string;
-  Clave:string;
+  usuarioorg:string;
+  primernombre:string;
+  apellido1:string;
+  apellido2:string;
+  fecnac:string;
+  nacionalidad:string;
+  foto:string;
+  clave:string;
 }

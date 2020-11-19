@@ -1,4 +1,3 @@
-
 <hr class="linea" />
 <label class="logo">Stravia</label><label class="logo2">|</label
 ><label class="logo3">TEC</label>
@@ -11,44 +10,77 @@
 <button class="logOut">Cerrar Sesión</button>
 
 <div class="cuerpo">
-    <mat-card-content class="cardTitulo">
-        <form [formGroup]="actividadForm" (ngSubmit)="onSubmit()"> 
-            <div [formGroup]="actividadForm">
-                <h2>Nombre de actividad: </h2><input type="text" formControlName="actividad">
-                <h3>Fecha: </h3>
-                    <input type="text" formControlName="fecha">
-                <h3>Hora: </h3>
-                    <input type="text" formControlName="hora">
-                <h3>Duración: </h3>
-                    <input type="text" formControlName="duracion">
-                <h3>Tipo de actividad: </h3>
-                    <input type="text" formControlName="tipo">
-                <h3>Kilometraje: </h3>
-                    <input type="text" formControlName="kilometro">
-                <h3>Completitud: </h3>        
-                    <input type="text" formControlName="completitud">
-            </div>
-        </form>
-        
-        <button mat-button type="submit" [disabled]="!actividadForm.valid" class="btn" (click)='upLoad()'>
-            <h1>
-                Finalizar
-            </h1>
-        </button>
-    </mat-card-content>
-    <mat-card-content class="insCard">
-        <div class="text">
-            <p class="text1">&nbsp;Stravia</p><p class="text2">|</p><p class="text3">TEC</p>
-        </div>
-        
-        <div class="form-group">
-            <input type="file"
-                    id="file"
-                    (change)="handleFileInput($event.target.files)">
-        </div>
-    
-           
-        
-    </mat-card-content>
-</div>
+  <mat-card-content class="cardTitulo">
+    <form [formGroup]="actividadForm" (ngSubmit)="onSubmit()">
+      <div [formGroup]="actividadForm">
+        <h2>Nombre de actividad:</h2>
+        <input
+          type="text"
+          formControlName="actividad"
+          (change)="setNombre($event.target.value)"
+        />
+        <h3>Fecha:</h3>
+        <input
+          type="text"
+          formControlName="fecha"
+          (change)="setFecha($event.target.value)"
+        />
+        <h3>Hora:</h3>
+        <input
+          type="text"
+          formControlName="hora"
+          (change)="setHora($event.target.value)"
+        />
+        <h3>Duración:</h3>
+        <input
+          type="text"
+          formControlName="duracion"
+          (change)="setDuracion($event.target.value)"
+        />
+        <h3>Tipo de actividad:</h3>
+        <input
+          type="text"
+          formControlName="tipo"
+          (change)="setTipo($event.target.value)"
+        />
+        <h3>Kilometraje:</h3>
+        <input
+          type="text"
+          formControlName="kilometro"
+          (change)="setKilo($event.target.value)"
+        />
+        <h3>Completitud:</h3>
+        <input
+          type="text"
+          formControlName="completitud"
+          (change)="setComple($event.target.value)"
+        />
+      </div>
+    </form>
 
+    <button
+      mat-button
+      type="submit"
+      [disabled]="!actividadForm.valid"
+      class="btn"
+      (click)="upLoad()"
+    >
+      <h1>Finalizar</h1>
+    </button>
+  </mat-card-content>
+  <mat-card-content class="insCard">
+    <div class="text">
+      <p class="text1">&nbsp;Stravia</p>
+      <p class="text2">|</p>
+      <p class="text3">TEC</p>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="file"
+        id="file"
+        (change)="handleFileInput($event.target.files)"
+      />
+    </div>
+  </mat-card-content>
+</div>

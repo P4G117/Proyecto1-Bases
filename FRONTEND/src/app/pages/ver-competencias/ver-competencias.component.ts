@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-ver-competencias',
@@ -23,31 +23,38 @@ export class VerCompetenciasComponent implements OnInit {
     },
 
   ];
+  informacionA=[];
+
+  username: string;
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private _route: ActivatedRoute
+  ) {
+    this.username = this._route.snapshot.paramMap.get('username');
+    //Obtener información de las competencias en las que está inscrito
+  }
 
   ngOnInit(): void {
   }
 
-  iniciogo(){
-    this.router.navigate(['inicio-deport']);
+  iniciogo() {
+    this.router.navigate(['inicio-deport',this.username]);
   }
-  buscargo(){
-    this.router.navigate(['buscar']);
-  }
-
-  retosGo(){
-    this.router.navigate(['verRetos']);
+  buscargo() {
+    this.router.navigate(['buscar',this.username]);
   }
 
-  competenciasGo(){
-    this.router.navigate(['verCompetencias']);
+  retosGo() {
+    this.router.navigate(['verRetos',this.username]);
   }
 
-  verInfo(id){
-    this.router.navigate(['VerCompetenciaInfo']);
+  competenciasGo() {
+    this.router.navigate(['verCompetencias',this.username]);
+  }
+
+  verInfo(id:number){
+    this.router.navigate(['VerCompetenciaInfo',this.username,id.toString]);
   }
 
 }
