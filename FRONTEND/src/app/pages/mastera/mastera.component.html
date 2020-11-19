@@ -2,18 +2,18 @@
 <label class="logo">Stravia</label><label class="logo2">|</label
 ><label class="logo3">TEC</label>
 
-<button class="retos" (click)="retosGo()">Retos</button>
-<button class="competencia" (click)="competenciasGo()">Competencias</button>
-<button class="grupos" (click)="gruposGo()">Grupos</button>
-<button class="logOut">Cerrar Sesión</button>
-
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="buscar" (click)="goRetos()">Retos</button>
+<button class="retos" (click)="goCompetencias()">Competencias</button>
+<button class="competencia" (click)="goGrupo()">Grupos</button>
+<button class="perfil" [routerLink]="['/home']" >Cerrar Sesión</button>
 <body class="posiciones">
     <mat-card class="podio">
         <div>
             <h1>
                 Nombre de la carrera: {{carrera}}
             </h1>
-    
+
         </div>
         <div>
             <h1>
@@ -26,13 +26,13 @@
                 {{posicion.edad}}
                 {{posicion.tiempo}}
             </h2>
-            
+
         </div>
-        <button mat-button class="btn"  [routerLink]="['/posiciones']">
+        <button mat-button class="btn"  [routerLink]="['/posiciones',username,id]">
             <h1>
                 Aceptar
             </h1>
         </button>
     </mat-card>
-    
+
 </body>

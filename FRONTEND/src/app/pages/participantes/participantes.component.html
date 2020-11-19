@@ -2,39 +2,41 @@
 <label class="logo">Stravia</label><label class="logo2">|</label
 ><label class="logo3">TEC</label>
 
-<button class="retos" (click)="retosGo()">Retos</button>
-<button class="competencia" (click)="competenciasGo()">Competencias</button>
-<button class="grupos" (click)="gruposGo()">Grupos</button>
-<button class="logOut">Cerrar Sesión</button>
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="buscar" (click)="goRetos()">Retos</button>
+<button class="retos" (click)="goCompetencias()">Competencias</button>
+<button class="competencia" (click)="goGrupo()">Grupos</button>
+<button class="perfil">Cerrar Sesión</button>
 
-<body class="grupos2">
-    <div class="maingrupo">
-        <mat-card class="grupo">
-            <div class="grupo3">
-                <h1>
-                    Nombre de la carrera:
-                </h1>
-                <div contenteditable="true">
-                    <h1>
-                        {{carrera}}
-                    </h1>
-                </div>
-            </div>
-            <h2>
-                Participantes
-            </h2>
-            
-            <div class="participantes">
-                <div *ngFor="let participante of participantes">
-                    <div contenteditable="true">
-                        <h3>
-                            {{participante}}
-                        </h3>
-                    </div>
-                </div>
-            </div>
-        </mat-card>
+<div class="grupos2">
+  <div class="maingrupo">
+    <mat-card class="grupo">
+      <div class="grupo3">
+        <h1>Nombre de la carrera:</h1>
+        <div contenteditable="true">
+          <h1>
+            {{ carrera }}
+          </h1>
+        </div>
+      </div>
+      <h2>Participantes</h2>
 
-    </div>
-    
-</body>
+      <div class = "lookfil" style="overflow: auto">
+        <div class="tramos">
+          <div *ngFor="let participante of participantes">
+            <mat-card class="productor">
+              <h3>
+                {{ participante }}
+              </h3>
+            </mat-card>
+          </div>
+        </div>
+
+
+      </div>
+      <button class="top" (click)="goTop()" >Top</button>
+    </mat-card>
+
+  </div>
+</div>
+

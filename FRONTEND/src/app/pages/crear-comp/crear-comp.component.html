@@ -61,6 +61,6 @@
     </select>
 
     <button class="Crear" (click)="crear()" type="submit">{{boton}}</button>
-    <button class="tops" (click)="top()" type="submit">Top</button>
+    <button class="tops" (click)="top()" type="submit" [disabled]="creado === false" >Participantes</button>
   </form>
 </div>

@@ -101,7 +101,7 @@ export class CrearCompComponent implements OnInit {
   }
 
   top(){
-    this.router.navigate(['posiciones',this.username, this.id]);
+    this.router.navigate(['participantes',this.username, this.id]);
   }
 
 }

@@ -1,6 +1,6 @@
 .linea {
   position: absolute;
-  width: 1512px;
+  width: 1250px;
   height: 0px;
   left: 0px;
   top: 70px;
@@ -51,7 +51,7 @@
   opacity: 0.66;
 }
 
-.retos {
+.inicio {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   border: none;
@@ -71,7 +71,7 @@
   top: 30px;
 }
 
-.competencia {
+.buscar {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   border: none;
@@ -91,7 +91,7 @@
   top: 30px;
 }
 
-.grupos {
+.retos {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   border: none;
@@ -105,12 +105,51 @@
   border-radius: 1.5rem;
   cursor: pointer;
   position: absolute;
-  width: 50px;
+  width: 100px;
   height: 40px;
   left: 580px;
   top: 30px;
 }
 
+.competencia {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  font-size: 0.875rem;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  width: 10%;
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  left: 755px;
+  top: 30px;
+}
+
+.perfil {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  font-size: 0.875rem;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  width: 10%;
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  left: 900px;
+  top: 30px;
+}
 .logOut {
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -127,16 +166,8 @@
   position: absolute;
   width: 200px;
   height: 40px;
-  left: 700px;
+  left: 1000px;
   top: 30px;
-}
-
-.posiciones{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 150px;
 }
 
 .podio{

@@ -7,6 +7,6 @@ namespace BackendServer.Repositorios
 {
     public class Connexion
     {
-        public string conexion = "Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=maesly1234;";
+        public string conexion = "Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=12345;";
     }
 }

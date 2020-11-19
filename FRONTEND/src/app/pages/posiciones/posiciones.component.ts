@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-posiciones',
   templateUrl: './posiciones.component.html',
@@ -7,19 +7,31 @@ import { Router} from '@angular/router';
 })
 export class PosicionesComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  username:string;
+  id:string;
+
+  constructor(private router: Router,
+    private _route: ActivatedRoute,) {
+      this.username = this._route.snapshot.paramMap.get('username');
+      this.id = this._route.snapshot.paramMap.get('id');
+     }
 
   ngOnInit(): void {
   }
-  retosGo(){
-    this.router.navigate(['verRetos']);
+  goInicio(){
+    this.router.navigate(['inicio-organizador',this.username]);
   }
 
-  competenciasGo(){
-    this.router.navigate(['verCompetencias']);
+  goRetos(){
+    this.router.navigate(['verRetosOrg',this.username]);
   }
-  gruposGo(){
-    this.router.navigate(['gesgrupos']);
+
+  goCompetencias(){
+    this.router.navigate(['verCompeOrg',this.username]);
+  }
+
+  goGrupo(){
+    this.router.navigate(['vergrupo',this.username]);
   }
 
 }
