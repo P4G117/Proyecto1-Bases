@@ -10,7 +10,7 @@ namespace BackendServer.Repositorios
 {
     public class DeportistaRepositorio
     {
-        Connexion connString = new Connexion();
+       
         public static List<Deportista> GetAllDeportistas()
         {
             Connexion connString = new Connexion();
@@ -121,7 +121,7 @@ namespace BackendServer.Repositorios
             }
         }
 
-        public static bool UpdateDeportista(Deportista deportista) {
+        public static bool UpdateDeportista(string usuario_dep,Deportista deportista) {
             Connexion connString = new Connexion();
 
             using (var conn = new NpgsqlConnection(connString.conexion))
@@ -133,7 +133,7 @@ namespace BackendServer.Repositorios
                     "Apellido1 = '@Apellido1', Apellido2 = '@Apellido2', FecNac = '@fecnac', Nacionalidad = '@Nacionalidad', " +
                     "Foto = '@Foto', Clave = '@Clave' WHERE Usuario_Dep = '@Usuario'";
 
-                query = query.Replace("@Usuario", deportista.usuariodep)
+                query = query.Replace("@Usuario", usuario_dep)
                              .Replace("@PrimerNombre", deportista.primernombre)
                              .Replace("@Apellido1", deportista.apellido1)
                              .Replace("@Apellido2", deportista.apellido2)
@@ -146,7 +146,7 @@ namespace BackendServer.Repositorios
                 command.Dispose();
                 return true;
             }
-            }
+        }
         public static bool DeleteDeportista(string deportista) {
 
             Connexion connString = new Connexion();

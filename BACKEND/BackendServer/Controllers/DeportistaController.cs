@@ -26,22 +26,12 @@ namespace BackendServer.Controllers
         public IEnumerable<Deportista> GetAllDeportista()
         {
             return DeportistaRepositorio.GetAllDeportistas();
-            //return await _context.Deportista.ToListAsync();
         }
 
         // GET: api/Deportista/5
         [HttpGet("{id}")]
         public IEnumerable<Deportista> GetDeportista(string id)
         {
-            /*
-            var deportista = await _context.Deportista.FindAsync(id);
-
-            if (deportista == null)
-            {
-                return NotFound();
-            }
-            */
-
             return DeportistaRepositorio.GetDeportistas(id);//deportista;
         }
 
@@ -49,34 +39,9 @@ namespace BackendServer.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public bool PutDeportista(Deportista deportista)
+        public bool PutDeportista(string id,Deportista deportista)
         {
-            /*
-            if (id != deportista.usuariodep)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(deportista).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!DeportistaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            */
-
-            return DeportistaRepositorio.UpdateDeportista(deportista);//NoContent();
+            return DeportistaRepositorio.UpdateDeportista(id,deportista);//NoContent();
         }
 
         // POST: api/Deportista

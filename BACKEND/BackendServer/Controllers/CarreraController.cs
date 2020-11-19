@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendServer.Models;
-
+using BackendServer.Repositorios;
 namespace BackendServer.Controllers
 {
     [Route("api/[controller]")]
@@ -22,83 +22,41 @@ namespace BackendServer.Controllers
 
         // GET: api/Carrera
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Carrera>>> GetCarrera()
+        public IEnumerable<Carrera> GetCarreras()
         {
-            return await _context.Carrera.ToListAsync();
+            return CarreraRepositorio.GetAllCarreras();
         }
 
         // GET: api/Carrera/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Carrera>> GetCarrera(int id)
+        [HttpGet("{carrera}")]
+        public IEnumerable<Carrera> GetCarrera(int carrera)
         {
-            var carrera = await _context.Carrera.FindAsync(id);
-
-            if (carrera == null)
-            {
-                return NotFound();
-            }
-
-            return carrera;
+            return CarreraRepositorio.GetCarrera(carrera);
         }
 
         // PUT: api/Carrera/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCarrera(int id, Carrera carrera)
+        [HttpPut("{nombreCarrera}")]
+        public bool PutCarrera(int nombreCarrera, Carrera carrera)
         {
-            if (id != carrera.idcarrera)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(carrera).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CarreraExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return CarreraRepositorio.UpdateCarrera(nombreCarrera,carrera);
         }
 
         // POST: api/Carrera
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Carrera>> PostCarrera(Carrera carrera)
+        public bool PostCarrera(Carrera carrera)
         {
-            _context.Carrera.Add(carrera);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetCarrera", new { id = carrera.idcarrera }, carrera);
+            return CarreraRepositorio.PostCarrera(carrera); 
         }
 
         // DELETE: api/Carrera/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Carrera>> DeleteCarrera(int id)
-        {
-            var carrera = await _context.Carrera.FindAsync(id);
-            if (carrera == null)
-            {
-                return NotFound();
-            }
-
-            _context.Carrera.Remove(carrera);
-            await _context.SaveChangesAsync();
-
-            return carrera;
+        public bool DeleteCarrera(int id)
+        { 
+            return CarreraRepositorio.DeleteCarrera(id);
         }
 
         private bool CarreraExists(int id)

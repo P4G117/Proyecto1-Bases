@@ -12,14 +12,5 @@ namespace BackendServer.Models
         public decimal Numrepresentante { get; set; }
         public string Logo { get; set; }
 
-        /*
-        public virtual ICollection<PatrocinadorCarrera> PatrocinadorCarrera { get; set; }
-        public virtual ICollection<PatrocinadorReto> PatrocinadorReto { get; set; }
-        */
-
-
-        //public virtual ICollection<PatrocinadorCarrera> PatrocinadorCarrera { get; set; }
-        //public virtual ICollection<PatrocinadorReto> PatrocinadorReto { get; set; }
-
     }
 }

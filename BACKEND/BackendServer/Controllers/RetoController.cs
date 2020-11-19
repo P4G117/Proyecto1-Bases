@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendServer.Models;
+using BackendServer.Repositorios;
 
 namespace BackendServer.Controllers
 {
@@ -22,83 +23,41 @@ namespace BackendServer.Controllers
 
         // GET: api/Reto
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reto>>> GetReto()
+        public IEnumerable<Reto> GetAllReto()
         {
-            return await _context.Reto.ToListAsync();
+            return RetoRepositorio.GetAllRetos();
         }
 
         // GET: api/Reto/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Reto>> GetReto(int id)
+        public IEnumerable<Reto> GetReto(int id)
         {
-            var reto = await _context.Reto.FindAsync(id);
-
-            if (reto == null)
-            {
-                return NotFound();
-            }
-
-            return reto;
+            return RetoRepositorio.GetReto(id);
         }
 
         // PUT: api/Reto/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutReto(int id, Reto reto)
+        public bool PutReto(int id, Reto reto)
         {
-            if (id != reto.IdReto)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(reto).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RetoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return RetoRepositorio.UpdateReto(id, reto);
         }
 
         // POST: api/Reto
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Reto>> PostReto(Reto reto)
+        public bool PostReto(Reto reto)
         {
-            _context.Reto.Add(reto);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetReto", new { id = reto.IdReto }, reto);
+            return RetoRepositorio.PostReto(reto);
         }
 
         // DELETE: api/Reto/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Reto>> DeleteReto(int id)
+        public bool DeleteReto(int id)
         {
-            var reto = await _context.Reto.FindAsync(id);
-            if (reto == null)
-            {
-                return NotFound();
-            }
-
-            _context.Reto.Remove(reto);
-            await _context.SaveChangesAsync();
-
-            return reto;
+            return RetoRepositorio.DeleteReto(id);
         }
 
         private bool RetoExists(int id)

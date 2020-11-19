@@ -23,4 +23,12 @@ export class OrganizadorService {
   addOrganizador(organizador:Organizador):Observable<Organizador>{
     return this.http.post<Organizador>(this.url, organizador);
   }
+
+  updateOrganizador(usuario:string,organizador:Organizador):Observable<Organizador>{
+    return this.http.put<Organizador>(this.url + '/' + usuario, organizador);
+  }
+
+  deleteOrganizador(usuario:string):Observable<Organizador>{
+    return this.http.delete<Organizador>(this.url + '/' + usuario);
+  }
 }

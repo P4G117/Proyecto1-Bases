@@ -19,13 +19,13 @@ export class CarrerasPorGrupo{
 }
 
 export class Carrera{
-    IdCarrera:number;
-    IdOrganizador:string;
-    Nombre:string;
-    Fecha: string;
-    Recorrido:string;
-    Cuenta:number;
-    Costo: number;
-    Privacidad: boolean;
-    TipoActividad:string
+    idcarrera:number;
+    idorganizador:string;
+    nombre:string;
+    fecha: string;
+    recorrido:string;
+    cuenta:number;
+    costo: number;
+    privacidad: boolean;
+    tipoactividad:string
 }

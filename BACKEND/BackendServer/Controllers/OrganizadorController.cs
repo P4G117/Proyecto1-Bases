@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendServer.Models;
+using BackendServer.Repositorios;
 
 namespace BackendServer.Controllers
 {
@@ -22,97 +23,41 @@ namespace BackendServer.Controllers
 
         // GET: api/Organizador
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Organizador>>> GetOrganizador()
+        public IEnumerable<Organizador> GetOrganizador()
         {
-            return await _context.Organizador.ToListAsync();
+            return OrganizadorRepositorio.GetAllOrganizadores();
         }
 
         // GET: api/Organizador/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Organizador>> GetOrganizador(string id)
+        public IEnumerable<Organizador> GetOrganizador(string id)
         {
-            var organizador = await _context.Organizador.FindAsync(id);
-
-            if (organizador == null)
-            {
-                return NotFound();
-            }
-
-            return organizador;
+            return OrganizadorRepositorio.GetOrganizador(id);
         }
 
         // PUT: api/Organizador/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrganizador(string id, Organizador organizador)
+        public bool PutOrganizador(string id, Organizador organizador)
         {
-            if (id != organizador.usuarioorg)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(organizador).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!OrganizadorExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return OrganizadorRepositorio.UpdateOrganizador(id,organizador);
         }
 
         // POST: api/Organizador
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Organizador>> PostOrganizador(Organizador organizador)
+        public bool PostOrganizador(Organizador organizador)
         {
-            _context.Organizador.Add(organizador);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (OrganizadorExists(organizador.usuarioorg))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetOrganizador", new { id = organizador.usuarioorg }, organizador);
+            return OrganizadorRepositorio.PostOrganizador(organizador);
         }
 
         // DELETE: api/Organizador/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Organizador>> DeleteOrganizador(string id)
+        public bool DeleteOrganizador(string id)
         {
-            var organizador = await _context.Organizador.FindAsync(id);
-            if (organizador == null)
-            {
-                return NotFound();
-            }
-
-            _context.Organizador.Remove(organizador);
-            await _context.SaveChangesAsync();
-
-            return organizador;
+            return OrganizadorRepositorio.DeleteOrganizador(id);
         }
 
         private bool OrganizadorExists(string id)

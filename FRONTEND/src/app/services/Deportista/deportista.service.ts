@@ -26,4 +26,11 @@ export class DeportistaService {
     return this.http.post<Deportista>(this.url, deportista);
   }
 
+  updateDeportista(usuario:string,deportista:Deportista):Observable<Deportista>{
+    return this.http.put<Deportista>(this.url + '/' + usuario, deportista);
+  }
+
+  deleteDeportista(usuario:string):Observable<Deportista>{
+    return this.http.delete<Deportista>(this.url + '/' + usuario);
+  }
 }

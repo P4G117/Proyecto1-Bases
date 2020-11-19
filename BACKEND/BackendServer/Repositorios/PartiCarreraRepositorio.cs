@@ -5,16 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using BackendServer.Models;
-
+using BackendServer.Repositorios;
 namespace BackendServer.Repositorios
 {
     public class PartiCarreraRepositorio
     {
         public static List<ParticipantesCarrera> GetParticipantesCarrera(string carrera)
         {
-            string connString = "Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=azofeifa1171290;";
+            //string connString = "Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=azofeifa1171290;";
+            Connexion connexion = new Connexion();
 
-            using (var conn = new NpgsqlConnection(connString))
+            using (var conn = new NpgsqlConnection(connexion.conexion))
             {
 
                 Console.Out.WriteLine("Opening connection");

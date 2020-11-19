@@ -7,8 +7,5 @@ namespace BackendServer.Models
     {
         public string deportista { get; set; }
         public string amigo1 { get; set; }
-
-        //public virtual Deportista Amigo1Navigation { get; set; }
-        //public virtual Deportista DeportistaNavigation { get; set; }
     }
 }

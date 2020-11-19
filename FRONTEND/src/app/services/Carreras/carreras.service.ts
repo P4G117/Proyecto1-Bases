@@ -21,6 +21,7 @@ export class CarrerasService {
     return this.http.get<CarrerasPorGrupo>('/GetCarrerasSegunGrupo/' + usuario);
   }
 
+  //CRUD de la tabla CARRERA
   getAllCarrera():Observable<Carrera>{
     return this.http.get<Carrera>(this.url);
   }

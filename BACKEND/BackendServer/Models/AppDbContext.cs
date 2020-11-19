@@ -218,6 +218,7 @@ namespace BackendServer.Models
 
                 entity.Property(e => e.idcategoria).HasColumnName("id_categoria");
 
+
                 /*
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.CategoriaCarrera)
@@ -363,7 +364,6 @@ namespace BackendServer.Models
                     .HasName("grupo_carrera_pkey");
 
                 entity.ToTable("grupo_carrera", "proyecto1");
-
 
                 entity.Property(e => e.idgrupo).HasColumnName("id_grupo");
 
