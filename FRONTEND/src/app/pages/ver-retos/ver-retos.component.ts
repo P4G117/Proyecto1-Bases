@@ -25,7 +25,8 @@ export class VerRetosComponent implements OnInit {
   ];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private _route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {

@@ -26,8 +26,4 @@ export class DeportistaService {
     return this.http.post<Deportista>(this.url, deportista);
   }
 
-  getEM(){
-    return this.http.get<Class>('/api/Deportista/sol');
-  }
-
 }

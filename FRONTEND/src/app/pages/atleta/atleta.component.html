@@ -1,4 +1,3 @@
-
 <hr class="linea" />
 <label class="logo">Stravia</label><label class="logo2">|</label
 ><label class="logo3">TEC</label>
@@ -11,15 +10,15 @@
 <button class="logOut">Cerrar Sesión</button>
 
 <div class="cuerpo">
-    <mat-card-content class="cardTitulo">
-        <h1>{{atleta}}</h1>
-        <img src='../../../assets/Images/image 2.png' alt="profile-pic">
-        <h3>{{descripcion}}</h3>
-        <button mat-button class="btn">
-            <h1>
-                {{amigo}}
-            </h1>
-        </button>
-    </mat-card-content>
+  <mat-card-content class="cardTitulo">
+    <img [src]="source" src="" alt="profile-pic" />
+    <h1>{{ atleta }}</h1>
 
+    <h3>{{ nacionalidad }}</h3>
+    <button mat-button class="btn">
+      <h1>
+        {{ amigo }}
+      </h1>
+    </button>
+  </mat-card-content>
 </div>
