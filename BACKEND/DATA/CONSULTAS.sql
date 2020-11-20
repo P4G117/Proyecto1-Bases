@@ -156,6 +156,129 @@ WHERE I.id_carrera = C.id_carrera AND C.nombre  = 'Clasica Palmarin' AND A.nombr
 --GROUP BY D.primer_nombre, I.categoria
 ORDER BY A.duracion;
 
+--AQUI ESTAN LAS NUEVAS CONSULTAS !!!!!!!!
+--###########################################################################
+--##                        Followers y Following                          ##
+--###########################################################################
+
+SELECT count(amigo) AS Seguidos
+FROM proyecto1.amigo AS A
+WHERE A.deportista = 'adri45s';
+
+SELECT count(deportista) AS Seguidores
+FROM proyecto1.amigo AS A
+WHERE A.amigo = 'adri45s';
+
+--###########################################################################
+--##           Ver el Total de Actividades de un Deportista                ##
+--###########################################################################
+
+SELECT count(nombreactividad) AS actividades
+FROM proyecto1.actividad AS A
+WHERE A.id_deportista = 'MMMartin';
+--###########################################################################
+--##                   Obtener la Edad de un Deportista                    ##
+--###########################################################################
+SELECT date_part('year',age(D.fecnac)) AS Edad
+FROM proyecto1.deportista AS D
+WHERE D.usuario_dep = 'adri45s';
+--###########################################################################
+--##              Grupos a los que no pertenece un Deportista              ##
+--###########################################################################
+
+SELECT A.id_grupo, A.nombre
+FROM
+     ((proyecto1.deportista_grupo AS J JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)
+     JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)
+WHERE D.usuario_dep != 'adri45s'
+EXCEPT
+SELECT A.id_grupo, A.nombre
+FROM
+     ((proyecto1.deportista_grupo AS J JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)
+     JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)
+WHERE D.usuario_dep = 'adri45s';
+
+SELECT * FROM proyecto1.deportista_grupo;
+
+--###########################################################################
+--##                    Buscar un Grupo por su Nombre                      ##
+--###########################################################################
+SELECT A.id_grupo, A.nombre
+FROM
+     ((proyecto1.deportista_grupo AS J JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)
+     JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)
+WHERE D.usuario_dep != 'adri45s' AND A.nombre LIKE 'A%'
+EXCEPT
+SELECT A.id_grupo, A.nombre
+FROM
+     ((proyecto1.deportista_grupo AS J JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)
+     JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)
+WHERE D.usuario_dep = 'adri45s';
+
+SELECT G.id_grupo, G.nombre
+FROM proyecto1.grupo AS G
+WHERE G.nombre LIKE 'A%';
+
+--###########################################################################
+--##       Ver las Carreras en que esta Inscrito el Deportista             ##
+--###########################################################################
+
+SELECT C.id_carrera, C.nombre
+FROM
+    (proyecto1.inscripcion AS I JOIN proyecto1.carrera AS C ON I.id_carrera = C.id_carrera)
+WHERE I.usuario_dep = 'adri45s';
+
+SELECT * FROM proyecto1.inscripcion;
+--###########################################################################
+--##          Ver los Retos en que esta Inscrito el Deportista             ##
+--###########################################################################
+
+SELECT C.id_reto, C.nombre
+FROM
+    (proyecto1.deportista_reto AS I JOIN proyecto1.reto AS C ON I.id_reto = C.id_reto)
+WHERE I.usuario_dep = 'cgr1995';
+
+--###########################################################################
+--##             Ver Cantidad de Retos, Carreras, Grupos                   ##
+--###########################################################################
+
+SELECT count(nombre) AS Carreras
+FROM proyecto1.carrera AS A
+WHERE A.id_organizador = 'adri85';
+
+SELECT count(nombre) AS Retos
+FROM proyecto1.reto AS A
+WHERE A.id_organizador = 'adri85';
+
+SELECT count(nombre) AS Grupos
+FROM proyecto1.grupo AS A
+WHERE A.administrador = 'adri85';
+--VER LAS CARRERAS, RETOS Y GRUPOS QUE HIZO UN ORGANIZADOR
+SELECT A.id_carrera, A.id_organizador, A.nombre, A.fecha, A.recorrido, A.cuenta, A.costo, A.privacidad, A.tipo_actividad
+FROM proyecto1.carrera AS A
+WHERE A.id_organizador = 'adri85';
+
+SELECT A.id_reto, A.nombre, A.periodo, A.privacidad, A.tipo_reto, A.tipo_actividad, A.id_organizador
+FROM proyecto1.reto AS A
+WHERE A.id_organizador = 'adri85';
+
+SELECT A.id_grupo, A.nombre, A.administrador
+FROM proyecto1.grupo AS A
+WHERE A.administrador = 'adri85';
+--###########################################################################
+--##             Ver los Grupos en que esta un Deportista                  ##
+--###########################################################################
+SELECT G.iD_grupo, G.nombre, O.primer_nombre ||' '|| O.apellido1 AS Administrador
+FROM ((proyecto1.deportista_grupo AS D JOIN proyecto1.grupo AS G ON D.id_grupo = G.id_grupo)
+      JOIN proyecto1.organizador AS O ON G.administrador = O.usuario_org)
+WHERE D.usuario_dep = 'sebas2008';
+
+--###########################################################################
+--##                          CRUD de Actividades                          ##
+--###########################################################################
+SELECT A.id_actividad, A.nombreactividad, A.fecha, A.hora,A.mapa, A.kilometros, A.duracion, A.completitud, A.tipo_actividad
+FROM proyecto1.actividad AS A
+WHERE A.id_deportista = 'adri45s';
 --###########################################################################
 --###########################################################################
 --###########################################################################

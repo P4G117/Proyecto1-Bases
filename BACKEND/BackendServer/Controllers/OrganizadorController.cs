@@ -64,5 +64,6 @@ namespace BackendServer.Controllers
         {
             return _context.Organizador.Any(e => e.usuarioorg == id);
         }
+        
     }
 }

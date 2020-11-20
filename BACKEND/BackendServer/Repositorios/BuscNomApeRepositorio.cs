@@ -12,9 +12,9 @@ namespace BackendServer.Repositorios
     {
         public static List<BusquedaPersonas> GetBusquedaNombreApe(string deportista, string busc1, string busc2)
         {
-            string connString = "Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=azofeifa1171290;";
+            Connexion connString = new Connexion();
 
-            using (var conn = new NpgsqlConnection(connString))
+            using (var conn = new NpgsqlConnection(connString.conexion))
             {
 
                 Console.Out.WriteLine("Opening connection");

@@ -10,7 +10,7 @@ namespace BackendServer.Repositorios
 {
     public class DeportistaRepositorio
     {
-       
+        //Obtener todos los Deportistas
         public static List<Deportista> GetAllDeportistas()
         {
             Connexion connString = new Connexion();
@@ -50,7 +50,7 @@ namespace BackendServer.Repositorios
                 }
             }
         }
-
+        //Obtener un solo Deportista
         public static List<Deportista> GetDeportistas(string deportista)
         {
             Connexion connString = new Connexion();
@@ -93,7 +93,7 @@ namespace BackendServer.Repositorios
                 }
             }
         }
-
+        //Crear un nuevo Deportista
         public static bool PostDeportista(Deportista deportista) {
             Connexion connString = new Connexion();
 
@@ -120,7 +120,7 @@ namespace BackendServer.Repositorios
                 return true;
             }
         }
-
+        //Actualizar la Información de un Deportista
         public static bool UpdateDeportista(string usuario_dep,Deportista deportista) {
             Connexion connString = new Connexion();
 
@@ -147,6 +147,7 @@ namespace BackendServer.Repositorios
                 return true;
             }
         }
+        //Eliminar un Deportista
         public static bool DeleteDeportista(string deportista) {
 
             Connexion connString = new Connexion();
@@ -172,6 +173,125 @@ namespace BackendServer.Repositorios
             }
             
         }
+        //Ver la Carreras en que esta Inscrito el Deportista
+        public static List<GrupoBusqueda> CarInscritasDep(string deportista)
+        {
+            Connexion connString = new Connexion();
 
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+                string query = "SELECT C.id_carrera, C.nombre" +
+                    " FROM" +
+                    " (proyecto1.inscripcion AS I JOIN proyecto1.carrera AS C ON I.id_carrera = C.id_carrera)" +
+                    " WHERE I.usuario_dep = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<GrupoBusqueda> listGrupoBusqueda = new List<GrupoBusqueda>();
+
+                    while (reader.Read())
+                    {
+                        GrupoBusqueda grupoBusqueda = null;
+                        grupoBusqueda = new GrupoBusqueda();
+                        grupoBusqueda.idgrupo = Convert.ToInt32(reader.GetValue(0));
+                        grupoBusqueda.nombre = reader.GetValue(1).ToString();
+
+                        listGrupoBusqueda.Add(grupoBusqueda);
+                    }
+
+                    return listGrupoBusqueda;
+                }
+            }
+
+        }
+        //Ver los Retos en que esta Inscrito el Deportista
+        public static List<GrupoBusqueda> RetInscritosDep(string deportista)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+                string query = "SELECT C.id_reto, C.nombre" +
+                    " FROM" +
+                    " (proyecto1.deportista_reto AS I JOIN proyecto1.reto AS C ON I.id_reto = C.id_reto)" +
+                    " WHERE I.usuario_dep = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<GrupoBusqueda> listGrupoBusqueda = new List<GrupoBusqueda>();
+
+                    while (reader.Read())
+                    {
+                        GrupoBusqueda grupoBusqueda = null;
+                        grupoBusqueda = new GrupoBusqueda();
+                        grupoBusqueda.idgrupo = Convert.ToInt32(reader.GetValue(0));
+                        grupoBusqueda.nombre = reader.GetValue(1).ToString();
+
+                        listGrupoBusqueda.Add(grupoBusqueda);
+                    }
+
+                    return listGrupoBusqueda;
+                }
+            }
+
+        }
+        //Ver los Grupos a los que Pertenece el Deportista
+        public static List<Grupo> MisGruposDep(string deportista)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+                string query = "SELECT G.iD_grupo, G.nombre, O.primer_nombre ||' '|| O.apellido1 AS Administrador" +
+                    " FROM((proyecto1.deportista_grupo AS D JOIN proyecto1.grupo AS G ON D.id_grupo = G.id_grupo)" +
+                    " JOIN proyecto1.organizador AS O ON G.administrador = O.usuario_org)" +
+                    " WHERE D.usuario_dep = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Grupo> listGrupo = new List<Grupo>();
+
+                    while (reader.Read())
+                    {
+                        Grupo grupos = null;
+                        grupos = new Grupo();
+                        grupos.idgrupo = Convert.ToInt32(reader.GetValue(0));
+                        grupos.nombre = reader.GetValue(1).ToString();
+                        grupos.administrador = reader.GetValue(2).ToString();
+
+                        listGrupo.Add(grupos);
+                    }
+
+                    return listGrupo;
+                }
+            }
+        }
     }
 }

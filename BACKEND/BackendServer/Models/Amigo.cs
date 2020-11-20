@@ -7,5 +7,7 @@ namespace BackendServer.Models
     {
         public string deportista { get; set; }
         public string amigo1 { get; set; }
+
+        
     }
 }

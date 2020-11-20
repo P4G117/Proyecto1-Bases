@@ -10,11 +10,12 @@ namespace BackendServer.Repositorios
 {
     public class PosAmigosReporsitorio
     {
+        //Consulta para ver los Posibles Amigos - Lista de los que todavia no son Amigos
         public static List<PosiblesAmigos> GetPosiblesAmigos(string deportista)
         {
-            string connString = "Host=localhost;Port=5432;Database=StraviaTec;Username=postgres;Password=azofeifa1171290;";
+            Connexion connString = new Connexion();
 
-            using (var conn = new NpgsqlConnection(connString))
+            using (var conn = new NpgsqlConnection(connString.conexion))
             {
 
                 Console.Out.WriteLine("Opening connection");
@@ -53,5 +54,159 @@ namespace BackendServer.Repositorios
             }
 
         }
+        //Consulta para ver los Following - Seguidos 
+        public static List<Follow> GetFollowing(string deportista)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+                
+                string query = "SELECT count(amigo) AS Seguidos" +
+                    " FROM proyecto1.amigo AS A" +
+                    " WHERE A.deportista = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Follow> listFollowing = new List<Follow>();
+
+                    while (reader.Read())
+                    {
+                        Follow following = null;
+                        following = new Follow();
+                        following.follow = Convert.ToInt32(reader.GetValue(0));
+                        
+                        listFollowing.Add(following);
+                    }
+
+                    return listFollowing;
+                }
+            }
+
+        }
+        //Consulta para ver los Followers - Seguidores
+        public static List<Follow> GetFollowers(string deportista)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+                //, A.duracion
+                string query = "SELECT count(deportista) AS Seguidores" +
+                    " FROM proyecto1.amigo AS A" +
+                    " WHERE A.amigo = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Follow> listFollowing = new List<Follow>();
+
+                    while (reader.Read())
+                    {
+                        Follow following = null;
+                        following = new Follow();
+                        following.follow = Convert.ToInt32(reader.GetValue(0));
+
+                        listFollowing.Add(following);
+                    }
+
+                    return listFollowing;
+                }
+            }
+
+        }
+        //Ver el total de Actividades de un Deportista
+        public static List<Follow> GetTotalActividades(string deportista)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+                //, A.duracion
+                string query = "SELECT count(nombreactividad) AS Actividades" +
+                    " FROM proyecto1.actividad AS A" +
+                    " WHERE A.id_deportista = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Follow> listFollowing = new List<Follow>();
+
+                    while (reader.Read())
+                    {
+                        Follow following = null;
+                        following = new Follow();
+                        following.follow = Convert.ToInt32(reader.GetValue(0));
+
+                        listFollowing.Add(following);
+                    }
+
+                    return listFollowing;
+                }
+            }
+
+        }
+        //Obtener la Edad de un Deportista
+        
+        public static List<Follow> GetEdadDeportista(string deportista)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+                //, A.duracion
+                string query = "SELECT date_part('year',age(D.fecnac)) AS Edad" +
+                    " FROM proyecto1.deportista AS D" +
+                    " WHERE D.usuario_dep = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Follow> listFollowing = new List<Follow>();
+
+                    while (reader.Read())
+                    {
+                        Follow following = null;
+                        following = new Follow();
+                        following.follow = Convert.ToInt32(reader.GetValue(0));
+
+                        listFollowing.Add(following);
+                    }
+
+                    return listFollowing;
+                }
+            }
+
+        }
+
     }
 }

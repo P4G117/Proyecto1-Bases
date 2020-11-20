@@ -113,11 +113,110 @@ namespace BackendServer.Controllers
         {
             return PosiCarreraRepositorio.GetPosicionesCarrera(carrera);
         }
-        //Hacerse Amigo de otro Deportista
-        //Inscribirse a un Reto
-        //Inscribirse a un Grupo
-        //Unirse a un Grupo 
-
-
+        //Ver cuantos Amigos tiene un Deportista - Following 
+        [HttpGet]
+        [Route("GetFollowing/{deportista}")]
+        public IEnumerable<Follow> GetFollowing(string deportista)
+        {
+            return PosAmigosReporsitorio.GetFollowing(deportista);
+        }
+        //Ver cuantos Seguidores tiene un Deportista - Followers 
+        [HttpGet]
+        [Route("GetFollowers/{deportista}")]
+        public IEnumerable<Follow> GetFollowers(string deportista)
+        {
+            return PosAmigosReporsitorio.GetFollowers(deportista);
+        }
+        //Ver cuantas Actividades tiene un Deportista
+        [HttpGet]
+        [Route("GetTotalActividades/{deportista}")]
+        public IEnumerable<Follow> GetTotalActividades(string deportista)
+        {
+            return PosAmigosReporsitorio.GetTotalActividades(deportista);
+        }
+        //Obtener la Edad de un Deportista
+        [HttpGet]
+        [Route("GetEdadDeportista/{deportista}")]
+        public IEnumerable<Follow> GetEdadDeportista(string deportista)
+        {
+            return PosAmigosReporsitorio.GetEdadDeportista(deportista);
+        }
+        //Ver los Grupos Disponibles de los que Todavia no forma Parte el Deportista
+        [HttpGet]
+        [Route("GetGruposDisponibles/{deportista}")]
+        public IEnumerable<GrupoBusqueda> GetGruposDisponibles(string deportista)
+        {
+            return GrupoRepositorio.GetGruposDisponibles(deportista);
+        }
+        //Buscar Grupos por Nombre - De los que todavia no Forma Parte
+        [HttpGet]//("{depor}/{buscgrupo}")
+        [Route("BusquedaGruposDisponibles/{depor}/{buscgrupo}")]
+        public IEnumerable<GrupoBusqueda> BusquedaGruposDisponibles(string deportista, string buscar)
+        {
+            return GrupoRepositorio.BusquedaGruposDisponibles(deportista, buscar);
+        }
+        //Ver las Carreras en que esta Inscrito un Deportista 
+        [HttpGet]
+        [Route("CarInscritasDep/{deportista}")]
+        public IEnumerable<GrupoBusqueda> CarInscritasDep(string deportista)
+        {
+            return DeportistaRepositorio.CarInscritasDep(deportista);
+        }
+        //Ver los Retos en que esta Inscrito un Deportista 
+        [HttpGet]
+        [Route("RetInscritosDep/{deportista}")]
+        public IEnumerable<GrupoBusqueda> RetInscritosDep(string deportista)
+        {
+            return DeportistaRepositorio.RetInscritosDep(deportista);
+        }
+        //Ver la Cantidad de Carreras Ligadas a un Organizador 
+        [HttpGet]
+        [Route("GetTotalCarrerasOrg/{organizador}")]
+        public IEnumerable<Follow> GetTotalCarrerasOrg(string organizador)
+        {
+            return OrganizadorRepositorio.GetTotalCarrerasOrg(organizador);
+        }
+        //Ver la Cantidad de Retos Ligados a un Organizador 
+        [HttpGet]
+        [Route("GetTotalRetosOrg/{organizador}")]
+        public IEnumerable<Follow> GetTotalRetosOrg(string organizador)
+        {
+            return OrganizadorRepositorio.GetTotalRetosOrg(organizador);
+        }
+        //Ver los Grupos Ligados a un Organizador 
+        [HttpGet]
+        [Route("GetTotalGruposDeOrg/{organizador}")]
+        public IEnumerable<Follow> GetTotalGruposDeOrg(string organizador)
+        {
+            return OrganizadorRepositorio.GetTotalGruposDeOrg(organizador);
+        }
+        //Carreras hechas por un Organizador 
+        [HttpGet]
+        [Route("TodasCarrerasOrg/{organizador}")]
+        public IEnumerable<Carrera> TodasCarrerasOrg(string organizador)
+        {
+            return OrganizadorRepositorio.TodasCarrerasOrg(organizador);
+        }
+        //Retos hechos por un Organizador 
+        [HttpGet]
+        [Route("TodosRetosOrg/{organizador}")]
+        public IEnumerable<Reto> TodosRetosOrg(string organizador)
+        {
+            return OrganizadorRepositorio.TodosRetosOrg(organizador);
+        }
+        //Grupo hechos por un Organizador 
+        [HttpGet]
+        [Route("TodosGruposOrg/{organizador}")]
+        public IEnumerable<Grupo> TodosGruposOrg(string organizador)
+        {
+            return OrganizadorRepositorio.TodosGruposOrg(organizador);
+        }
+        //Ver lo Grupos a los que Pertenece un Deportista
+        [HttpGet]
+        [Route("MisGruposDep/{deportista}")]
+        public IEnumerable<Grupo> MisGruposDep(string deportista)
+        {
+            return DeportistaRepositorio.MisGruposDep(deportista);
+        }
     }
 }

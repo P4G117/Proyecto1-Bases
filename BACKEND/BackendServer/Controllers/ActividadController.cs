@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendServer.Models;
+using BackendServer.Repositorios;
 
 namespace BackendServer.Controllers
 {
@@ -28,77 +29,35 @@ namespace BackendServer.Controllers
         }
 
         // GET: api/Actividad/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Actividad>> GetActividad(int id)
+        [HttpGet("{deportista}")]
+        public IEnumerable<Actividad> GetCarrera(string deportista)
         {
-            var actividad = await _context.Actividad.FindAsync(id);
-
-            if (actividad == null)
-            {
-                return NotFound();
-            }
-
-            return actividad;
+            return ActividadesRepositorio.GetAllActividadesDep(deportista);
         }
 
         // PUT: api/Actividad/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutActividad(int id, Actividad actividad)
+        [HttpPut("{idactividad}")]
+        public bool PutActividad(int idactividad, Actividad actividad)
         {
-            if (id != actividad.IdActividad)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(actividad).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ActividadExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return ActividadesRepositorio.UpdateActividad(idactividad, actividad);
         }
 
         // POST: api/Actividad
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Actividad>> PostActividad(Actividad actividad)
+        public bool PostActividad(Actividad actividad)
         {
-            _context.Actividad.Add(actividad);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetActividad", new { id = actividad.IdActividad }, actividad);
+            return ActividadesRepositorio.PostActividad(actividad);
         }
 
         // DELETE: api/Actividad/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Actividad>> DeleteActividad(int id)
+        public bool DeleteActividad(int id)
         {
-            var actividad = await _context.Actividad.FindAsync(id);
-            if (actividad == null)
-            {
-                return NotFound();
-            }
-
-            _context.Actividad.Remove(actividad);
-            await _context.SaveChangesAsync();
-
-            return actividad;
+            return ActividadesRepositorio.DeleteActividad(id);
         }
 
         private bool ActividadExists(int id)

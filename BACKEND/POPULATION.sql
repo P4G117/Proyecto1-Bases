@@ -148,7 +148,13 @@ INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, 
 VALUES ('San Silvestre','2020/12/31','06:00:00','Mapa 1',10,'00:45:31','Carrera','','MMMartin');
 INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
 VALUES ('Corre caminos','2020/12/23','18:15:00','Mapa5',5,'00:35:15','Reto','Correr','sebas2008');
+INSERT INTO proyecto1.actividad(NombreActividad, Fecha, Hora, Mapa, Kilometros, Duracion, Completitud, Tipo_Actividad, ID_Deportista)
+VALUES ('Catarata Escondida','2020/12/23','18:15:00','Mapa5',5,'00:35:15','Personal','Caminata','sebas2008');
 
+UPDATE proyecto1.actividad SET nombreactividad = 'Catarata Escondida', fecha = '2020/12/23', hora = '18:15:00', mapa ='Mapa6', kilometros = 7,
+duracion = '00:45:15', completitud = 'Personal', tipo_actividad = 'Caminata', id_deportista = 'sebas2008' WHERE id_actividad = 16;
+
+DELETE FROM proyecto1.actividad WHERE id_actividad = 16;
 --Mostrar lo Datos de la Tabla Actividad
 SELECT * FROM proyecto1.actividad;
 
@@ -594,3 +600,9 @@ INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('ElbaVL','guivalcas');
 INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('MMMartin','vanneH95');
 INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('MadrizR','sebas2008');
 INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('MadrizR','cgr1995');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('cgr1995','adri45s');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('sebas2008','adri45s');
+INSERT INTO proyecto1.amigo(DEPORTISTA, AMIGO) VALUES ('cruz16','adri45s');
+
+SELECT * FROM proyecto1.amigo;
+

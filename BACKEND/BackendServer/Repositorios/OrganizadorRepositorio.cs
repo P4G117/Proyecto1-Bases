@@ -10,6 +10,7 @@ namespace BackendServer.Repositorios
 {
     public class OrganizadorRepositorio
     {
+        //Obtener todos los Organizadores
         public static List<Organizador> GetAllOrganizadores()
         {
             Connexion connString = new Connexion();
@@ -50,7 +51,7 @@ namespace BackendServer.Repositorios
             }
 
         }
-
+        //Obtener a un Organizador 
         public static List<Organizador> GetOrganizador(string usuario_org)
         {
             Connexion connString = new Connexion();
@@ -92,7 +93,7 @@ namespace BackendServer.Repositorios
                 }
             }
         }
-
+        //Agregar un Organizador
         public static bool PostOrganizador(Organizador organizador)
         {
             Connexion connString = new Connexion();
@@ -121,7 +122,7 @@ namespace BackendServer.Repositorios
                 return true;
             }
         }
-
+        //Actualizar un Organizador 
         public static bool UpdateOrganizador(string usuario_org, Organizador organizador)
         {
             Connexion connString = new Connexion();
@@ -149,7 +150,7 @@ namespace BackendServer.Repositorios
                 return true;
             }
         }
-
+        //Eliminar un Organizador 
         public static bool DeleteOrganizador(string organizador)
         {
 
@@ -168,6 +169,251 @@ namespace BackendServer.Repositorios
                 command.Dispose();
                 return true;
             }
+        }
+
+        //Ver la Cantidad de Carreras Ligadas a un Organizador 
+        public static List<Follow> GetTotalCarrerasOrg(string organizador)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+                
+                string query = "SELECT count(nombre) AS Carreras" +
+                    " FROM proyecto1.carrera AS A" +
+                    " WHERE A.id_organizador = '@Organizador'; ";
+
+                query = query.Replace("@Organizador", organizador);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Follow> listCarrera = new List<Follow>();
+
+                    while (reader.Read())
+                    {
+                        Follow carrera = null;
+                        carrera = new Follow();
+                        carrera.follow = Convert.ToInt32(reader.GetValue(0));
+                        
+                        listCarrera.Add(carrera);
+                    }
+
+                    return listCarrera;
+                }
+            }
+
+        }
+        //Ver la Cantidad de Retos Ligados a un Organizador 
+        public static List<Follow> GetTotalRetosOrg(string organizador)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+                string query = "SELECT count(nombre) AS Retos" +
+                    " FROM proyecto1.reto AS A" +
+                    " WHERE A.id_organizador = '@Organizador' ";
+
+                query = query.Replace("@Organizador", organizador);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Follow> listReto = new List<Follow>();
+
+                    while (reader.Read())
+                    {
+                        Follow reto = null;
+                        reto = new Follow();
+                        reto.follow = Convert.ToInt32(reader.GetValue(0));
+                        
+                        listReto.Add(reto);
+                    }
+
+                    return listReto;
+                }
+            }
+
+        }
+        //Ver la cantidad de los Grupos Ligados a un Organizador 
+        public static List<Follow> GetTotalGruposDeOrg(string organizador)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+                string query = "SELECT count(nombre) AS Grupos" +
+                    " FROM proyecto1.grupo AS A" +
+                    " WHERE A.id_organizador = '@Organizador'; ";
+
+                query = query.Replace("@Organizador", organizador);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Follow> listGrupo = new List<Follow>();
+
+                    while (reader.Read())
+                    {
+                        Follow grupo = null;
+                        grupo = new Follow();
+                        grupo.follow = Convert.ToInt32(reader.GetValue(0));
+                       
+                        listGrupo.Add(grupo);
+                    }
+
+                    return listGrupo;
+                }
+            }
+
+        }
+        //Obtener las Carreras hechas por un Organizador 
+        public static List<Carrera> TodasCarrerasOrg(string organizador)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+                string query = "SELECT A.id_carrera, A.id_organizador, A.nombre, A.fecha, A.recorrido, A.cuenta, A.costo, A.privacidad, A.tipo_actividad" +
+                    " FROM proyecto1.carrera AS A" +
+                    " WHERE A.id_organizador = '@Organizador'; ";
+
+                query = query.Replace("@Organizador", organizador);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Carrera> listCarrera = new List<Carrera>();
+
+                    while (reader.Read())
+                    {
+                        Carrera carreras = null;
+                        carreras = new Carrera();
+                        carreras.idcarrera = Convert.ToInt32(reader.GetValue(0));
+                        carreras.idorganizador = reader.GetValue(1).ToString();
+                        carreras.nombre = reader.GetValue(2).ToString();
+                        carreras.fecha = reader.GetValue(3).ToString();
+                        carreras.recorrido = reader.GetValue(4).ToString();
+                        carreras.cuenta = Convert.ToInt64(reader.GetValue(5));
+                        carreras.costo = Convert.ToInt64(reader.GetValue(6));
+                        carreras.privacidad = Convert.ToBoolean(reader.GetValue(7));
+                        carreras.tipoActividad = reader.GetValue(8).ToString();
+
+                        listCarrera.Add(carreras);
+                    }
+
+                    return listCarrera;
+                }
+            }
+
+        }
+        //Obtener los Retos hechos por un Organizador 
+        public static List<Reto> TodosRetosOrg(string organizador)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+                string query = "SELECT A.id_reto, A.nombre, A.periodo, A.privacidad, A.tipo_reto, A.tipo_actividad, A.id_organizador" +
+                    " FROM proyecto1.reto AS A" +
+                    " WHERE A.id_organizador = '@Organizador' ";
+
+                query = query.Replace("@Organizador", organizador);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Reto> listReto = new List<Reto>();
+
+                    while (reader.Read())
+                    {
+                        Reto reto = null;
+                        reto = new Reto();
+                        reto.IdReto = Convert.ToInt32(reader.GetValue(0));
+                        reto.Nombre = reader.GetValue(1).ToString();
+                        reto.Periodo = reader.GetValue(2).ToString();
+                        reto.Privacidad = Convert.ToBoolean(reader.GetValue(3));
+                        reto.TipoReto = reader.GetValue(4).ToString();
+                        reto.TipoActividad = reader.GetValue(5).ToString();
+                        reto.IdOrganizador = reader.GetValue(6).ToString();
+
+                        listReto.Add(reto);
+                    }
+
+                    return listReto;
+                }
+            }
+
+        }
+        //Obtener los Grupos hechos por un Organizador 
+        public static List<Grupo> TodosGruposOrg(string organizador)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+                string query = "SELECT A.ID_Grupo, A.Nombre, A.Administrador" +
+                    " FROM proyecto1.grupo AS A" +
+                    " WHERE A.Administrador = '@Organizador'; ";
+
+                query = query.Replace("@Organizador", organizador);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<Grupo> listGrupo = new List<Grupo>();
+
+                    while (reader.Read())
+                    {
+                        Grupo grupos = null;
+                        grupos = new Grupo();
+                        grupos.idgrupo = Convert.ToInt32(reader.GetValue(0));
+                        grupos.nombre = reader.GetValue(1).ToString();
+                        grupos.administrador = reader.GetValue(2).ToString();
+
+                        listGrupo.Add(grupos);
+                    }
+
+                    return listGrupo;
+                }
+            }
+
         }
     }
 }

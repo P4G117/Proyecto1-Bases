@@ -10,6 +10,7 @@ namespace BackendServer.Repositorios
 {
     public class GrupoRepositorio
     {
+        //Obtener todos los Grupos
         public static List<Grupo> GetGrupos() {
 
             Connexion connString = new Connexion();
@@ -45,6 +46,7 @@ namespace BackendServer.Repositorios
             }
         }
 
+        //Obtener un Grupo según el ID
         public static List<Grupo> GetGrupo(int idgrupo)
         {
             Connexion connString = new Connexion();
@@ -82,7 +84,7 @@ namespace BackendServer.Repositorios
                 }
             }
         }
-
+        //Crear un Nuevo Grupo
         public static bool PostGrupo(Grupo grupo)
         {
             Connexion connString = new Connexion();
@@ -103,7 +105,7 @@ namespace BackendServer.Repositorios
                 return true;
             }
         }
-
+        //Actualizar un Grupo
         public static bool UpdateGrupo(int idgrupo, Grupo grupo)
         {
             Connexion connString = new Connexion();
@@ -125,6 +127,7 @@ namespace BackendServer.Repositorios
                 return true;
             }
         }
+        //Eliminar un Deportista de un Grupo
         public static bool DeleteDeportista(int grupo)
         {
 
@@ -151,6 +154,102 @@ namespace BackendServer.Repositorios
             }
 
         }
+        //Consulta los Grupos de los que Todavia no es Miembro el Deportista
+        public static List<GrupoBusqueda> GetGruposDisponibles(string deportista)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+                
+                string query = "SELECT A.id_grupo, A.nombre" +
+                    " FROM" +
+                    " ((proyecto1.deportista_grupo AS J JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)" +
+                    " JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)" +
+                    " WHERE D.usuario_dep != '@Deportista'" +
+                    " EXCEPT" +
+                    " SELECT A.id_grupo, A.nombre" +
+                    " FROM" +
+                    " ((proyecto1.deportista_grupo AS J JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)" +
+                    " JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)" +
+                    " WHERE D.usuario_dep = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<GrupoBusqueda> listGrupoBusqueda = new List<GrupoBusqueda>();
+
+                    while (reader.Read())
+                    {
+                        GrupoBusqueda grupoBusqueda = null;
+                        grupoBusqueda = new GrupoBusqueda();
+                        grupoBusqueda.idgrupo = Convert.ToInt32(reader.GetValue(0));
+                        grupoBusqueda.nombre = reader.GetValue(1).ToString();
+                        
+                        listGrupoBusqueda.Add(grupoBusqueda);
+                    }
+
+                    return listGrupoBusqueda;
+                }
+            }
+
+        }
+        //Consulta los Grupos de los que Todavia no es Miembro el Deportista
+        public static List<GrupoBusqueda> BusquedaGruposDisponibles(string deportista, string buscar)
+        {
+            Connexion connString = new Connexion();
+
+            using (var conn = new NpgsqlConnection(connString.conexion))
+            {
+
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+                
+                string query = "SELECT A.id_grupo, A.nombre" +
+                    " FROM" +
+                    " ((proyecto1.deportista_grupo AS J JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)" +
+                    " JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)" +
+                    " WHERE D.usuario_dep != '@Deportista' AND A.nombre LIKE '@Buscar%'" +
+                    " EXCEPT" +
+                    " SELECT A.id_grupo, A.nombre" +
+                    " FROM" +
+                    " ((proyecto1.deportista_grupo AS J JOIN proyecto1.deportista AS D ON J.usuario_dep = D.usuario_dep)" +
+                    " JOIN proyecto1.grupo AS A ON J.id_grupo = A.id_grupo)" +
+                    " WHERE D.usuario_dep = '@Deportista'; ";
+
+                query = query.Replace("@Deportista", deportista);
+                query = query.Replace("@Buscar", buscar);
+
+
+                using (var command = new NpgsqlCommand(query, conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    List<GrupoBusqueda> listGrupoBusqueda = new List<GrupoBusqueda>();
+
+                    while (reader.Read())
+                    {
+                        GrupoBusqueda grupoBusqueda = null;
+                        grupoBusqueda = new GrupoBusqueda();
+                        grupoBusqueda.idgrupo = Convert.ToInt32(reader.GetValue(0));
+                        grupoBusqueda.nombre = reader.GetValue(1).ToString();
+
+                        listGrupoBusqueda.Add(grupoBusqueda);
+                    }
+
+                    return listGrupoBusqueda;
+                }
+            }
+
+        }
+        
 
     }
 }
