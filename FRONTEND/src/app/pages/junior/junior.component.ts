@@ -37,7 +37,7 @@ export class JuniorComponent implements OnInit {
     this.router.navigate(['verCompeOrg', this.username]);
   }
 
-  goGrupo() {
-    this.router.navigate(['vergrupo', this.username]);
+  goGrupo(){
+    this.router.navigate(['verGrupoOrg',this.username]);
   }
 }

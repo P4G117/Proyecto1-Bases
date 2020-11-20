@@ -31,6 +31,7 @@ import { CrearRetoComponent } from './pages/crear-reto/crear-reto.component';
 import { VerCompetenciaOrgComponent } from './pages/ver-competencia-org/ver-competencia-org.component';
 import { CrearCompComponent } from './pages/crear-comp/crear-comp.component';
 import { AtletaComponent } from './pages/atleta/atleta.component';
+import { VerGrupoOrgComponent } from './pages/ver-grupo-org/ver-grupo-org.component';
 
 
 const routes: Routes = [
@@ -48,8 +49,8 @@ const routes: Routes = [
   { path: "home", component: HomeComponent, pathMatch: "full" },
   { path: "actividad/:username", component: SubActividadComponent, pathMatch: "full" },
   { path: "gesgrupos/:username", component: GesGruposComponent, pathMatch: "full" },
-  { path: "vergrupo/:username/:id", component: VerGruposComponent, pathMatch: "full" },
-  { path: "creargrupo/:username", component: CrearGrupoComponent, pathMatch: "full" },
+  { path: "vergrupo/:username/:creado/:id", component: VerGruposComponent, pathMatch: "full" },
+  { path: "creargrupo/:username/:creado/:id", component: CrearGrupoComponent, pathMatch: "full" },
   { path: "participantes/:username/:id", component: ParticipantesComponent, pathMatch: "full" },
   { path: "posiciones/:username/:id", component: PosicionesComponent, pathMatch: "full" },
   { path: "junior/:username/:id", component: JuniorComponent, pathMatch: "full" },
@@ -65,6 +66,7 @@ const routes: Routes = [
   { path: "verCompeOrg/:username", component:VerCompetenciaOrgComponent, pathMatch:"full"},
   { path: "crearComp/:username/:creado/:id", component:CrearCompComponent, pathMatch:"full"},
   { path: "atleta/:username/:username_friend/:amigo", component:AtletaComponent, pathMatch:"full"},
+  { path: "verGrupoOrg/:username", component:VerGrupoOrgComponent, pathMatch:"full"},
 
 
 

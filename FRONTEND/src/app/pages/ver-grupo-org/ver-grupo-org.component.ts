@@ -1,12 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-ver-competencia-org',
-  templateUrl: './ver-competencia-org.component.html',
-  styleUrls: ['./ver-competencia-org.component.css']
+  selector: 'app-ver-grupo-org',
+  templateUrl: './ver-grupo-org.component.html',
+  styleUrls: ['./ver-grupo-org.component.css']
 })
-export class VerCompetenciaOrgComponent implements OnInit {
+export class VerGrupoOrgComponent implements OnInit {
+
+  username: string;
+
+  constructor(
+    private router: Router,
+    private _route: ActivatedRoute
+  ) {
+    this.username = this._route.snapshot.paramMap.get('username');
+    //Ob
+   }
+
+  ngOnInit(): void {
+  }
 
   informaciones = [
     {
@@ -25,19 +38,7 @@ export class VerCompetenciaOrgComponent implements OnInit {
 
   informacionA=[];
 
-  username: string;
 
-
-  constructor(
-    private router: Router,
-    private _route: ActivatedRoute
-  ) {
-    this.username = this._route.snapshot.paramMap.get('username');
-    //Ob
-   }
-
-  ngOnInit(): void {
-  }
 
   goInicio(){
     this.router.navigate(['inicio-organizador',this.username]);
@@ -55,13 +56,11 @@ export class VerCompetenciaOrgComponent implements OnInit {
     this.router.navigate(['verGrupoOrg',this.username]);
   }
 
-  goCompetenciaInfo(id:number){
-    this.router.navigate(['crearComp',this.username,'true',id.toString()]);
+  goGrupoInfo(id:number){
+    this.router.navigate(['creargrupo',this.username,'true',id.toString()]);
   }
 
-  goCompetenciaInfoN(){
-    this.router.navigate(['crearComp',this.username,'false','']);
+  goGrupoInfoN(){
+    this.router.navigate(['creargrupo',this.username,'false','']);
   }
-
-
 }

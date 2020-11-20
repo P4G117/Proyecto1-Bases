@@ -23,15 +23,18 @@ export class CrearRetoComponent implements OnInit {
   desde:string;
   hasta:string;
   boton:string;
+  id:string;
+  username:string;
 
   constructor(
     private router: Router,
     private _route: ActivatedRoute,
   ) {
+    this.username = this._route.snapshot.paramMap.get('username');
     let crear = this._route.snapshot.paramMap.get('creado');
     if(crear == 'true'){
       this.creado = true;
-      this.nombre = this._route.snapshot.paramMap.get('nombre');
+      this.id = this._route.snapshot.paramMap.get('id');
     }
     else{
       this.creado = false;
@@ -70,15 +73,19 @@ export class CrearRetoComponent implements OnInit {
   }
 
   goInicio(){
-    this.router.navigate(['inicio-organizador']);
+    this.router.navigate(['inicio-organizador',this.username]);
   }
 
   goRetos(){
-    this.router.navigate(['verRetosOrg']);
+    this.router.navigate(['verRetosOrg',this.username]);
   }
 
   goCompetencias(){
-    this.router.navigate(['verCompeOrg']);
+    this.router.navigate(['verCompeOrg',this.username]);
+  }
+
+  goGrupo(){
+    this.router.navigate(['verGrupoOrg',this.username]);
   }
 
   desdeSet(dob) {

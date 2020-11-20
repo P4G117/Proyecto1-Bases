@@ -42,6 +42,7 @@ import { VerCompetenciaOrgComponent } from './pages/ver-competencia-org/ver-comp
 import { CrearCompComponent } from './pages/crear-comp/crear-comp.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AtletaComponent } from './pages/atleta/atleta.component';
+import { VerGrupoOrgComponent } from './pages/ver-grupo-org/ver-grupo-org.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { AtletaComponent } from './pages/atleta/atleta.component';
     CrearRetoComponent,
     VerCompetenciaOrgComponent,
     CrearCompComponent,
-    AtletaComponent
+    AtletaComponent,
+    VerGrupoOrgComponent
 
   ],
   imports: [

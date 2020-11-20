@@ -2,31 +2,42 @@
 <label class="logo">Stravia</label><label class="logo2">|</label
 ><label class="logo3">TEC</label>
 
-<button class="retos" (click)="retosGo()">Retos</button>
-<button class="competencia" (click)="competenciasGo()">Competencias</button>
-<button class="grupos" (click)="gruposGo()">Grupos</button>
-<button class="logOut">Cerrar Sesión</button>
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="buscar" (click)="goRetos()">Retos</button>
+<button class="retos" (click)="goCompetencias()">Competencias</button>
+<button class="competencia" (click)="goGrupo()">Grupos</button>
+<button class="perfil" [routerLink]="['/home']">Cerrar Sesión</button>
 
-<body class="grupos2">
-    <div class="maingrupo">
-        <mat-card class="grupo">
-            <form [formGroup]="grupoForm" > 
-                <div [formGroup]="grupoForm">
-                    <h1>Nombre del grupo: </h1>
-                        <input type="text" formControlName="nombre">
-                    <h2>Administrador: </h2>
-                        <input type="text" formControlName="admi">
-                    <h2>Información: </h2>
-                        <input type="text" formControlName="info">
-                    <h2>Participantes: </h2>
-                        <input type="text" formControlName="participantes">
-                </div>
-            </form>
-            <button mat-button class="btn" >
-                <h2>
-                Crear grupo
-                </h2>
-            </button>
-        </mat-card>
+<div>
+  <form class="forma">
+    <input
+      class="nombre"
+      type="text"
+      placeholder="{{ nombre }}"
+      required="required"
+      (change)="nombreSet($event.target.value)"
+    />
+
+    <input
+      class="desc"
+      type="text"
+      placeholder="{{ descripcion }}"
+      required="required"
+      (change)="descripcionSet($event.target.value)"
+    />
+
+    <div class="lookfil" style="overflow: auto">
+      <div class="tramos">
+        <div *ngFor="let participante of paricipantes">
+          <mat-card class="productor">
+            <h3>{{ participante.Nombre }} &nbsp;</h3>
+          </mat-card>
+        </div>
+      </div>
     </div>
-</body>
+
+
+
+    <button class="Crear" (click)="crear()" type="submit">{{ boton }}</button>
+  </form>
+</div>

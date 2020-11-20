@@ -74,7 +74,7 @@ export class CrearCompComponent implements OnInit {
   }
 
   goGrupo(){
-    this.router.navigate(['vergrupo',this.username]);
+    this.router.navigate(['verGrupoOrg',this.username]);
   }
 
   desdeSet(dob) {

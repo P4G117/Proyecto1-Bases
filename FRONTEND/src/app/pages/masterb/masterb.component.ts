@@ -24,20 +24,20 @@ export class MasterbComponent implements OnInit {
     {nombre:"Nombre", edad:10,tiempo:"XX:XX:XX:xx"},
     {nombre:"Nombre", edad:10,tiempo:"XX:XX:XX:xx"}]
   }
-  goInicio() {
-    this.router.navigate(['inicio-organizador', this.username]);
+  goInicio(){
+    this.router.navigate(['inicio-organizador',this.username]);
   }
 
-  goRetos() {
-    this.router.navigate(['verRetosOrg', this.username]);
+  goRetos(){
+    this.router.navigate(['verRetosOrg',this.username]);
   }
 
-  goCompetencias() {
-    this.router.navigate(['verCompeOrg', this.username]);
+  goCompetencias(){
+    this.router.navigate(['verCompeOrg',this.username]);
   }
 
-  goGrupo() {
-    this.router.navigate(['vergrupo', this.username]);
+  goGrupo(){
+    this.router.navigate(['verGrupoOrg',this.username]);
   }
 
 }
