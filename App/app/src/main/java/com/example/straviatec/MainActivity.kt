@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val password_value = password.text.toString()
 
 
-        val intent = Intent(this, Activity2::class.java)
+        val intent = Intent(this, MapsActivity::class.java)
         intent.putExtra(EXTRA_MESSAGE, username_value)
 
         startActivity(intent)

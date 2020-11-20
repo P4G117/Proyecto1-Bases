@@ -2,6 +2,9 @@
     <string name="app_name">StraviaTec</string>
     <string name="title_activity_registrar_actividad">Map</string>
 
+    <string name="google_maps_key">
+       AIzaSyAwQvgWnlmGN40OW-VrGZQlXTo07Fd3tl4
+    </string>
     <string-array name="planets_array">
         <item>Correr</item>
         <item>Nadar</item>
@@ -10,4 +13,5 @@
         <item>Kayak</item>
         <item>Caminata</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 </resources>
