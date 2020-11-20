@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Deportista } from 'src/app/models/Deportista';
+import { Deportista, Follow, NuevosAmigos } from 'src/app/models/Deportista';
 import { Class } from 'src/app/models/Class';
-
+import { Grupo, GrupoBusqueda } from 'src/app/models/Grupos';
+import { ActividadesAmigos, PosiblesAmigos } from 'src/app/models/ActividadesAmigos';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,7 @@ export class DeportistaService {
 
   constructor( private http:HttpClient) { }
 
+  /* -------- CRUD DE DEPORTISTAS -------------- */
   getAll():Observable<Deportista>{
     return this.http.get<Deportista>(this.url);
   }
@@ -33,4 +35,69 @@ export class DeportistaService {
   deleteDeportista(usuario:string):Observable<Deportista>{
     return this.http.delete<Deportista>(this.url + '/' + usuario);
   }
+
+  /* ---------- FIN DEL CRUD DEPORTISTAS -----------*/
+
+  //Cantidad de followers
+  getFollower(usuario:string):Observable<Follow>{
+    return this.http.get<Follow>('/GetFollowers/' + usuario);
+  }
+
+  //Cantidad de following
+  getFollowing(usuario:string):Observable<Follow>{
+    return this.http.get<Follow>('/GetFollowing/' + usuario);
+  }
+
+  //Cantidad de actividades
+  getTotalActividades(usuario:string):Observable<Follow>{
+    return this.http.get<Follow>('/GetTotalActividad/' + usuario);
+  }
+
+  //Edad del deportista
+  getEdadDeportista(usuario:string):Observable<Follow>{
+    return this.http.get<Follow>('/GetEdadDeportista/' + usuario);
+  }
+
+  // Ver las actividades de los que ya son amigos de un deportista
+  getActividadAmigos(usuario:string):Observable<ActividadesAmigos>{
+    return this.http.get<ActividadesAmigos>('/GetActiAmigos/'+usuario);
+  }
+
+  // Buscar grupos a los que un deportista NO pertenece 
+  //Buscar todos los grupos disponibles 
+  getGrupos(usuario:string):Observable<GrupoBusqueda>{
+    return this.http.get<GrupoBusqueda>('/GetGruposDisponibles/'+ usuario);
+  }
+
+  //Buscar un grupo disponible por nombre
+  getGruposPorNombre(usuario:string,grupo:string):Observable<GrupoBusqueda>{
+    return this.http.get<GrupoBusqueda>('/BusquedaGruposDisponibles/'+ usuario + '/'+ grupo);
+  }
+
+  //Buscar grupos por nombre que SÍ pertenece un deportista
+  getMisGrupos(usuario:string):Observable<Grupo>{
+    return this.http.get<Grupo>('/MisGruposDep/'+usuario);
+  }
+
+  //Buscar nuevos deportistas amigos 
+  getNuevosAmigos(usuario:string):Observable<PosiblesAmigos>{
+    return this.http.get<PosiblesAmigos>('/GetPosAmigos/' + usuario);
+  }
+
+  //Buscar nuevos deportistas amigos por nombre
+  getNuevosAmigosNombre(usuario:string,amigo:string):Observable<NuevosAmigos>{
+    return this.http.get<NuevosAmigos>('/GetBusquedaNombre/'+ usuario + '/' + amigo);
+  }
+
+  //Buscar nuevos deportistas amigos por nombre y apellido
+  getNuevosAmigosApellido(usuario:string,nombre:string,apellido:string):Observable<NuevosAmigos>{
+    return this.http.get<NuevosAmigos>('/GetBusquedaNombreApe/' + '/' + usuario + '/' + nombre + '/' + apellido);
+  }
+
+  //Buscar nuevos deportistas amigos por nombre y apellidos 
+  getNuevosAmigosNombreCompleto(usuario:string,nombre:string,apellido1:string,apellido2:string):Observable<NuevosAmigos>{
+    return this.http.get<NuevosAmigos>('/GetBusquedaNombreApe/' + '/' + usuario + '/' 
++ nombre + '/' + apellido1+'/'+apellido2);
+  }
+
 }

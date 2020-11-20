@@ -11,15 +11,6 @@ export class RetosService {
   url:string = '/api/Reto';
   constructor(private http:HttpClient) { }
 
-  //Obtener los retos publicos que puede ver un deportista
-  getRetosPublicos():Observable<RetosPublicos>{
-    return this.http.get<RetosPublicos>('/GetRetosPublicos');
-  }
-
-  //Obtener los retos(privados) por grupos que puede ver un deportista
-  getRetosPorGrupos(usuario:string):Observable<RetosPorGrupo>{
-    return this.http.get<RetosPorGrupo>('/GetRetosPorGrupo' + '/' + usuario);
-  }
 
   //CRUD para los retos
   getAllRetos():Observable<Retos>{
@@ -40,5 +31,15 @@ export class RetosService {
 
   deleteReto(IdReto:number):Observable<Retos>{
     return this.http.delete<Retos>(this.url + '/' + IdReto);
+  }
+
+  //Obtener los retos publicos que puede ver un deportista
+  getRetosPublicos():Observable<RetosPublicos>{
+    return this.http.get<RetosPublicos>('/GetRetosPublicos');
+  }
+
+  //Obtener los retos(privados) por grupos que puede ver un deportista
+  getRetosPorGrupos(usuario:string):Observable<RetosPorGrupo>{
+    return this.http.get<RetosPorGrupo>('/GetRetosPorGrupo' + '/' + usuario);
   }
 }

@@ -8,3 +8,7 @@ export class Organizador{
   foto:string;
   clave:string;
 }
+
+export class Follow{
+  follow:number;
+}

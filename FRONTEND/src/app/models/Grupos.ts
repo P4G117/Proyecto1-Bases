@@ -8,3 +8,8 @@ export class Grupo{
     Nombre:string;
     Administrador:string;
 }
+
+export class GrupoBusqueda{
+    idgrupo:number;
+    nombre:string;
+}

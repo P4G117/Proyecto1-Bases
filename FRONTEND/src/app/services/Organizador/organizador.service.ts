@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Organizador } from 'src/app/models/Organizador';
+import { Follow, Organizador } from 'src/app/models/Organizador';
+import { Retos } from 'src/app/models/Retos';
+import { Carrera } from 'src/app/models/Carreras';
+import { Grupo } from 'src/app/models/Grupos';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +15,7 @@ export class OrganizadorService {
 
   constructor( private http:HttpClient) { }
 
+  /* --------------------- CRUD de ORGANIZADOR -------------------*/
   getAll():Observable<Organizador>{
     return this.http.get<Organizador>(this.url);
   }
@@ -31,4 +35,34 @@ export class OrganizadorService {
   deleteOrganizador(usuario:string):Observable<Organizador>{
     return this.http.delete<Organizador>(this.url + '/' + usuario);
   }
+
+  /* --------------------- Fin de CRUD de ORGANIZADOR -------------------*/
+
+  
+  // Estos retornan los grupos, carreras o retos con los atributos de cada uno que tiene un organizador
+  getRetosOrganizador(usuario:string):Observable<Retos>{
+    return this.http.get<Retos>('/TodosRetosOrg/'+ usuario);
+  }
+
+  getCarrerasOrganizador(usuario:string):Observable<Carrera>{
+    return this.http.get<Carrera>('/TodasCarrerasOrg/' + usuario);
+  }
+
+  getGruposOrganizador(usuario:string):Observable<Grupo>{
+    return this.http.get<Grupo>('/TodasCarrerasOrg/' + usuario);
+  }
+  
+  // Estos métodos retornan la cantidad de carreras, grupos o retos que tiene un Organizador
+  getCantCarrerasOrganizador(usuario:string):Observable<Follow>{
+    return this.http.get<Follow>('/GetTotalCarrerasOrg/'+ usuario);
+  }
+
+  getCantRetosOrganizador(usuario:string):Observable<Follow>{
+    return this.http.get<Follow>('/GetTotalRetosOrg/'+ usuario);
+  }
+
+  getCantGruposOrganizador(usuario:string):Observable<Follow>{
+    return this.http.get<Follow>('/GetTotalGruposDeOrg/'+ usuario);
+  }
+
 }
