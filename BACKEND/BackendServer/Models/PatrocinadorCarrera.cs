@@ -8,7 +8,5 @@ namespace BackendServer.Models
         public int idpatrocinador { get; set; }
         public int idcarrera { get; set; }
 
-        //public virtual Carrera idcarreraNavigation { get; set; }
-        //public virtual Patrocinador idpatrocinadorNavigation { get; set; }
     }
 }

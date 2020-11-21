@@ -29,3 +29,7 @@ export class Carrera{
     privacidad: boolean;
     tipoactividad:string
 }
+
+export class Patrocinadores{
+    nombrepatrocinador:string;
+}

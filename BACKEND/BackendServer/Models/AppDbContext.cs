@@ -529,7 +529,6 @@ namespace BackendServer.Models
 
                 entity.ToTable("patrocinador_carrera", "proyecto1");
 
-
                 entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
 
                 entity.Property(e => e.idpatrocinador).HasColumnName("id_patrocinador");

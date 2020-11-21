@@ -22,3 +22,7 @@ export class Retos{
     TipoActividad:string;
     IdOrganizador:string;
 }
+
+export class Patrocinadores{
+    nombrepatrocinador:string;
+}
