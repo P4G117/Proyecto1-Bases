@@ -218,5 +218,23 @@ namespace BackendServer.Controllers
         {
             return DeportistaRepositorio.MisGruposDep(deportista);
         }
+
+        //Retorna los nombres de los patrocinadores de una carrera
+        [HttpGet]
+        [Route("api/patrocinadoresCarreras/{idCarrera}")]
+        public IEnumerable<Patrocinadores> PatrocinadorCarrera(int idCarrera) 
+        {
+            return PatrocinadoresRepositorio.PatrocinadoresCarrera(idCarrera);
+        }
+
+        //Retorna los nombres de los patrocinadores de un reto
+        [HttpGet]
+        [Route("api/patrocinadoresRetos/{idreto}")]
+        public IEnumerable<Patrocinadores> PatrocinadorReto(int idreto)
+        {
+            return PatrocinadoresRepositorio.PatrocinadorReto(idreto);
+        }
+
+
     }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {RetosPorGrupo, RetosPublicos,Retos } from 'src/app/models/Retos';
+import {RetosPorGrupo, RetosPublicos, Retos, Patrocinadores} from 'src/app/models/Retos';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +41,10 @@ export class RetosService {
   //Obtener los retos(privados) por grupos que puede ver un deportista
   getRetosPorGrupos(usuario:string):Observable<RetosPorGrupo>{
     return this.http.get<RetosPorGrupo>('/GetRetosPorGrupo' + '/' + usuario);
+  }
+
+  //Obtener los patrocinadores de un reto
+  getPatrocinadores(IdReto:number):Observable<Patrocinadores>{
+    return this.http.get<Patrocinadores>('/api/patrocinadoresRetos/' + IdReto);
   }
 }
