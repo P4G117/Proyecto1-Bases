@@ -28,17 +28,40 @@ export class InicioDeportComponent implements OnInit {
     this.username = this._route.snapshot.paramMap.get('username');
     this.deportistaSvc.getDeportista(this.username).subscribe(res => {
       console.log('Res ', res);
-      this.deportista = res;
+      this.deportista = res[0];
       console.log('Deporttista ', this.deportista);
       this.nombre = this.deportista.primernombre;
       this.apellido1 = this.deportista.apellido1;
+      console.log('Deporttista ', this.apellido1);
+      this.obtenerFollowers(this.username);
+      this.obtenerActividades(this.username);
+      this.obtenerFollowing(this.username);
+
     });
   }
 
+  obtenerFollowers(useName){
+    this.deportistaSvc.getFollower(useName).subscribe(res => {
+      this.Followers = res[0].follow.toString();
+      console.log('Followers ', this.Followers);
+    })
+  };
+
+  obtenerFollowing(useName){
+    this.deportistaSvc.getFollowing(useName).subscribe(res => {
+      this.Following = res[0].follow.toString();
+      console.log('Followings ', this.Following);
+    })
+  };
+
+  obtenerActividades(useName){
+    this.deportistaSvc.getTotalActividades(useName).subscribe(res => {
+      this.Actividades = res[0].follow.toString();
+      console.log('Actividades ', this.Actividades);
+    })
+  };
+
   ngOnInit(): void {
-    this.Following = '12';
-    this.Followers = '32';
-    this.Actividades = '2';
   }
 
   iniciogo() {

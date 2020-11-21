@@ -32,7 +32,7 @@ export class AtletaComponent implements OnInit {
 
       this.deportistaSvc.getDeportista(this.username_friend).subscribe(res => {
         console.log('Res ', res);
-        this.deportista = res;
+        this.deportista = res[0];
         this.atleta = this.deportista.primernombre+" "+this.deportista.apellido1;
         this.nacionalidad = this.deportista.nacionalidad;
         this.source = this.deportista.foto;

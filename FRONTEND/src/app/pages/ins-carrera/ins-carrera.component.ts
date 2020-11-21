@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Carrera } from 'src/app/models/Carreras';
 import Swal from 'sweetalert2';
 import { CarrerasService } from '../../services/Carreras/carreras.service';
 
@@ -16,6 +17,7 @@ export class InsCarreraComponent implements OnInit {
   fileToUpload: File = null;
   username: string;
   idCarrera: string;
+  carr:Carrera = new Carrera();
 
   constructor(
     private router: Router,
@@ -25,11 +27,16 @@ export class InsCarreraComponent implements OnInit {
     this.username = this._route.snapshot.paramMap.get('username');
     this.idCarrera = this._route.snapshot.paramMap.get('id');
     //Obtener informacion de la carrera
-    
+
   }
 
   ngOnInit(): void {
-    this.carrera = 'Nombre de carrera';
+    this.carrerasSvc.getCarrera(this.idCarrera).subscribe(res => {
+      this.carr = res[0];
+      this.carrera = this.carr.nombre;
+
+    })
+    //this.carrera = 'Nombre de carrera';
     this.descripcion = 'Descripción de carrera';
     this.patrocinadores = [
       '../../../assets/Images/image 1.png',

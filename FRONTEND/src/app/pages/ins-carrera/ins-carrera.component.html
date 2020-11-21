@@ -7,8 +7,7 @@
 <button class="buscar" (click)="buscargo()">Buscar</button>
 <button class="retos" (click)="retosGo()">Retos</button>
 <button class="competencia" (click)="competenciasGo()">Competencias</button>
-<button class="perfil">Perfil</button>
-<button class="logOut">Cerrar Sesión</button>
+<button class="logOut" [routerLink]="['/home']" >Cerrar Sesión</button>
 
 <div class="cuerpo">
     <mat-card-content class="cardTitulo">
@@ -25,15 +24,15 @@
         <div class="text">
             <p class="text1">&nbsp;Stravia</p><p class="text2">|</p><p class="text3">TEC</p>
         </div>
-    
+
         <h1 ALIGN="center">Para inscribirte por favor agrega el comprobante de tu compra.</h1>
-        
+
         <div class="form-group">
             <input type="file"
                    id="file"
                    (change)="handleFileInput($event.target.files)">
         </div>
-        
+
         <button mat-button class="btn" (click)='inscribirse()'>
             <h1>
                 Inscribirse

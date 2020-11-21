@@ -20,8 +20,8 @@ export class DeportistaService {
     return this.http.get<Deportista>(this.url);
   }
 
-  getDeportista(usuario:string):Observable<Deportista>{
-    return this.http.get<Deportista>(this.url+'/'+usuario);
+  getDeportista(usuario:string):Observable<Deportista[]>{
+    return this.http.get<Deportista[]>(this.url+'/'+usuario);
   }
 
   addDeportista(deportista:Deportista):Observable<Deportista>{
@@ -39,64 +39,64 @@ export class DeportistaService {
   /* ---------- FIN DEL CRUD DEPORTISTAS -----------*/
 
   //Cantidad de followers
-  getFollower(usuario:string):Observable<Follow>{
-    return this.http.get<Follow>('/GetFollowers/' + usuario);
+  getFollower(usuario:string):Observable<Follow[]>{
+    return this.http.get<Follow[]>('/api/GetFollowers/' + usuario);
   }
 
   //Cantidad de following
-  getFollowing(usuario:string):Observable<Follow>{
-    return this.http.get<Follow>('/GetFollowing/' + usuario);
+  getFollowing(usuario:string):Observable<Follow[]>{
+    return this.http.get<Follow[]>('/api/GetFollowing/' + usuario);
   }
 
   //Cantidad de actividades
-  getTotalActividades(usuario:string):Observable<Follow>{
-    return this.http.get<Follow>('/GetTotalActividad/' + usuario);
+  getTotalActividades(usuario:string):Observable<Follow[]>{
+    return this.http.get<Follow[]>('/api/GetTotalActividad/' + usuario);
   }
 
   //Edad del deportista
-  getEdadDeportista(usuario:string):Observable<Follow>{
-    return this.http.get<Follow>('/GetEdadDeportista/' + usuario);
+  getEdadDeportista(usuario:string):Observable<Follow[] >{
+    return this.http.get<Follow[]>('/api/GetEdadDeportista/' + usuario);
   }
 
   // Ver las actividades de los que ya son amigos de un deportista
   getActividadAmigos(usuario:string):Observable<ActividadesAmigos>{
-    return this.http.get<ActividadesAmigos>('/GetActiAmigos/'+usuario);
+    return this.http.get<ActividadesAmigos>('/api/GetActiAmigos/'+usuario);
   }
 
-  // Buscar grupos a los que un deportista NO pertenece 
-  //Buscar todos los grupos disponibles 
+  // Buscar grupos a los que un deportista NO pertenece
+  //Buscar todos los grupos disponibles
   getGrupos(usuario:string):Observable<GrupoBusqueda>{
-    return this.http.get<GrupoBusqueda>('/GetGruposDisponibles/'+ usuario);
+    return this.http.get<GrupoBusqueda>('/api/GetGruposDisponibles/'+ usuario);
   }
 
   //Buscar un grupo disponible por nombre
   getGruposPorNombre(usuario:string,grupo:string):Observable<GrupoBusqueda>{
-    return this.http.get<GrupoBusqueda>('/BusquedaGruposDisponibles/'+ usuario + '/'+ grupo);
+    return this.http.get<GrupoBusqueda>('/api/BusquedaGruposDisponibles/'+ usuario + '/'+ grupo);
   }
 
   //Buscar grupos por nombre que SÍ pertenece un deportista
   getMisGrupos(usuario:string):Observable<Grupo>{
-    return this.http.get<Grupo>('/MisGruposDep/'+usuario);
+    return this.http.get<Grupo>('/api/MisGruposDep/'+usuario);
   }
 
-  //Buscar nuevos deportistas amigos 
+  //Buscar nuevos deportistas amigos
   getNuevosAmigos(usuario:string):Observable<PosiblesAmigos>{
-    return this.http.get<PosiblesAmigos>('/GetPosAmigos/' + usuario);
+    return this.http.get<PosiblesAmigos>('/api/GetPosAmigos/' + usuario);
   }
 
   //Buscar nuevos deportistas amigos por nombre
   getNuevosAmigosNombre(usuario:string,amigo:string):Observable<NuevosAmigos>{
-    return this.http.get<NuevosAmigos>('/GetBusquedaNombre/'+ usuario + '/' + amigo);
+    return this.http.get<NuevosAmigos>('/api/GetBusquedaNombre/'+ usuario + '/' + amigo);
   }
 
   //Buscar nuevos deportistas amigos por nombre y apellido
   getNuevosAmigosApellido(usuario:string,nombre:string,apellido:string):Observable<NuevosAmigos>{
-    return this.http.get<NuevosAmigos>('/GetBusquedaNombreApe/' + '/' + usuario + '/' + nombre + '/' + apellido);
+    return this.http.get<NuevosAmigos>('/api/GetBusquedaNombreApe/' + '/' + usuario + '/' + nombre + '/' + apellido);
   }
 
-  //Buscar nuevos deportistas amigos por nombre y apellidos 
+  //Buscar nuevos deportistas amigos por nombre y apellidos
   getNuevosAmigosNombreCompleto(usuario:string,nombre:string,apellido1:string,apellido2:string):Observable<NuevosAmigos>{
-    return this.http.get<NuevosAmigos>('/GetBusquedaNombreApe/' + '/' + usuario + '/' 
+    return this.http.get<NuevosAmigos>('/api/GetBusquedaNombreApe/' + '/' + usuario + '/'
 + nombre + '/' + apellido1+'/'+apellido2);
   }
 
