@@ -1,7 +1,9 @@
 package com.example.straviatec
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
@@ -31,5 +33,9 @@ class Activity2 : AppCompatActivity() {
             // Apply the adapter to the spinner
             spinner.adapter = adapter
         }
+    }
+    fun mapView(view: View){
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
     }
 }
