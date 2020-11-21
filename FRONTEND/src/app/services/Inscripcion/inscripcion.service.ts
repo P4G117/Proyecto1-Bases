@@ -10,7 +10,7 @@ export class InscripcionService {
 
   constructor(private http:HttpClient) { }
 
-  //Para inscribirse en una carrera 
+  //Para inscribirse en una carrera
   postInscripcionCarrera(inscripcion:Inscripcion):Observable<Inscripcion>{
     return this.http.post<Inscripcion>('/api/Inscripcion',inscripcion);
   }

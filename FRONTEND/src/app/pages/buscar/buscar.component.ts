@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Deportista } from 'src/app/models/Deportista';
+import { RetosPorGrupo, RetosPublicos } from 'src/app/models/Retos';
 
 @Component({
   selector: 'app-buscar',
@@ -17,88 +18,84 @@ export class BuscarComponent implements OnInit {
       Nombre: 'Viviana',
       Descripcion: 'Cartago, Cartago, Costa Rica',
       tipo: 'atleta',
-      id: "0",
+      id: '0',
     },
     {
       Nombre: 'Sebastian',
       Descripcion: 'La Garriga, CT, Spain',
       tipo: 'atleta',
-      id: "1",
+      id: '1',
     },
     { Nombre: 'Fernanda', Descripcion: 'Itanhaem, SP', tipo: 'atleta', id: 2 },
     {
       Nombre: 'Manuel',
       Descripcion: 'Cartago, Cartago, Costa Rica',
       tipo: 'atleta',
-      id: "3",
+      id: '3',
     },
     {
       Nombre: 'Ana',
       Descripcion: 'San Jose, San Jose, Costa Rica',
       tipo: 'atleta',
-      id: "4",
+      id: '4',
     },
     {
       Nombre: 'Ciclitas',
       Descripcion: 'Somos ciclistas muy cools',
       tipo: 'grupo',
-      id: "5",
+      id: '5',
     },
     {
       Nombre: 'Corredores',
       Descripcion: 'Corredores que nos gusta hablar del deporte',
       tipo: 'grupo',
-      id: "6",
+      id: '6',
     },
     {
       Nombre: 'Kayak Costa Rica',
       Descripcion: 'Deportistas de Costa Rica aficionados al Kayak',
       tipo: 'grupo',
-      id: "7",
+      id: '7',
     },
     {
       Nombre: 'Nadadores profesionales',
       Descripcion: 'Nadadores profesionales de la maraton',
       tipo: 'grupo',
-      id: "8",
+      id: '8',
     },
     {
       Nombre: 'Maraton',
       Descripcion: 'Maraton mas importante de Costa Rica',
       tipo: 'competencia',
-      id: "9",
+      id: '9',
     },
     {
       Nombre: '4 piscinas',
       Descripcion: '4 piscinas olimpicas',
       tipo: 'competencia',
-      id: "10",
+      id: '10',
     },
     {
       Nombre: 'Milla',
       Descripcion: 'Debe hacer una milla para completar el reto',
       tipo: 'reto',
-      id: "11",
+      id: '11',
     },
     {
       Nombre: '4km de kayak',
       Descripcion: '4km de kayak para completar el reto',
       tipo: 'reto',
-      id: "12",
+      id: '12',
     },
   ];
 
-  informacionA=[];
+  informacionA = [];
 
-  deportistas:Deportista[];
-
+  deportistas: Deportista[];
 
   filtros = [];
 
-  constructor(
-    private router: Router,
-    private _route: ActivatedRoute
-  ) {
+  constructor(private router: Router, private _route: ActivatedRoute) {
     this.username = this._route.snapshot.paramMap.get('username');
   }
 
@@ -109,22 +106,19 @@ export class BuscarComponent implements OnInit {
 
   rolSet(rol) {
     this.busqueda = rol;
-
   }
 
-  buscar(){
+  buscar() {
     this.filtros = [];
     this.informacionA.forEach((element) => {
       if (element.tipo == this.busqueda) {
-        if(this.filtro != ''){
-          if(element.Nombre == this.filtro){
+        if (this.filtro != '') {
+          if (element.Nombre == this.filtro) {
+            this.filtros.push(element);
+          }
+        } else {
           this.filtros.push(element);
         }
-        }
-        else{
-          this.filtros.push(element);
-        }
-
       }
     });
   }
@@ -133,35 +127,68 @@ export class BuscarComponent implements OnInit {
   }
 
   iniciogo() {
-    this.router.navigate(['inicio-deport',this.username]);
+    this.router.navigate(['inicio-deport', this.username]);
   }
   buscargo() {
-    this.router.navigate(['buscar',this.username]);
+    this.router.navigate(['buscar', this.username]);
   }
 
   retosGo() {
-    this.router.navigate(['verRetos',this.username]);
+    this.router.navigate(['verRetos', this.username]);
   }
 
   competenciasGo() {
-    this.router.navigate(['verCompetencias',this.username]);
+    this.router.navigate(['verCompetencias', this.username]);
   }
 
-  verInfo(tipo,id){
-    if(tipo == "reto"){
-      this.router.navigate(['verRetosInfo',this.username, id]);
+  verInfo(tipo, id) {
+    if (tipo == 'reto') {
+      this.router.navigate(['verRetosInfo', this.username, id]);
     }
-    if(tipo == "grupo"){
-      this.router.navigate(['asogrupo',this.username, id]);
+    if (tipo == 'grupo') {
+      this.router.navigate(['asogrupo', this.username, id]);
     }
-    if(tipo == "competencia"){
-      this.router.navigate(['inscarrera',this.username, id]);
+    if (tipo == 'competencia') {
+      this.router.navigate(['inscarrera', this.username, id]);
     }
-    if(tipo == "atleta"){
-      this.router.navigate(['atleta',this.username, id, "false"]);
+    if (tipo == 'atleta') {
+      this.router.navigate(['atleta', this.username, id, 'false']);
     }
-
-
   }
+
+  setAtletas(atletas: Deportista[]) {
+    atletas.forEach((element) => {
+      let info = {
+        Nombre: element.primernombre,
+        Descripcion: element.nacionalidad,
+        tipo: 'atleta',
+        id: element.usuariodep,
+      };
+    });
+  }
+
+  setRetosPublicos(retos:RetosPublicos[]){
+    retos.forEach(element => {
+      let info = {
+        Nombre : element.nombre,
+        Descripcion: element.tipo_actividad + ', ' + element.tipo_reto,
+        tipo: 'Reto',
+        id:'0'
+      };
+    });
+  }
+
+  setRetos(retos:RetosPorGrupo[]){
+    retos.forEach(element => {
+      let info = {
+        Nombre : element.nombrereto,
+        Descripcion: element.tipoactividad + ', ' + element.tiporeto,
+        tipo: 'Reto',
+        id:'0'
+      };
+    });
+  }
+
+
 
 }
