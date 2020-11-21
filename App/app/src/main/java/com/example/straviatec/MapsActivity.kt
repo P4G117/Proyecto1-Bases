@@ -1,7 +1,8 @@
 package com.example.straviatec
 
-
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -10,7 +11,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+
+
+open class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
@@ -34,10 +37,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        // Add markers
+        val curr = LatLng(9.9146, -84.0387)
+        val zapotec = LatLng(9.9191, -84.0597)
+        mMap.addMarker(MarkerOptions().position(curr).title("Salida"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(curr))
+        mMap.addMarker(MarkerOptions().position(zapotec).title("Llegada"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(zapotec))
     }
+
+    fun subAct(view: View){
+        val intent = Intent(this, Activity2::class.java)
+        startActivity(intent)
+    }
+
 }
+
