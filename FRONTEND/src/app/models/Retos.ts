@@ -1,5 +1,6 @@
 export class RetosPorGrupo{
     nombregrupo:string;
+    idreto:number;
     nombrereto:string;
     periodo:string;
     tiporeto:string;
@@ -7,6 +8,7 @@ export class RetosPorGrupo{
 }
 
 export class RetosPublicos{
+    idreto:number;
     nombre:string;
     periodo:string;
     tipo_reto:string;

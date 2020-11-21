@@ -1,6 +1,7 @@
 import { DecimalPipe } from '@angular/common';
 
 export class CarrerasPublicas{
+    idcarrera:number;
     nombre:string;
     fecha:string;
     cuenta:number;
@@ -10,6 +11,7 @@ export class CarrerasPublicas{
 
 export class CarrerasPorGrupo{
     nombregrupo:string;
+    idcarrera:number;
     nombrecarrera:string;
     fecha:string;
     recorrido:string;
