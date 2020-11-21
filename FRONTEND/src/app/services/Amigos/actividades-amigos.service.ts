@@ -8,17 +8,17 @@ import { ActividadesAmigos, PosiblesAmigos } from 'src/app/models/ActividadesAmi
 })
 export class ActividadesAmigosService {
 
-  //url:string = '/GetActiAmigos/'; 
+  //url:string = '/GetActiAmigos/';
   constructor(private http:HttpClient) { }
 
-  //Servicio para traerse todas las actividades de los amigos 
+  //Servicio para traerse todas las actividades de los amigos
   getActividadesAmigos(usuario:string):Observable<ActividadesAmigos>{
-    return this.http.get<ActividadesAmigos>('/GetActiAmigos/' + usuario);
+    return this.http.get<ActividadesAmigos>('/api/GetActiAmigos/' + usuario);
   }
 
   //Servicio para traerse lista de posibles amigos
-  getNuevosAmigos(usuario:string):Observable<PosiblesAmigos>{
-    return this.http.get<PosiblesAmigos>('/GetPosAmigos/' + usuario);
+  getNuevosAmigos(usuario:string):Observable<PosiblesAmigos[]>{
+    return this.http.get<PosiblesAmigos[]>('/api/GetPosAmigos/' + usuario);
   }
 
 }

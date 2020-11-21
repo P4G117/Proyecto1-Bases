@@ -65,8 +65,8 @@ export class DeportistaService {
 
   // Buscar grupos a los que un deportista NO pertenece
   //Buscar todos los grupos disponibles
-  getGrupos(usuario:string):Observable<GrupoBusqueda>{
-    return this.http.get<GrupoBusqueda>('/api/GetGruposDisponibles/'+ usuario);
+  getGrupos(usuario:string):Observable<GrupoBusqueda[]>{
+    return this.http.get<GrupoBusqueda[]>('/api/GetGruposDisponibles/'+ usuario);
   }
 
   //Buscar un grupo disponible por nombre

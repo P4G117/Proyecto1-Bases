@@ -34,17 +34,17 @@ export class RetosService {
   }
 
   //Obtener los retos publicos que puede ver un deportista
-  getRetosPublicos():Observable<RetosPublicos>{
-    return this.http.get<RetosPublicos>('/GetRetosPublicos');
+  getRetosPublicos():Observable<RetosPublicos[]>{
+    return this.http.get<RetosPublicos[]>('/api/GetRetosPublicos');
   }
 
   //Obtener los retos(privados) por grupos que puede ver un deportista
-  getRetosPorGrupos(usuario:string):Observable<RetosPorGrupo>{
-    return this.http.get<RetosPorGrupo>('/GetRetosPorGrupo' + '/' + usuario);
+  getRetosPorGrupos(usuario:string):Observable<RetosPorGrupo[]>{
+    return this.http.get<RetosPorGrupo[]>('/api/GetRetosPorGrupo' + '/' + usuario);
   }
 
   //Obtener los patrocinadores de un reto
-  getPatrocinadores(IdReto:number):Observable<Patrocinadores>{
-    return this.http.get<Patrocinadores>('/api/patrocinadoresRetos/' + IdReto);
+  getPatrocinadores(IdReto:number):Observable<Patrocinadores[]>{
+    return this.http.get<Patrocinadores[]>('/api/patrocinadoresRetos/' + IdReto);
   }
 }
