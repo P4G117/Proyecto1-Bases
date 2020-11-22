@@ -63,9 +63,9 @@ export class InsCarreraComponent implements OnInit {
       //   confirmButtonText: 'Aceptar',
       // });
       let inscripcion = new Inscripcion();
-      inscripcion.UsuarioDep = this.username;
-      inscripcion.IdInscripcion = 10;
-      inscripcion.IdCarrera = Number(this.carr.idcarrera);
+      inscripcion.Usuario_Dep = this.username;
+      inscripcion.id_Inscripcion = 10;
+      inscripcion.ID_Carrera = Number(this.carr.idcarrera);
       inscripcion.Comprobante = "URL 40";
       this.deportistaSvc.getEdadDeportista(this.username).subscribe(res => {
         let edad = res[0].follow;

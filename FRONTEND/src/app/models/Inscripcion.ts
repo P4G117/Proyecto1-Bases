@@ -1,5 +1,5 @@
 export class Inscripcion{
-    ID_Inscripcion:number;
+    id_Inscripcion:number;
     ID_Carrera:number;
     Usuario_Dep:string;
     Comprobante:string;

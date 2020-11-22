@@ -29,7 +29,7 @@ export class CarrerasService {
     return this.http.post<Carrera>(this.url, carrera);
   }
 
-  updateCarrera(IdCarrera: number, carrera: Carrera): Observable<Carrera> {
+  updateCarrera(IdCarrera: string, carrera: Carrera): Observable<Carrera> {
     return this.http.put<Carrera>(this.url + '/' + IdCarrera, carrera);
   }
 

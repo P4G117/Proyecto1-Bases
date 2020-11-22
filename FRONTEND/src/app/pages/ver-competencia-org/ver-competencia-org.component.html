@@ -9,7 +9,7 @@
 <button class="perfil" [routerLink]="['/home']">Cerrar Sesión</button>
 
 <div class="left" style="overflow: auto">
-  <div *ngFor="let informacion of informaciones">
+  <div *ngFor="let informacion of informacionA">
     <div class="productor">
       <h3>{{ informacion.Nombre }} &nbsp;</h3>
       <button class="buscarBtn" (click)="goCompetenciaInfo(informacion.id)" >Visitar</button>
