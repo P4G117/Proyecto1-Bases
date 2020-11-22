@@ -50,7 +50,7 @@ export class DeportistaService {
 
   //Cantidad de actividades
   getTotalActividades(usuario:string):Observable<Follow[]>{
-    return this.http.get<Follow[]>('/api/GetTotalActividad/' + usuario);
+    return this.http.get<Follow[]>('/api/GetTotalActividades/' + usuario);
   }
 
   //Edad del deportista

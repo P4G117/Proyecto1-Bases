@@ -40,6 +40,7 @@ export class VerRetosComponent implements OnInit {
 
   ngOnInit(): void {
     this.retosSvc.getRetosInscritos(this.username).subscribe(res => {
+      this.setRetos(res);
     });
 
   }

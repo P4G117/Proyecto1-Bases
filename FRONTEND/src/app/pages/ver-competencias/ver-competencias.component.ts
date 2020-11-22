@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
+import { GrupoBusqueda } from 'src/app/models/Grupos';
+import { CarrerasService } from '../../services/Carreras/carreras.service'
 
 @Component({
   selector: 'app-ver-competencias',
   templateUrl: './ver-competencias.component.html',
-  styleUrls: ['./ver-competencias.component.css']
+  styleUrls: ['./ver-competencias.component.css'],
+  providers: [CarrerasService]
 })
 export class VerCompetenciasComponent implements OnInit {
 
@@ -29,13 +32,30 @@ export class VerCompetenciasComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private carrerasSvc:CarrerasService
   ) {
     this.username = this._route.snapshot.paramMap.get('username');
     //Obtener información de las competencias en las que está inscrito
   }
 
   ngOnInit(): void {
+    this.carrerasSvc.getCarrerasInscritas(this.username).subscribe(res => {
+      this.setCarreras(res);
+    });
+  }
+
+  setCarreras(carreras:GrupoBusqueda[]){
+    carreras.forEach((element) => {
+      let info = {
+
+        Nombre: element.nombre,
+        Descripcion: 'Carrera',
+        tipo: 'competencia',
+        id: element.idgrupo
+      };
+      this.informacionA.push(info);
+    });
   }
 
   iniciogo() {

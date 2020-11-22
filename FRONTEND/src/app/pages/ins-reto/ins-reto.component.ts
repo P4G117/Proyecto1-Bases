@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InscripcionService } from '../../services/Inscripcion/inscripcion.service';
+import { RetosService } from '../../services/Retos/retos.service';
 
 import Swal from 'sweetalert2';
 import { DeportistaReto } from 'src/app/models/Inscripcion';
+import { RetosPublicos } from 'src/app/models/Retos';
 @Component({
   selector: 'app-ins-reto',
   templateUrl: './ins-reto.component.html',
   styleUrls: ['./ins-reto.component.css'],
-  providers: [InscripcionService],
+  providers: [InscripcionService, RetosService],
 })
 export class InsRetoComponent implements OnInit {
   reto: string;
@@ -20,19 +22,28 @@ export class InsRetoComponent implements OnInit {
   constructor(
     private router: Router,
     private _route: ActivatedRoute,
-    private inscipcionSvc: InscripcionService
+    private inscipcionSvc: InscripcionService,
+    private retosSvc: RetosService
   ) {
     this.username = this._route.snapshot.paramMap.get('username');
     this.idReto = this._route.snapshot.paramMap.get('id');
-
   }
 
   ngOnInit(): void {
-    this.reto = 'Nombre del reto';
-    this.descripcion = 'Descripción del reto';
+    this.retosSvc.getReto(this.idReto).subscribe((res) => {
+      this.reto = res[0].Nombre;
+      this.descripcion =
+        'Periodo: ' +
+        res[0].Periodo +
+        ' Tipo de reto: ' +
+        res[0].TipoReto +
+        ' Tipo de actividad: ' +
+        res[0].TipoActividad;
+    });
+
     this.patrocinadores = [
-      '../../../assets/Images/image 1.png',
-      '../../../assets/Images/image 2.png',
+      '../../../assets/images/image1.png',
+      '../../../assets/images/image2.png',
     ];
   }
 
@@ -44,8 +55,8 @@ export class InsRetoComponent implements OnInit {
     // });
     let inscripcion = new DeportistaReto();
     inscripcion.UsuarioDep = this.username;
-    inscripcion.IdReto = Number(this.idReto)
-    this.inscipcionSvc.postInscripcionReto(inscripcion).subscribe(res => {
+    inscripcion.IdReto = Number(this.idReto);
+    this.inscipcionSvc.postInscripcionReto(inscripcion).subscribe((res) => {
       console.log('Res ', res);
     });
   }

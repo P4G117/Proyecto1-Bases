@@ -56,6 +56,8 @@ export class InicioDeportComponent implements OnInit {
 
   obtenerActividades(useName){
     this.deportistaSvc.getTotalActividades(useName).subscribe(res => {
+      console.log('res ', res);
+      console.log('res0 ', res[0]);
       this.Actividades = res[0].follow.toString();
       console.log('Actividades ', this.Actividades);
     })

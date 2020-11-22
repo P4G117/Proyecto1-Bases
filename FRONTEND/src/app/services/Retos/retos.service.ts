@@ -18,8 +18,8 @@ export class RetosService {
     return this.http.get<Retos>(this.url);
   }
 
-  getReto(IdReto:number):Observable<Retos>{
-    return this.http.get<Retos>(this.url + '/' + IdReto);
+  getReto(IdReto:string):Observable<Retos[]>{
+    return this.http.get<Retos[]>(this.url + '/' + IdReto);
   }
 
   postReto(reto:Retos):Observable<Retos>{

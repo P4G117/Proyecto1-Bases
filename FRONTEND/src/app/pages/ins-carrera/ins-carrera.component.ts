@@ -41,13 +41,13 @@ export class InsCarreraComponent implements OnInit {
     this.carrerasSvc.getCarrera(this.idCarrera).subscribe(res => {
       this.carr = res[0];
       this.carrera = this.carr.nombre;
-
+      this.descripcion = 'Costo: '+ this.carr.costo.toString() + ' Fecha: ' + this.carr.fecha;
     })
     //this.carrera = 'Nombre de carrera';
-    this.descripcion = 'Descripción de carrera';
+
     this.patrocinadores = [
-      '../../../assets/Images/image 1.png',
-      '../../../assets/Images/image 2.png',
+      '../../../assets/images/image1.png',
+      '../../../assets/images/image2.png',
     ];
   }
 
@@ -57,11 +57,11 @@ export class InsCarreraComponent implements OnInit {
 
   inscribirse() {
     if (this.fileToUpload.size > 0) {
-      Swal.fire({
-        text: 'Gracias por inscribirse',
-        icon: 'success',
-        confirmButtonText: 'Aceptar',
-      });
+      // Swal.fire({
+      //   text: 'Gracias por inscribirse',
+      //   icon: 'success',
+      //   confirmButtonText: 'Aceptar',
+      // });
       let inscripcion = new Inscripcion();
       inscripcion.UsuarioDep = this.username;
       inscripcion.IdInscripcion = 10;
