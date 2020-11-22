@@ -6,21 +6,18 @@
 <button class="buscar" (click)="buscargo()">Buscar</button>
 <button class="retos" (click)="retosGo()">Retos</button>
 <button class="competencia" (click)="competenciasGo()">Competencias</button>
-<button class="perfil">Perfil</button>
-<button class="logOut">Cerrar Sesión</button>
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
-<h1 class="nombre">{{ informacion.Nombre }}</h1>
+<h1 class="nombre">{{ informacionA.Nombre }}</h1>
 
 <div class="left">
-  <label>{{ informacion.Horas }} h </label>
-  <label> {{ informacion.Min }} min </label>
-  <label> {{ informacion.Seg }} seg </label>
+  <label> {{ informacionA.Periodo}}  </label>
 </div>
 <mat-progress-bar mode="determinate" [value]="progresValue" class="progress">Avance</mat-progress-bar>
- 
+
 <div class="down">
   <h2>Descripcion:</h2>
-  <label>{{ informacion.Descripcion }} </label>
+  <label>{{ informacionA.Descripcion }} </label>
 </div>
 
 <div class="patrocinadores" style="overflow: auto">
