@@ -93,7 +93,7 @@ SELECT id_carrera, nombre, fecha, recorrido, cuenta, costo, tipo_actividad
 FROM proyecto1.carrera AS C WHERE C.privacidad = FALSE;
 
 --###########################################################################
---##                Grupos que pertenece un Deportista: Segun el grupo     ##
+--##            Grupos que pertenece un Deportista: Segun el grupo         ##
 --##        del cual sea Parte, tira los retos las que puede participar    ##
 --###########################################################################
 
@@ -282,6 +282,11 @@ WHERE A.id_deportista = 'adri45s';
 --###########################################################################
 --###########################################################################
 --###########################################################################
+SELECT * from proyecto1.deportista_grupo;
+
+INSERT INTO proyecto1.deportista_grupo(USUARIO_DEP, ID_GRUPO) VALUES ('larisa',1);
+
+
 SELECT * FROM proyecto1.deportista;
 SELECT * FROM proyecto1.actividad;
 

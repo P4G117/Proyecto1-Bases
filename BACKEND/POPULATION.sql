@@ -156,6 +156,7 @@ duracion = '00:45:15', completitud = 'Personal', tipo_actividad = 'Caminata', id
 
 DELETE FROM proyecto1.actividad WHERE id_actividad = 16;
 --Mostrar lo Datos de la Tabla Actividad
+
 SELECT * FROM proyecto1.actividad;
 
 --##################################################################################################
@@ -455,7 +456,7 @@ INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('luRapa',12)
 INSERT INTO proyecto1.deportista_reto(usuario_dep, id_reto) VALUES ('sebas2008',12);
 
 --Mostrar Datos de la Tabla Deportista-Reto
-SELECT * FROM proyecto1.deportista_reto;
+SELECT * FROM proyecto1.deportista_reto WHERE proyecto1.deportista_reto.usuario_dep = 'MMMartin';
 --##################################################################################################
 --#######################                GRUPO_CARRERA                  ############################
 --##################################################################################################
