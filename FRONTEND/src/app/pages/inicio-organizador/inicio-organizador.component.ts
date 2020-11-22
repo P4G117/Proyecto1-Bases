@@ -28,10 +28,13 @@ export class InicioOrganizadorComponent implements OnInit {
     this.username = this._route.snapshot.paramMap.get('username');
     this.organizadorSvc.getOrganizador(this.username).subscribe(res => {
       console.log('Res ', res);
-      this.organizador = res;
+      this.organizador = res[0];
       console.log('Organizador ', this.organizador);
       this.Nombre = this.organizador.primernombre;
       this.Apellido = this.organizador.apellido1;
+      this.obtenerCompetencias(this.username);
+      this.obtenerGrupos(this.username);
+      this.obtenerRetos(this.username);
     });
   }
 
@@ -39,10 +42,29 @@ export class InicioOrganizadorComponent implements OnInit {
     this.source = '../../../assets/images/image11.png';
     //this.Nombre = "Viviana";
     //this.Apellido = "Villalobos";
-    this.no_competencias = "20";
-    this.no_grupos = "10";
-    this.no_retos = "23";
+    // this.no_competencias = "20";
+    // this.no_grupos = "10";
+    // this.no_retos = "23";
   }
+
+
+  obtenerCompetencias(useName){
+    this.organizadorSvc.getCantCarrerasOrganizador(useName).subscribe(res => {
+      this.no_competencias = res[0].follow.toString();
+    })
+  };
+
+  obtenerGrupos(useName){
+    this.organizadorSvc.getCantGruposOrganizador(useName).subscribe(res => {
+      this.no_grupos = res[0].follow.toString();
+    })
+  };
+
+  obtenerRetos(useName){
+    this.organizadorSvc.getCantRetosOrganizador(useName).subscribe(res => {
+      this.no_retos = res[0].follow.toString();
+    })
+  };
 
   goRetos(){
     this.router.navigate(['verRetosOrg',this.username]);

@@ -44,15 +44,15 @@ export class InicioDeportComponent implements OnInit {
     this.deportistaSvc.getFollower(useName).subscribe(res => {
       this.Followers = res[0].follow.toString();
       console.log('Followers ', this.Followers);
-    })
-  };
+    });
+  }
 
   obtenerFollowing(useName){
     this.deportistaSvc.getFollowing(useName).subscribe(res => {
       this.Following = res[0].follow.toString();
       console.log('Followings ', this.Following);
-    })
-  };
+    });
+  }
 
   obtenerActividades(useName){
     this.deportistaSvc.getTotalActividades(useName).subscribe(res => {
@@ -60,8 +60,8 @@ export class InicioDeportComponent implements OnInit {
       console.log('res0 ', res[0]);
       this.Actividades = res[0].follow.toString();
       console.log('Actividades ', this.Actividades);
-    })
-  };
+    });
+  }
 
   ngOnInit(): void {
   }

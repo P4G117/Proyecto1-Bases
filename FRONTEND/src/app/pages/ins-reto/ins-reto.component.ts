@@ -31,14 +31,14 @@ export class InsRetoComponent implements OnInit {
 
   ngOnInit(): void {
     this.retosSvc.getReto(this.idReto).subscribe((res) => {
-      this.reto = res[0].Nombre;
+      this.reto = res[0].nombre;
       this.descripcion =
         'Periodo: ' +
-        res[0].Periodo +
+        res[0].periodo +
         ' Tipo de reto: ' +
-        res[0].TipoReto +
+        res[0].tipoReto +
         ' Tipo de actividad: ' +
-        res[0].TipoActividad;
+        res[0].tipoActividad;
     });
 
     this.patrocinadores = [

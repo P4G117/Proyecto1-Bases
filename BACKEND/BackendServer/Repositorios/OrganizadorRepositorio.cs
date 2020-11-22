@@ -260,7 +260,7 @@ namespace BackendServer.Repositorios
 
                 string query = "SELECT count(nombre) AS Grupos" +
                     " FROM proyecto1.grupo AS A" +
-                    " WHERE A.id_organizador = '@Organizador'; ";
+                    " WHERE A.Administrador = '@Organizador'; ";
 
                 query = query.Replace("@Organizador", organizador);
 

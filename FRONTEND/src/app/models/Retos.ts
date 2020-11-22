@@ -16,13 +16,13 @@ export class RetosPublicos{
 }
 
 export class Retos{
-    IdRetos:number;
-    Nombre:string;
-    Periodo:string;
-    Privacidad:boolean;
-    TipoReto:string;
-    TipoActividad:string;
-    IdOrganizador:string;
+    idretos:number;
+    nombre:string;
+    periodo:string;
+    privacidad:boolean;
+    tipoReto:string;
+    tipoActividad:string;
+    idorganizador:string;
 }
 
 export class Patrocinadores{

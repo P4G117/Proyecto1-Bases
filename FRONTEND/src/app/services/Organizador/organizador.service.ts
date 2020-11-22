@@ -20,8 +20,8 @@ export class OrganizadorService {
     return this.http.get<Organizador>(this.url);
   }
 
-  getOrganizador(usuario:string):Observable<Organizador>{
-    return this.http.get<Organizador>(this.url+'/'+usuario);
+  getOrganizador(usuario:string):Observable<Organizador[]>{
+    return this.http.get<Organizador[]>(this.url+'/'+usuario);
   }
 
   addOrganizador(organizador:Organizador):Observable<Organizador>{
@@ -38,31 +38,31 @@ export class OrganizadorService {
 
   /* --------------------- Fin de CRUD de ORGANIZADOR -------------------*/
 
-  
+
   // Estos retornan los grupos, carreras o retos con los atributos de cada uno que tiene un organizador
-  getRetosOrganizador(usuario:string):Observable<Retos>{
-    return this.http.get<Retos>('/TodosRetosOrg/'+ usuario);
+  getRetosOrganizador(usuario:string):Observable<Retos[]>{
+    return this.http.get<Retos[]>('/api/TodosRetosOrg/'+ usuario);
   }
 
-  getCarrerasOrganizador(usuario:string):Observable<Carrera>{
-    return this.http.get<Carrera>('/TodasCarrerasOrg/' + usuario);
+  getCarrerasOrganizador(usuario:string):Observable<Carrera[]>{
+    return this.http.get<Carrera[]>('/api/TodasCarrerasOrg/' + usuario);
   }
 
-  getGruposOrganizador(usuario:string):Observable<Grupo>{
-    return this.http.get<Grupo>('/TodasCarrerasOrg/' + usuario);
+  getGruposOrganizador(usuario:string):Observable<Grupo[]>{
+    return this.http.get<Grupo[]>('/api/TodasCarrerasOrg/' + usuario);
   }
-  
+
   // Estos métodos retornan la cantidad de carreras, grupos o retos que tiene un Organizador
-  getCantCarrerasOrganizador(usuario:string):Observable<Follow>{
-    return this.http.get<Follow>('/GetTotalCarrerasOrg/'+ usuario);
+  getCantCarrerasOrganizador(usuario:string):Observable<Follow[]>{
+    return this.http.get<Follow[]>('/api/GetTotalCarrerasOrg/'+ usuario);
   }
 
-  getCantRetosOrganizador(usuario:string):Observable<Follow>{
-    return this.http.get<Follow>('/GetTotalRetosOrg/'+ usuario);
+  getCantRetosOrganizador(usuario:string):Observable<Follow[]>{
+    return this.http.get<Follow[]>('/api/GetTotalRetosOrg/'+ usuario);
   }
 
-  getCantGruposOrganizador(usuario:string):Observable<Follow>{
-    return this.http.get<Follow>('/GetTotalGruposDeOrg/'+ usuario);
+  getCantGruposOrganizador(usuario:string):Observable<Follow[]>{
+    return this.http.get<Follow[]>('/api/GetTotalGruposDeOrg/'+ usuario);
   }
 
 }
