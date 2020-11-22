@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: "buscar/:username", component: BuscarComponent, pathMatch: "full"},
   { path: "verRetos/:username", component: VerRetosComponent, pathMatch: "full"},
   { path: "verCompetencias/:username", component: VerCompetenciasComponent, pathMatch: "full"},
-  { path: "verRetosInfo/:username", component: VerRetoInfoComponent, pathMatch: "full" },
+  { path: "verRetosInfo/:username/:id", component: VerRetoInfoComponent, pathMatch: "full" },
   { path: "VerCompetenciaInfo/:username/:id", component: VerCompetenciaInfoComponent, pathMatch: "full"},
   { path: "home", component: HomeComponent, pathMatch: "full" },
   { path: "actividad/:username", component: SubActividadComponent, pathMatch: "full" },

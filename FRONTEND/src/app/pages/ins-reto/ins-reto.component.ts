@@ -37,11 +37,11 @@ export class InsRetoComponent implements OnInit {
   }
 
   inscribirse() {
-    Swal.fire({
-      text: 'Gracias por inscribirse',
-      icon: 'success',
-      confirmButtonText: 'Aceptar',
-    });
+    // Swal.fire({
+    //   text: 'Gracias por inscribirse',
+    //   icon: 'success',
+    //   confirmButtonText: 'Aceptar',
+    // });
     let inscripcion = new DeportistaReto();
     inscripcion.UsuarioDep = this.username;
     inscripcion.IdReto = Number(this.idReto)

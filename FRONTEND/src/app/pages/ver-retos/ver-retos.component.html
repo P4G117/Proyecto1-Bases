@@ -6,11 +6,10 @@
 <button class="buscar" (click)="buscargo()">Buscar</button>
 <button class="retos" (click)="retosGo()">Retos</button>
 <button class="competencia" (click)="competenciasGo()">Competencias</button>
-<button class="perfil">Perfil</button>
-<button class="logOut">Cerrar Sesión</button>
+<button class="logOut" [routerLink]="['/home']" >Cerrar Sesión</button>
 
 <div class="left" style="overflow: auto">
-  <div *ngFor="let informacion of informaciones">
+  <div *ngFor="let informacion of informacionA">
     <div class="productor">
       <h3>{{ informacion.Nombre }} &nbsp;</h3>
       <button class="buscarBtn" (click)= "verInfo(informacion.id)">Visitar</button>

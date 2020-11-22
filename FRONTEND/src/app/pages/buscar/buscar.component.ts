@@ -189,7 +189,7 @@ export class BuscarComponent implements OnInit {
 
   verInfo(tipo, id) {
     if (tipo == 'reto') {
-      this.router.navigate(['verRetosInfo', this.username, id]);
+      this.router.navigate(['insreto', this.username, id]);
     }
     if (tipo == 'grupo') {
       this.router.navigate(['asogrupo', this.username, id]);

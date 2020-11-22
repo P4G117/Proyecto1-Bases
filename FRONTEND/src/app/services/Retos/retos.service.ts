@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {RetosPorGrupo, RetosPublicos, Retos, Patrocinadores} from 'src/app/models/Retos';
+import { GrupoBusqueda } from 'src/app/models/Grupos';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +47,11 @@ export class RetosService {
   //Obtener los patrocinadores de un reto
   getPatrocinadores(IdReto:number):Observable<Patrocinadores[]>{
     return this.http.get<Patrocinadores[]>('/api/patrocinadoresRetos/' + IdReto);
+  }
+
+  //Retos en los que está inscrito un deportista
+  getRetosInscritos(usuario:string):Observable<GrupoBusqueda[]>{
+    return this.http.get<GrupoBusqueda[]>('/api/RetInscritosDep/' + usuario);
+
   }
 }
