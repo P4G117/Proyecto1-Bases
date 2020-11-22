@@ -5,13 +5,11 @@ namespace BackendServer.Models
 {
     public partial class Inscripcion
     {
-        public int idinscripcion { get; set; }
-        public int idcarrera { get; set; }
-        public string usuariodep { get; set; }
-        public string comprobante { get; set; }
-        public string categoria { get; set; }
+        public int ID_Inscripcion { get; set; }
+        public int ID_Carrera { get; set; }
+        public string Usuario_Dep { get; set; }
+        public string Comprobante { get; set; }
+        public string Categoria { get; set; }
 
-        public virtual Carrera IdCarreraNavigation { get; set; }
-        public virtual Deportista UsuarioDepNavigation { get; set; }
     }
 }

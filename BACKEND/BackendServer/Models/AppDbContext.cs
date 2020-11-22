@@ -413,27 +413,27 @@ namespace BackendServer.Models
 
             modelBuilder.Entity<Inscripcion>(entity =>
             {
-                entity.HasKey(e => new { e.idinscripcion, e.idcarrera, e.usuariodep })
+                entity.HasKey(e => new { e.ID_Inscripcion, e.ID_Carrera, e.Usuario_Dep })
                     .HasName("inscripcion_pkey");
 
                 entity.ToTable("inscripcion", "proyecto1");
 
-                entity.Property(e => e.idinscripcion)
+                entity.Property(e => e.ID_Inscripcion)
                     .HasColumnName("id_inscripcion")
                     .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.idcarrera).HasColumnName("id_carrera");
+                entity.Property(e => e.ID_Carrera).HasColumnName("id_carrera");
 
-                entity.Property(e => e.usuariodep)
+                entity.Property(e => e.Usuario_Dep)
                     .HasColumnName("usuario_dep")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.categoria)
+                entity.Property(e => e.Categoria)
                     .IsRequired()
                     .HasColumnName("categoria")
                     .HasMaxLength(10);
 
-                entity.Property(e => e.comprobante)
+                entity.Property(e => e.Comprobante)
                     .HasColumnName("comprobante")
                     .HasColumnType("character varying");
                 /*
