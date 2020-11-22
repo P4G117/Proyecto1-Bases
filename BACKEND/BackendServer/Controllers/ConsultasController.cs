@@ -10,7 +10,7 @@ using BackendServer.Repositorios;
 
 namespace BackendServer.Controllers
 {
-    public class ConsultasController 
+    public class ConsultasController
     {
         //Para traerse a todos los Amigos con las Actividades
         //URL Ejemplo: https://localhost:44317/GetActiAmigos/adri45s
@@ -33,7 +33,7 @@ namespace BackendServer.Controllers
         //URL Ejemplo2: https://localhost:44317/GetBusquedaNombre/adri45s/Roc 
         //Al buscar se tiene que ser explicito, distingue entre Mayusculas y Minusculas
         [HttpGet("{deportista}/{buscar}")]
-        [Route("/api/GetBusquedaNombre/{deportista}/{buscar}")] 
+        [Route("/api/GetBusquedaNombre/{deportista}/{buscar}")]
         public IEnumerable<BusquedaPersonas> GetBusquedaNombre(string deportista, string buscar)
         {
             return BuscarXNombreRepositorio.GetBusquedaNombre(deportista, buscar);
@@ -222,7 +222,7 @@ namespace BackendServer.Controllers
         //Retorna los nombres de los patrocinadores de una carrera
         [HttpGet]
         [Route("api/patrocinadoresCarreras/{idCarrera}")]
-        public IEnumerable<Patrocinadores> PatrocinadorCarrera(int idCarrera) 
+        public IEnumerable<Patrocinadores> PatrocinadorCarrera(int idCarrera)
         {
             return PatrocinadoresRepositorio.PatrocinadoresCarrera(idCarrera);
         }
@@ -235,6 +235,20 @@ namespace BackendServer.Controllers
             return PatrocinadoresRepositorio.PatrocinadorReto(idreto);
         }
 
+        //
+        [HttpGet]
+        [Route("api/getInscripcionCarrera")]
+        public IEnumerable<Inscripcion> getInscripcionCarrera()
+        {
+            return InscripcionesRepositorio.getInscripcionCarrera();
+        }
+
+        [HttpGet]
+        [Route("api/getInscripcionReto")]
+        public IEnumerable<DeportistaReto> getInscripcionReto()
+        {
+            return InscripcionesRepositorio.getInscripcionReto();
+        }
 
     }
 }

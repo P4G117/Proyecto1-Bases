@@ -102,7 +102,7 @@ namespace BackendServer.Repositorios
                 conn.Open();
 
                 string query = "INSERT INTO proyecto1.deportista(Usuario_Dep, " +
-                    "Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave)" +
+                    "Primer_Nombre,Apellido1, Apellido2, FecNac, Nacionalidad, Foto, Clave) " +
                     "VALUES('@Usuario', '@PrimerNombre', '@Apellido1', '@Apellido2', '@fecnac'," +
                     " '@Nacionalidad', '@Foto', '@Clave'); ";
 

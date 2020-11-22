@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendServer.Models;
+using BackendServer.Repositorios;
 
 namespace BackendServer.Controllers
 {
@@ -47,7 +48,7 @@ namespace BackendServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutInscripcion(int id, Inscripcion inscripcion)
         {
-            if (id != inscripcion.idinscripcion)
+            if (id != inscripcion.ID_Inscripcion)
             {
                 return BadRequest();
             }
@@ -77,12 +78,13 @@ namespace BackendServer.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Inscripcion>> PostInscripcion(Inscripcion inscripcion)
+        public bool PostInscripcion(Inscripcion inscripcion)
         {
-            _context.Inscripcion.Add(inscripcion);
-            await _context.SaveChangesAsync();
+            //_context.Inscripcion.Add(inscripcion);
+            //await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInscripcion", new { id = inscripcion.idinscripcion }, inscripcion);
+            //return CreatedAtAction("GetInscripcion", new { id = inscripcion.ID_Inscripcion }, inscripcion);
+            return InscripcionesRepositorio.InscripcionCarrera(inscripcion);
         }
 
         // DELETE: api/Inscripcion/5
@@ -103,7 +105,7 @@ namespace BackendServer.Controllers
 
         private bool InscripcionExists(int id)
         {
-            return _context.Inscripcion.Any(e => e.idinscripcion == id);
+            return _context.Inscripcion.Any(e => e.ID_Inscripcion == id);
         }
     }
 }

@@ -105,7 +105,7 @@ namespace BackendServer.Repositorios
                 conn.Open();
 
                 string query = "INSERT INTO proyecto1.carrera(Id_Organizador, Nombre, Fecha, Recorrido, Cuenta, Costo," +
-                    " Privacidad, Tipo_Actividad) VALUES(@ID_Carrera, '@ID_Organizador'," +
+                    " Privacidad, Tipo_Actividad) VALUES('@ID_Organizador'," +
                     " '@Nombre', '@Fecha', '@Recorrido', @Cuenta, @Costo, @Privacidad, '@TipoActividad');";
                 
                 query = query.Replace("@ID_Organizador", carrera.idorganizador)

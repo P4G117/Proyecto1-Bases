@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendServer.Models;
+using BackendServer.Repositorios;
 
 namespace BackendServer.Controllers
 {
@@ -77,26 +78,10 @@ namespace BackendServer.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<DeportistaReto>> PostDeportistaReto(DeportistaReto deportistaReto)
+        public bool PostDeportistaReto(DeportistaReto deportistaReto)
         {
-            _context.DeportistaReto.Add(deportistaReto);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (DeportistaRetoExists(deportistaReto.usuariodep))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return CreatedAtAction("GetDeportistaReto", new { id = deportistaReto.usuariodep }, deportistaReto);
+            return InscripcionesRepositorio.InscripcionReto(deportistaReto);
         }
 
         // DELETE: api/DeportistaReto/5
